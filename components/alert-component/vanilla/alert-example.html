@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../styles/base.css">
+    
+    <!-- Include Alert Component -->
+    <link rel="stylesheet" href="alert-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .example-section h3 {
+            font-size: var(--text-3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-5);
+        }
+        
+        .alert-container {
+            margin-bottom: 1rem;
+            max-width: 500px;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Alert Component Examples</h1>
+    
+    <!-- Default Alert -->
+    <div class="example-section">
+        <h2>Default Alert</h2>
+        <p class="description">Default alert with gray background and border. No leading icon.</p>
+        
+        <div class="alert-container">
+            <div class="alert alert-default" data-alert>
+                <span class="alert-text">
+                    <strong>Label</strong> could be combination of weights
+                </span>
+                <button class="alert-close" aria-label="Close alert">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="8" fill="#5c5c5c"/>
+                        <g transform="translate(4 4)">
+                            <line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                            <line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div class="code-example">
+&lt;div class="alert alert-default" data-alert&gt;<br>
+&nbsp;&nbsp;&lt;span class="alert-text"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;strong&gt;Label&lt;/strong&gt; could be combination of weights<br>
+&nbsp;&nbsp;&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;button class="alert-close" aria-label="Close alert"&gt;...&lt;/button&gt;<br>
+&lt;/div&gt;
+        </div>
+    </div>
+    
+    <!-- Success Alert -->
+    <div class="example-section">
+        <h2>Success Alert</h2>
+        <p class="description">Success alert with green background, border, and checkmark icon.</p>
+        
+        <div class="alert-container">
+            <div class="alert alert-success" data-alert>
+                <span class="alert-text">
+                    <strong>Label</strong> could be combination of weights
+                </span>
+                <button class="alert-close" aria-label="Close alert">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="8" fill="#5c5c5c"/>
+                        <g transform="translate(4 4)">
+                            <line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                            <line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div class="code-example">
+&lt;div class="alert alert-success" data-alert&gt;<br>
+&nbsp;&nbsp;&lt;span class="alert-text"&gt;...&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;button class="alert-close"&gt;...&lt;/button&gt;<br>
+&lt;/div&gt;
+        </div>
+    </div>
+    
+    <!-- Attention Alert -->
+    <div class="example-section">
+        <h2>Attention Alert</h2>
+        <p class="description">Attention/warning alert with orange background, border, and warning icon.</p>
+        
+        <div class="alert-container">
+            <div class="alert alert-attention" data-alert>
+                <span class="alert-text">
+                    <strong>Label</strong> could be combination of weights
+                </span>
+                <button class="alert-close" aria-label="Close alert">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="8" fill="#5c5c5c"/>
+                        <g transform="translate(4 4)">
+                            <line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                            <line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div class="code-example">
+&lt;div class="alert alert-attention" data-alert&gt;<br>
+&nbsp;&nbsp;&lt;span class="alert-text"&gt;...&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;button class="alert-close"&gt;...&lt;/button&gt;<br>
+&lt;/div&gt;
+        </div>
+    </div>
+    
+    <!-- Multiple Alerts -->
+    <div class="example-section">
+        <h2>Multiple Alerts</h2>
+        <p class="description">You can stack multiple alerts vertically. Click the close button to dismiss them.</p>
+        
+        <div class="alert-container">
+            <div class="alert alert-default" data-alert>
+                <span class="alert-text">
+                    <strong>Default</strong> alert message
+                </span>
+                <button class="alert-close" aria-label="Close alert">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="8" fill="#5c5c5c"/>
+                        <g transform="translate(4 4)">
+                            <line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                            <line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="alert alert-success" data-alert>
+                <span class="alert-icon">
+                    <svg viewBox="0 0 16 11.428" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.665,96.345a1.14,1.14,0,0,1,0,1.614L6.522,107.1a1.14,1.14,0,0,1-1.614,0L.335,102.531a1.142,1.142,0,0,1,1.616-1.614l3.731,3.761,8.368-8.333a1.139,1.139,0,0,1,1.614,0Z" transform="translate(0 -96.01)" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="alert-text">
+                    <strong>Success</strong> alert message
+                </span>
+                <button class="alert-close" aria-label="Close alert">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="8" fill="#5c5c5c"/>
+                        <g transform="translate(4 4)">
+                            <line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                            <line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="alert alert-attention" data-alert>
+                <span class="alert-icon">
+                    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(-1 -0.998)">
+                            <circle cx="8" cy="8" r="8" transform="translate(1 0.998)" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <line x2="11" y2="11" transform="translate(3.5 3.498)" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        </g>
+                    </svg>
+                </span>
+                <span class="alert-text">
+                    <strong>Attention</strong> alert message
+                </span>
+                <button class="alert-close" aria-label="Close alert">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="8" fill="#5c5c5c"/>
+                        <g transform="translate(4 4)">
+                            <line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                            <line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+    
+    <script src="alert-component.js"></script>
+</body>
+</html>
+

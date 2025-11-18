@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../styles/base.css">
+    
+    <!-- Include Footer Component -->
+    <link rel="stylesheet" href="footer-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 0;
+            background: var(--color-gray-bg);
+        }
+        
+        main {
+            margin-bottom: 96px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+        
+        .spacer {
+            height: 800px;
+            background: linear-gradient(to bottom, var(--color-gray-1), var(--color-white));
+            border: 1px dashed var(--color-gray-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Footer Component Example</h1>
+        
+        <div class="example-section">
+            <h2>Features</h2>
+            <p class="description">
+                The footer component provides a collapsible footer with:
+            </p>
+            <ul style="color: var(--color-gray-4); line-height: var(--line-height-relaxed);">
+                <li>Copyright text (auto-updates with current year)</li>
+                <li>Footer links (Terms, Privacy, Customer Care)</li>
+                <li>S&P Global logo</li>
+                <li>Smooth toggle animation</li>
+                <li>Fixed position at bottom</li>
+                <li>Auto-initialization (no configuration needed)</li>
+            </ul>
+        </div>
+        
+        <div class="example-section">
+            <h2>Usage</h2>
+            <p class="description">Click the chevron button at the bottom to expand/collapse the footer.</p>
+            
+            <h3 style="font-size: var(--text-3); margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--color-gray-5);">Basic Implementation</h3>
+            <div class="code-example">
+&lt;!-- Add container --&gt;
+&lt;div id="footer-container"&gt;&lt;/div&gt;
+
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/footer-component/footer-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/footer-component/footer-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Footer auto-initializes, no configuration needed --&gt;
+            </div>
+        </div>
+        
+        <div class="example-section">
+            <h2>Important Notes</h2>
+            <ul style="color: var(--color-gray-4); line-height: var(--line-height-relaxed);">
+                <li><strong>Fixed Position:</strong> The footer is fixed at the bottom. Add <code>margin-bottom: 96px;</code> to your main content.</li>
+                <li><strong>Collapsed by Default:</strong> Footer starts collapsed (48px tall). Click to expand (96px tall).</li>
+                <li><strong>Auto-Initialization:</strong> Footer automatically initializes when the page loads.</li>
+                <li><strong>Copyright Year:</strong> Automatically updates to current year using JavaScript.</li>
+                <li><strong>Responsive:</strong> Layout adapts for mobile devices.</li>
+            </ul>
+        </div>
+        
+        <div class="example-section">
+            <h2>Scroll Test</h2>
+            <p class="description">Scroll down to see the footer stays fixed at the bottom. Click the chevron to toggle it.</p>
+            <div class="spacer">
+                Scroll down to see footer behavior
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    
+    <script src="footer-component.js"></script>
+    <!-- Footer auto-initializes, no configuration needed -->
+</body>
+</html>
+

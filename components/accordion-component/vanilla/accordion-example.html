@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../styles/base.css">
+    
+    <!-- Include Accordion Component -->
+    <link rel="stylesheet" href="accordion-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .example-section h3 {
+            font-size: var(--text-3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-5);
+        }
+        
+        .accordion-container {
+            margin-bottom: 1.5rem;
+            max-width: 540px;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Accordion Component Examples</h1>
+    
+    <!-- Basic Accordion -->
+    <div class="example-section">
+        <h2>Basic Accordion</h2>
+        <p class="description">Accordion components allow content to be expanded and collapsed. The header shows a chevron icon that rotates when opened.</p>
+        
+        <h3>Closed State</h3>
+        <div class="accordion-container">
+            <div class="accordion" data-accordion>
+                <button class="accordion-header">
+                    <span>Accordion Light</span>
+                    <span class="accordion-icon">
+                        <svg class="chevron-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 0L14 7L7 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg class="horizontal-line" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0" y1="7" x2="14" y2="7" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        This is the accordion content. It can contain any HTML content including text, images, lists, and other components.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h3>Open State</h3>
+        <div class="accordion-container">
+            <div class="accordion active" data-accordion>
+                <button class="accordion-header active">
+                    <span>Accordion Light</span>
+                    <span class="accordion-icon">
+                        <svg class="chevron-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 0L14 7L7 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg class="horizontal-line" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0" y1="7" x2="14" y2="7" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        This accordion is open by default. The chevron icon points down when open. You can click the header to collapse it.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="code-example">
+&lt;div class="accordion" data-accordion&gt;<br>
+&nbsp;&nbsp;&lt;button class="accordion-header"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Accordion Light&lt;/span&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="accordion-icon"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;svg viewBox="0 0 14 14"&gt;...&lt;/svg&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;/button&gt;<br>
+&nbsp;&nbsp;&lt;div class="accordion-content"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="accordion-content-inner"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Content goes here<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/div&gt;
+        </div>
+    </div>
+    
+    <!-- Multiple Accordions -->
+    <div class="example-section">
+        <h2>Multiple Accordions</h2>
+        <p class="description">You can have multiple accordions on a page. Each one operates independently.</p>
+        
+        <div class="accordion-container">
+            <div class="accordion" data-accordion>
+                <button class="accordion-header">
+                    <span>First Accordion</span>
+                    <span class="accordion-icon">
+                        <svg class="chevron-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 0L14 7L7 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg class="horizontal-line" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0" y1="7" x2="14" y2="7" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>This is the first accordion's content. You can include paragraphs, lists, and other HTML elements.</p>
+                        <ul>
+                            <li>List item one</li>
+                            <li>List item two</li>
+                            <li>List item three</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion" data-accordion>
+                <button class="accordion-header">
+                    <span>Second Accordion</span>
+                    <span class="accordion-icon">
+                        <svg class="chevron-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 0L14 7L7 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg class="horizontal-line" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0" y1="7" x2="14" y2="7" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>This is the second accordion's content. Each accordion can be opened or closed independently.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion" data-accordion>
+                <button class="accordion-header">
+                    <span>Third Accordion</span>
+                    <span class="accordion-icon">
+                        <svg class="chevron-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 0L14 7L7 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg class="horizontal-line" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0" y1="7" x2="14" y2="7" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>This is the third accordion's content. The accordion component is flexible and can accommodate any amount of content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Interactive Example -->
+    <div class="example-section">
+        <h2>Interactive Example</h2>
+        <p class="description">Click on the accordion headers below to expand and collapse them. Hover to see the hover state with bold text and red border.</p>
+        
+        <div class="accordion-container">
+            <div class="accordion" data-accordion id="exampleAccordion">
+                <button class="accordion-header">
+                    <span>Click to Expand</span>
+                    <span class="accordion-icon">
+                        <svg class="chevron-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 0L14 7L7 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg class="horizontal-line" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0" y1="7" x2="14" y2="7" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>This accordion demonstrates the expand/collapse functionality. When you click the header, the content area smoothly expands or collapses.</p>
+                        <p>The chevron icon rotates from pointing right (closed) to pointing down (open).</p>
+                        <p>On hover, the header text becomes bold and the top border turns red.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+    
+    <script src="accordion-component.js"></script>
+    <script>
+        // Listen for accordion toggle events
+        document.getElementById('exampleAccordion').addEventListener('accordionToggle', function(e) {
+            console.log('Accordion toggled:', e.detail.isOpen ? 'opened' : 'closed');
+        });
+    </script>
+</body>
+</html>
+

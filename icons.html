@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icons - Design System</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="components/header-component/vanilla/header-component.css">
+    <link rel="stylesheet" href="components/footer-component/vanilla/footer-component.css">
+    <style>
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: var(--spacing-md);
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-2);
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+        }
+
+        .icon-item:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .icon-preview {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-gray-5);
+        }
+
+        .icon-preview svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .icon-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .icon-name {
+            font-size: var(--text-small);
+            font-weight: 600;
+            color: var(--color-gray-5);
+            text-align: center;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .icon-filename {
+            font-size: var(--text-extra-small);
+            color: var(--color-gray-n);
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            word-break: break-all;
+        }
+
+        .icon-usage {
+            margin-top: var(--spacing-sm);
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--color-gray-1);
+            font-size: var(--text-extra-small);
+            color: var(--color-gray-n);
+            text-align: center;
+        }
+
+        .icon-category {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .icon-category-title {
+            font-size: var(--text-2);
+            font-weight: 600;
+            color: var(--color-gray-5);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--color-gray-2);
+        }
+
+        .icon-sizes {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+            margin-top: var(--spacing-xs);
+        }
+
+        .icon-size-demo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .icon-size-label {
+            font-size: 1rem;
+            color: var(--color-gray-n);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-container"></div>
+    <div id="header-panels-container"></div>
+
+    <!-- Main Content -->
+    <main class="design-system-main">
+        <div class="design-system-container">
+            <!-- Sidebar Navigation -->
+            <aside class="design-system-sidebar">
+                <nav class="design-system-nav">
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Foundation</h3>
+                        <ul class="nav-list">
+                            <li><a href="index.html" class="nav-link">Overview</a></li>
+                            <li><a href="colors.html" class="nav-link">Colors</a></li>
+                            <li><a href="typography.html" class="nav-link">Typography</a></li>
+                            <li><a href="icons.html" class="nav-link active">Icons</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Components</h3>
+                        <ul class="nav-list">
+                            <li><a href="components.html" class="nav-link">All Components</a></li>
+                            <li><a href="components.html#header" class="nav-link nav-sublink">Header</a></li>
+                            <li><a href="components.html#footer" class="nav-link nav-sublink">Footer</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="design-system-content">
+                <div class="content-wrapper">
+                    <h1 class="page-title">Icons</h1>
+                    <p class="page-intro">Our icon library provides a consistent set of SVG icons for use throughout the design system. All icons use <code>currentColor</code> for easy theming.</p>
+
+                    <!-- Icon Categories -->
+                    <div id="icon-categories"></div>
+
+                    <section class="section">
+                        <h2 class="section-title">Usage</h2>
+                        <p>Icons are available as SVG files in the <code>icons/</code> directory. They use <code>currentColor</code> for easy theming.</p>
+                        
+                        <h3 style="font-size: var(--text-3); margin-top: var(--spacing-md); margin-bottom: var(--spacing-sm);">As SVG Files</h3>
+                        <div class="code-block">
+&lt;!-- Inline SVG --&gt;
+&lt;svg viewBox="0 0 20 22.856" xmlns="http://www.w3.org/2000/svg"&gt;
+    &lt;path d="..." fill="currentColor"/&gt;
+&lt;/svg&gt;
+
+&lt;!-- As image --&gt;
+&lt;img src="icons/bell.svg" alt="Bell icon" /&gt;
+                        </div>
+
+                        <h3 style="font-size: var(--text-3); margin-top: var(--spacing-md); margin-bottom: var(--spacing-sm);">Styling</h3>
+                        <p>Icons inherit the color from their parent element. You can control size and color with CSS:</p>
+                        <div class="code-block">
+.icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-gray-5);
+}
+
+.icon:hover {
+    color: var(--color-primary);
+}
+                        </div>
+
+                        <h3 style="font-size: var(--text-3); margin-top: var(--spacing-md); margin-bottom: var(--spacing-sm);">Size Examples</h3>
+                        <div style="display: flex; gap: var(--spacing-md); align-items: center; padding: var(--spacing-md); background: var(--color-gray-bg); border-radius: var(--radius-md);">
+                            <div class="icon-size-demo">
+                                <svg viewBox="0 0 20 22.856" style="width: 16px; height: 16px; color: var(--color-gray-5);" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.428,1.428v.857a7.147,7.147,0,0,1,5.714,7v.839a8.583,8.583,0,0,0,2.165,5.7l.33.371a1.429,1.429,0,0,1-1.067,2.379H1.429A1.43,1.43,0,0,1,.361,16.191l.331-.371a8.574,8.574,0,0,0,2.165-5.7V9.285a7.107,7.107,0,0,1,5.714-7V1.428a1.428,1.428,0,0,1,2.857,0ZM10,22.856a2.858,2.858,0,0,1-2.022-.835A2.929,2.929,0,0,1,7.143,20h5.714A2.85,2.85,0,0,1,10,22.856Z" transform="translate(0)" fill="currentColor"/>
+                                </svg>
+                                <span class="icon-size-label">16px</span>
+                            </div>
+                            <div class="icon-size-demo">
+                                <svg viewBox="0 0 20 22.856" style="width: 20px; height: 20px; color: var(--color-gray-5);" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.428,1.428v.857a7.147,7.147,0,0,1,5.714,7v.839a8.583,8.583,0,0,0,2.165,5.7l.33.371a1.429,1.429,0,0,1-1.067,2.379H1.429A1.43,1.43,0,0,1,.361,16.191l.331-.371a8.574,8.574,0,0,0,2.165-5.7V9.285a7.107,7.107,0,0,1,5.714-7V1.428a1.428,1.428,0,0,1,2.857,0ZM10,22.856a2.858,2.858,0,0,1-2.022-.835A2.929,2.929,0,0,1,7.143,20h5.714A2.85,2.85,0,0,1,10,22.856Z" transform="translate(0)" fill="currentColor"/>
+                                </svg>
+                                <span class="icon-size-label">20px</span>
+                            </div>
+                            <div class="icon-size-demo">
+                                <svg viewBox="0 0 20 22.856" style="width: 24px; height: 24px; color: var(--color-gray-5);" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.428,1.428v.857a7.147,7.147,0,0,1,5.714,7v.839a8.583,8.583,0,0,0,2.165,5.7l.33.371a1.429,1.429,0,0,1-1.067,2.379H1.429A1.43,1.43,0,0,1,.361,16.191l.331-.371a8.574,8.574,0,0,0,2.165-5.7V9.285a7.107,7.107,0,0,1,5.714-7V1.428a1.428,1.428,0,0,1,2.857,0ZM10,22.856a2.858,2.858,0,0,1-2.022-.835A2.929,2.929,0,0,1,7.143,20h5.714A2.85,2.85,0,0,1,10,22.856Z" transform="translate(0)" fill="currentColor"/>
+                                </svg>
+                                <span class="icon-size-label">24px</span>
+                            </div>
+                            <div class="icon-size-demo">
+                                <svg viewBox="0 0 20 22.856" style="width: 32px; height: 32px; color: var(--color-gray-5);" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.428,1.428v.857a7.147,7.147,0,0,1,5.714,7v.839a8.583,8.583,0,0,0,2.165,5.7l.33.371a1.429,1.429,0,0,1-1.067,2.379H1.429A1.43,1.43,0,0,1,.361,16.191l.331-.371a8.574,8.574,0,0,0,2.165-5.7V9.285a7.107,7.107,0,0,1,5.714-7V1.428a1.428,1.428,0,0,1,2.857,0ZM10,22.856a2.858,2.858,0,0,1-2.022-.835A2.929,2.929,0,0,1,7.143,20h5.714A2.85,2.85,0,0,1,10,22.856Z" transform="translate(0)" fill="currentColor"/>
+                                </svg>
+                                <span class="icon-size-label">32px</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="components/header-component/vanilla/header-component.js"></script>
+    <script src="components/footer-component/vanilla/footer-component.js"></script>
+    <script>
+        initHeader({
+            productName: 'Design System',
+            userInitials: 'DS',
+            notificationCount: 0
+        });
+
+        // Icon categories and definitions
+        const iconCategories = {
+            'Core Icons': [
+                { file: 'icon-core-calendar.svg', name: 'Calendar', usage: 'Date selection, scheduling' },
+                { file: 'icon-core-carret.svg', name: 'Caret', usage: 'Dropdowns, navigation' },
+                { file: 'icon-core-check-mark.svg', name: 'Check Mark', usage: 'Success, confirmation' },
+                { file: 'icon-core-chevron-left.svg', name: 'Chevron Left', usage: 'Back navigation' },
+                { file: 'icon-core-clear-1.svg', name: 'Clear', usage: 'Remove, clear input' },
+                { file: 'icon-core-clear.svg', name: 'Clear (Alt)', usage: 'Remove, clear input' },
+                { file: 'icon-core-close.svg', name: 'Close', usage: 'Dismiss, cancel' },
+                { file: 'icon-core-danger.svg', name: 'Danger', usage: 'Error, warning' },
+                { file: 'icon-core-double-chevron-left.svg', name: 'Double Chevron Left', usage: 'First page, skip back' },
+                { file: 'icon-core-feedback.svg', name: 'Feedback', usage: 'Comments, messages' },
+                { file: 'icon-core-help.svg', name: 'Help', usage: 'Support, information' },
+                { file: 'icon-core-info-outline.svg', name: 'Info', usage: 'Information, details' },
+                { file: 'icon-core-menu.svg', name: 'Menu', usage: 'Navigation menu' },
+                { file: 'icon-core-mini-menu-1.svg', name: 'Mini Menu', usage: 'More options' },
+                { file: 'icon-core-mini-menu.svg', name: 'Mini Menu (Alt)', usage: 'More options' },
+                { file: 'icon-core-search-1.svg', name: 'Search', usage: 'Find, search' },
+                { file: 'icon-core-search.svg', name: 'Search (Alt)', usage: 'Find, search' },
+                { file: 'icon-core-settings.svg', name: 'Settings', usage: 'Configuration, preferences' },
+                { file: 'icon-core-user-outline.svg', name: 'User', usage: 'Profile, account' },
+                { file: 'icon-core-user.svg', name: 'User (Filled)', usage: 'Profile, account' },
+                { file: 'icon-core-warning-outline-1.svg', name: 'Warning', usage: 'Alert, caution' },
+                { file: 'icon-core-warning-outline.svg', name: 'Warning (Alt)', usage: 'Alert, caution' }
+            ],
+            'Content Icons': [
+                { file: 'icon-content-archive.svg', name: 'Archive', usage: 'Archive, store' },
+                { file: 'icon-content-arrow-diagonal.svg', name: 'Arrow Diagonal', usage: 'External link, expand' },
+                { file: 'icon-content-delete.svg', name: 'Delete', usage: 'Remove, trash' },
+                { file: 'icon-content-document-filled.svg', name: 'Document (Filled)', usage: 'File, document' },
+                { file: 'icon-content-document-outline.svg', name: 'Document', usage: 'File, document' },
+                { file: 'icon-content-download.svg', name: 'Download', usage: 'Download file' },
+                { file: 'icon-content-edit-close.svg', name: 'Edit Close', usage: 'Cancel editing' },
+                { file: 'icon-content-edit.svg', name: 'Edit', usage: 'Modify, edit' },
+                { file: 'icon-content-eye-filled-hide.svg', name: 'Eye Hide', usage: 'Hide, conceal' },
+                { file: 'icon-content-eye-filled-show.svg', name: 'Eye Show', usage: 'Show, reveal' },
+                { file: 'icon-content-folder-filled-1.svg', name: 'Folder (Filled)', usage: 'Directory, folder' },
+                { file: 'icon-content-folder-filled-open.svg', name: 'Folder Open', usage: 'Open directory' },
+                { file: 'icon-content-folder-filled.svg', name: 'Folder (Filled Alt)', usage: 'Directory, folder' },
+                { file: 'icon-content-folder-outline.svg', name: 'Folder', usage: 'Directory, folder' },
+                { file: 'icon-content-lock-open.svg', name: 'Lock Open', usage: 'Unlock, access' },
+                { file: 'icon-content-lock.svg', name: 'Lock', usage: 'Secure, lock' },
+                { file: 'icon-content-plus.svg', name: 'Plus', usage: 'Add, create' },
+                { file: 'icon-content-pop-out.svg', name: 'Pop Out', usage: 'Open in new window' },
+                { file: 'icon-content-printer.svg', name: 'Printer', usage: 'Print document' },
+                { file: 'icon-content-refresh.svg', name: 'Refresh', usage: 'Reload, update' },
+                { file: 'icon-content-save-as-1.svg', name: 'Save As', usage: 'Save copy' },
+                { file: 'icon-content-save.svg', name: 'Save', usage: 'Save file' },
+                { file: 'icon-content-share-arrow.svg', name: 'Share', usage: 'Share, send' }
+            ],
+            'Data & Analytics': [
+                { file: 'icon-data-analytics-1.svg', name: 'Analytics', usage: 'Data analysis' },
+                { file: 'icon-data-analytics.svg', name: 'Analytics (Alt)', usage: 'Data analysis' },
+                { file: 'icon-data-charts.svg', name: 'Charts', usage: 'Visualizations, graphs' },
+                { file: 'icon-data-filter.svg', name: 'Filter', usage: 'Filter data' },
+                { file: 'icon-data-grid-tree.svg', name: 'Grid Tree', usage: 'Hierarchical view' },
+                { file: 'icon-dashboard.svg', name: 'Dashboard', usage: 'Overview, dashboard' },
+                { file: 'icon-energy-economics-1.svg', name: 'Energy Economics', usage: 'Energy data' },
+                { file: 'icon-energy-economics.svg', name: 'Energy Economics (Alt)', usage: 'Energy data' }
+            ],
+            'General Icons': [
+                { file: 'icon-general-admin-group.svg', name: 'Admin Group', usage: 'Administrators, team' },
+                { file: 'icon-general-arrow-left.svg', name: 'Arrow Left', usage: 'Back, previous' },
+                { file: 'icon-general-bell-outline.svg', name: 'Bell', usage: 'Notifications' },
+                { file: 'icon-general-bookmarks-outline.svg', name: 'Bookmark', usage: 'Save, favorite' },
+                { file: 'icon-general-star-filled.svg', name: 'Star (Filled)', usage: 'Favorite, rating' },
+                { file: 'icon-general-star-outline.svg', name: 'Star', usage: 'Favorite, rating' }
+            ],
+            'Navigation & UI': [
+                { file: 'arrow-left.svg', name: 'Arrow Left', usage: 'Back navigation' },
+                { file: 'bookmark.svg', name: 'Bookmark', usage: 'Save, favorite' },
+                { file: 'filter.svg', name: 'Filter', usage: 'Filter options' },
+                { file: 'Grip corner.svg', name: 'Grip Corner', usage: 'Drag handle' },
+                { file: 'Grip.svg', name: 'Grip', usage: 'Drag handle' }
+            ],
+            'Header Icons': [
+                { file: 'Header icon-app switcher.svg', name: 'App Switcher', usage: 'Switch applications' },
+                { file: 'Help-Header Only.svg', name: 'Help', usage: 'Help, support' }
+            ],
+            'Actions & Tools': [
+                { file: 'Copy.svg', name: 'Copy', usage: 'Copy to clipboard' },
+                { file: 'Duplicate.svg', name: 'Duplicate', usage: 'Duplicate item' },
+                { file: 'icon-annotate.svg', name: 'Annotate', usage: 'Add notes, comments' },
+                { file: 'icon-campaign-settings.svg', name: 'Campaign Settings', usage: 'Campaign configuration' },
+                { file: 'icon-charts-pie-1.svg', name: 'Pie Chart', usage: 'Pie chart visualization' },
+                { file: 'icon-charts-pie.svg', name: 'Pie Chart (Alt)', usage: 'Pie chart visualization' },
+                { file: 'icon-compare.svg', name: 'Compare', usage: 'Compare items' },
+                { file: 'icon-edit-folder.svg', name: 'Edit Folder', usage: 'Modify folder' },
+                { file: 'icon-ewb-switch-grid-v2.svg', name: 'Grid View', usage: 'Grid layout' },
+                { file: 'icon-ewb-switch-grid.svg', name: 'Grid View (Alt)', usage: 'Grid layout' },
+                { file: 'icon-list-settings.svg', name: 'List Settings', usage: 'List configuration' },
+                { file: 'icon-map-tools-zoom-in.svg', name: 'Zoom In', usage: 'Zoom in' },
+                { file: 'icon-map-tools-zoom-out.svg', name: 'Zoom Out', usage: 'Zoom out' },
+                { file: 'icon-rte-copy.svg', name: 'RTE Copy', usage: 'Copy in editor' },
+                { file: 'icon-rte-paste.svg', name: 'RTE Paste', usage: 'Paste in editor' },
+                { file: 'icon-tasks.svg', name: 'Tasks', usage: 'Task list, checklist' },
+                { file: 'icon-upload.svg', name: 'Upload', usage: 'Upload file' },
+                { file: 'users.svg', name: 'Users', usage: 'User group, team' }
+            ]
+        };
+
+        // Function to load SVG using multiple methods for compatibility
+        function loadSVG(url) {
+            return new Promise((resolve, reject) => {
+                // Try fetch first
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Not found');
+                        return response.text();
+                    })
+                    .then(text => resolve(text))
+                    .catch(() => {
+                        // Fallback to XMLHttpRequest (works better with file://)
+                        const xhr = new XMLHttpRequest();
+                        xhr.open('GET', url, true);
+                        xhr.onload = function() {
+                            if (xhr.status === 200 || xhr.status === 0) {
+                                resolve(xhr.responseText);
+                            } else {
+                                reject(new Error('Failed to load'));
+                            }
+                        };
+                        xhr.onerror = () => reject(new Error('Network error'));
+                        xhr.send();
+                    });
+            });
+        }
+
+        // Function to load SVG content and create icon item
+        async function createIconItem(icon) {
+            // Try to load as inline SVG for theming support
+            try {
+                const svgText = await loadSVG(`icons/${icon.file}`);
+                // Extract SVG content (remove XML declaration if present)
+                let svgContent = svgText.replace(/<\?xml[^>]*\?>/, '').trim();
+                // Remove width and height attributes to allow scaling
+                svgContent = svgContent.replace(/\s+width="[^"]*"/g, '');
+                svgContent = svgContent.replace(/\s+height="[^"]*"/g, '');
+                // Replace hardcoded colors with currentColor (but preserve none)
+                // First replace hex colors
+                svgContent = svgContent.replace(/fill="#[0-9a-fA-F]{3,6}"/g, 'fill="currentColor"');
+                svgContent = svgContent.replace(/stroke="#[0-9a-fA-F]{3,6}"/g, 'stroke="currentColor"');
+                // Then replace any other fill/stroke values (except none and currentColor)
+                svgContent = svgContent.replace(/fill="(?!none|currentColor)[^"]*"/g, 'fill="currentColor"');
+                svgContent = svgContent.replace(/stroke="(?!none|currentColor)[^"]*"/g, 'stroke="currentColor"');
+                svgContent = svgContent.replace(/fill='(?!none|currentColor)[^']*'/g, "fill='currentColor'");
+                svgContent = svgContent.replace(/stroke='(?!none|currentColor)[^']*'/g, "stroke='currentColor'");
+
+                return `
+                    <div class="icon-item">
+                        <div class="icon-preview">
+                            ${svgContent}
+                        </div>
+                        <div class="icon-name">${icon.name}</div>
+                        <div class="icon-filename">${icon.file}</div>
+                        <div class="icon-usage">${icon.usage}</div>
+                    </div>
+                `;
+            } catch (error) {
+                // Fallback to img tag if all loading methods fail
+                return `
+                    <div class="icon-item">
+                        <div class="icon-preview">
+                            <img src="icons/${icon.file}" alt="${icon.name}" style="width: 100%; height: 100%; object-fit: contain; filter: brightness(0) saturate(100%) invert(27%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(89%);" onerror="this.parentElement.innerHTML='<div style=\\'color: var(--color-gray-n); font-size: 12px;\\'>Icon not found</div>'">
+                        </div>
+                        <div class="icon-name">${icon.name}</div>
+                        <div class="icon-filename">${icon.file}</div>
+                        <div class="icon-usage">${icon.usage}</div>
+                    </div>
+                `;
+            }
+        }
+
+        // Function to render icon categories
+        async function renderIconCategories() {
+            const container = document.getElementById('icon-categories');
+            let html = '';
+
+            for (const [categoryName, icons] of Object.entries(iconCategories)) {
+                html += `
+                    <section class="section icon-category">
+                        <h2 class="icon-category-title">${categoryName}</h2>
+                        <div class="icon-grid" id="grid-${categoryName.replace(/\s+/g, '-').toLowerCase()}">
+                            <div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--color-gray-n);">Loading icons...</div>
+                        </div>
+                    </section>
+                `;
+            }
+
+            container.innerHTML = html;
+
+            // Load icons for each category
+            for (const [categoryName, icons] of Object.entries(iconCategories)) {
+                const gridId = `grid-${categoryName.replace(/\s+/g, '-').toLowerCase()}`;
+                const grid = document.getElementById(gridId);
+                if (grid) {
+                    const iconItems = await Promise.all(icons.map(icon => createIconItem(icon)));
+                    grid.innerHTML = iconItems.join('');
+                }
+            }
+        }
+
+        // Render icons when page loads
+        renderIconCategories();
+    </script>
+</body>
+</html>

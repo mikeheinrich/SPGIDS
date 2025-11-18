@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components - Design System</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="components/header-component/vanilla/header-component.css">
+    <link rel="stylesheet" href="components/footer-component/vanilla/footer-component.css">
+    <link rel="stylesheet" href="components/button-component/vanilla/button-component.css">
+    <link rel="stylesheet" href="components/button-group-component/base/base.css">
+    <link rel="stylesheet" href="components/button-group-component/vanilla/button-group-component.css">
+    <link rel="stylesheet" href="components/accordion-component/base/base.css">
+    <link rel="stylesheet" href="components/accordion-component/vanilla/accordion-component.css">
+    <link rel="stylesheet" href="components/alert-component/base/base.css">
+    <link rel="stylesheet" href="components/alert-component/vanilla/alert-component.css">
+    <link rel="stylesheet" href="components/list-group-component/base/base.css">
+    <link rel="stylesheet" href="components/list-group-component/vanilla/list-group-component.css">
+    <link rel="stylesheet" href="components/left-nav-component/base/base.css">
+    <link rel="stylesheet" href="components/left-nav-component/vanilla/left-nav-component.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-container"></div>
+    <div id="header-panels-container"></div>
+
+    <!-- Main Content -->
+    <main class="design-system-main">
+        <div class="design-system-container">
+            <!-- Sidebar Navigation -->
+            <aside class="design-system-sidebar">
+                <nav class="design-system-nav">
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Foundation</h3>
+                        <ul class="nav-list">
+                            <li><a href="index.html" class="nav-link">Overview</a></li>
+                            <li><a href="colors.html" class="nav-link">Colors</a></li>
+                            <li><a href="typography.html" class="nav-link">Typography</a></li>
+                            <li><a href="icons.html" class="nav-link">Icons</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Components</h3>
+                        <ul class="nav-list">
+                            <li><a href="components.html" class="nav-link active">All Components</a></li>
+                            <li><a href="components.html#button" class="nav-link nav-sublink">Button</a></li>
+                            <li><a href="components.html#button-group" class="nav-link nav-sublink">Button Group</a></li>
+                            <li><a href="components.html#accordion" class="nav-link nav-sublink">Accordion</a></li>
+                            <li><a href="components.html#list-group" class="nav-link nav-sublink">List Group</a></li>
+                            <li><a href="components.html#left-nav" class="nav-link nav-sublink">In-Page Nav</a></li>
+                            <li><a href="components.html#alert" class="nav-link nav-sublink">Alert</a></li>
+                            <li><a href="components.html#header" class="nav-link nav-sublink">Header</a></li>
+                            <li><a href="components.html#footer" class="nav-link nav-sublink">Footer</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="design-system-content">
+                <div class="content-wrapper">
+                    <h1 class="page-title">Components</h1>
+                    <p class="page-intro">Reusable UI components built with our design system. Each component is self-contained and can be easily integrated into your projects.</p>
+
+                    <section id="button" class="section">
+                        <h2 class="section-title">Buttons</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Button components provide consistent call-to-action elements. Based on Adobe XD specifications.</p>
+                        
+                        <!-- Primary Button -->
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Primary Button</h3>
+                            <div class="component-showcase-description">
+                                <p>The primary button is used for the main call-to-action. Specifications:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Dimensions:</strong> Auto width (min 90px) × 32px height</li>
+                                    <li><strong>States:</strong> Default, Hover, Disabled, Disabled Hover</li>
+                                    <li><strong>Hover Transition:</strong> Auto-Animate, Ease Out, 0.3s</li>
+                                    <li><strong>Disabled Hover:</strong> Dissolve animation, 0.3s</li>
+                                    <li><strong>Colors:</strong> Filled background using primary colors</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Primary Button States</h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
+                                    <button class="btn-primary">Button</button>
+                                    <button class="btn-primary" disabled>Disabled</button>
+                                </div>
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Default:</strong> Primary blue background (#006d89)<br>
+                                    <strong>Hover:</strong> Darker blue (#00495b) with smooth transition<br>
+                                    <strong>Disabled:</strong> Gray background with reduced opacity on hover
+                                </p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/button-component/button-component.css"&gt;
+
+&lt;!-- Primary Button --&gt;
+&lt;button class="btn-primary"&gt;Button&lt;/button&gt;
+
+&lt;!-- Disabled State --&gt;
+&lt;button class="btn-primary" disabled&gt;Disabled&lt;/button&gt;
+
+&lt;!-- Size Variations --&gt;
+&lt;button class="btn-primary btn-small"&gt;Small&lt;/button&gt;
+&lt;button class="btn-primary"&gt;Default&lt;/button&gt;
+&lt;button class="btn-primary btn-large"&gt;Large&lt;/button&gt;
+                            </div>
+                        </div>
+
+                        <!-- Secondary Button -->
+                        <div class="component-showcase">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Secondary Button</h3>
+                            <div class="component-showcase-description">
+                                <p>The secondary button is used for secondary actions. Specifications:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Dimensions:</strong> Auto width (min 87px) × 32px height</li>
+                                    <li><strong>States:</strong> Default, Hover, Disabled, Disabled Hover</li>
+                                    <li><strong>Hover Transition:</strong> Auto-Animate, Ease Out, 0.3s</li>
+                                    <li><strong>Disabled Hover:</strong> Dissolve animation, 0.3s</li>
+                                    <li><strong>Style:</strong> Outlined with 1px border using primary color</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Secondary Button States</h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
+                                    <button class="btn-secondary">Button</button>
+                                    <button class="btn-secondary" disabled>Disabled</button>
+                                </div>
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Default:</strong> Transparent background with primary blue border (#006d89)<br>
+                                    <strong>Hover:</strong> Light gray background (#eeeeee) with primary blue text<br>
+                                    <strong>Disabled:</strong> Gray border and text with reduced opacity on hover
+                                </p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Secondary Button --&gt;
+&lt;button class="btn-secondary"&gt;Button&lt;/button&gt;
+
+&lt;!-- Disabled State --&gt;
+&lt;button class="btn-secondary" disabled&gt;Disabled&lt;/button&gt;
+
+&lt;!-- Size Variations --&gt;
+&lt;button class="btn-secondary btn-small"&gt;Small&lt;/button&gt;
+&lt;button class="btn-secondary"&gt;Default&lt;/button&gt;
+&lt;button class="btn-secondary btn-large"&gt;Large&lt;/button&gt;
+                            </div>
+                        </div>
+
+                        <!-- Button Icons -->
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Buttons with Icons</h3>
+                            <div class="component-showcase-description">
+                                <p>All button types support icons. Icons automatically inherit the button's text color.</p>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Primary Button with Icon</h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
+                                    <button class="btn-primary">
+                                        <span class="btn-icon">
+                                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                        Button primary icon
+                                    </button>
+                                    <button class="btn-primary btn-icon-only" aria-label="Add">
+                                        <span class="btn-icon">
+                                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Secondary Button with Icon</h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
+                                    <button class="btn-secondary">
+                                        <span class="btn-icon">
+                                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                        Button secondary icon
+                                    </button>
+                                    <button class="btn-secondary btn-icon-only" aria-label="Add">
+                                        <span class="btn-icon">
+                                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Primary Button with Icon --&gt;
+&lt;button class="btn-primary"&gt;
+    &lt;span class="btn-icon"&gt;
+        &lt;svg viewBox="0 0 16 16"&gt;...&lt;/svg&gt;
+    &lt;/span&gt;
+    Button primary icon
+&lt;/button&gt;
+
+&lt;!-- Icon-only Button --&gt;
+&lt;button class="btn-primary btn-icon-only" aria-label="Add"&gt;
+    &lt;span class="btn-icon"&gt;
+        &lt;svg viewBox="0 0 16 16"&gt;...&lt;/svg&gt;
+    &lt;/span&gt;
+&lt;/button&gt;
+                            </div>
+                        </div>
+
+                        <!-- Link Button -->
+                        <div class="component-showcase">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Link Button</h3>
+                            <div class="component-showcase-description">
+                                <p>The link button is used for text-based actions. It has no background or border, and the text darkens on hover.</p>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Link Button States</h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
+                                    <button class="btn-link">button</button>
+                                    <button class="btn-link">
+                                        <span class="btn-icon">
+                                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                        button
+                                    </button>
+                                    <button class="btn-link" disabled>disabled</button>
+                                </div>
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Default:</strong> Primary blue text (#006d89)<br>
+                                    <strong>Hover:</strong> Darker blue text (#00495b) with smooth transition<br>
+                                    <strong>Disabled:</strong> Gray text with reduced opacity on hover
+                                </p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Link Button --&gt;
+&lt;button class="btn-link"&gt;button&lt;/button&gt;
+
+&lt;!-- Link Button with Icon --&gt;
+&lt;button class="btn-link"&gt;
+    &lt;span class="btn-icon"&gt;
+        &lt;svg viewBox="0 0 16 16"&gt;...&lt;/svg&gt;
+    &lt;/span&gt;
+    button
+&lt;/button&gt;
+
+&lt;!-- Disabled State --&gt;
+&lt;button class="btn-link" disabled&gt;disabled&lt;/button&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="button-group" class="section">
+                        <h2 class="section-title">Button Group</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Button groups act like tabs or radio buttons, allowing only one selection at a time. The active button has a gray background, red text, and a red top border.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Button Group States</h3>
+                            <div class="component-showcase-description">
+                                <p>Button groups provide a tab-like interface where buttons are visually connected. Specifications:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Dimensions:</strong> 90px × 32px per button</li>
+                                    <li><strong>States:</strong> Active, Inactive, Hover, Disabled</li>
+                                    <li><strong>Active:</strong> Gray background (#eeeeee), red text (#d6002a), red top border (2px)</li>
+                                    <li><strong>Inactive:</strong> Transparent background, gray text (#5c5c5c), gray borders</li>
+                                    <li><strong>Behavior:</strong> Radio button-like - only one active at a time</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Two Buttons</h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
+                                    <div class="btn-group" data-button-group>
+                                        <button class="btn-group-item active">button</button>
+                                        <button class="btn-group-item">button</button>
+                                    </div>
+                                </div>
+                                
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5); margin-top: var(--spacing-md);">Three Buttons</h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
+                                    <div class="btn-group" data-button-group>
+                                        <button class="btn-group-item active">button</button>
+                                        <button class="btn-group-item">button</button>
+                                        <button class="btn-group-item">button</button>
+                                    </div>
+                                </div>
+                                
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5); margin-top: var(--spacing-md);">With Disabled Button</h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
+                                    <div class="btn-group" data-button-group>
+                                        <button class="btn-group-item active">button</button>
+                                        <button class="btn-group-item">button</button>
+                                        <button class="btn-group-item" disabled>disabled</button>
+                                    </div>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Active:</strong> Gray background (#eeeeee), red text (#d6002a), red top border<br>
+                                    <strong>Inactive:</strong> Transparent background, gray text (#5c5c5c)<br>
+                                    <strong>Hover:</strong> Slight background tint on inactive buttons<br>
+                                    <strong>Keyboard:</strong> Arrow keys, Home, End for navigation
+                                </p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/button-group-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/button-group-component/vanilla/button-group-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/button-group-component/vanilla/button-group-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Button Group --&gt;
+&lt;div class="btn-group" data-button-group&gt;
+    &lt;button class="btn-group-item active"&gt;button&lt;/button&gt;
+    &lt;button class="btn-group-item"&gt;button&lt;/button&gt;
+    &lt;button class="btn-group-item"&gt;button&lt;/button&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="accordion" class="section">
+                        <h2 class="section-title">Accordion</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Accordion components allow content to be expanded and collapsed. The header shows a chevron icon that rotates when opened.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Accordion States</h3>
+                            <div class="component-showcase-description">
+                                <p>Accordions provide expandable/collapsible content sections. Specifications:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Dimensions:</strong> Flexible width × 32px height (closed)</li>
+                                    <li><strong>States:</strong> Default (closed), Hover, Open, Disabled</li>
+                                    <li><strong>Default:</strong> White background, dark gray text (#1a1a1a), gray top border (#5c5c5c)</li>
+                                    <li><strong>Hover:</strong> Bold text (#32363b), red top border (#d6002a), subtle shadow</li>
+                                    <li><strong>Open:</strong> Bold text, red top border, shadow, chevron rotated down</li>
+                                    <li><strong>Icon:</strong> Red chevron, rotates from right (closed) to down (open)</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Closed State</h4>
+                                <div style="margin-bottom: var(--spacing-md); max-width: 540px;">
+                                    <div class="accordion" data-accordion>
+                                        <button class="accordion-header">
+                                            <span>Accordion Light</span>
+                                            <span class="accordion-icon">
+                                                <svg class="chevron-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7 0L14 7L7 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <svg class="horizontal-line" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <line x1="0" y1="7" x2="14" y2="7" stroke-width="2" stroke-linecap="round"/>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <div class="accordion-content">
+                                            <div class="accordion-content-inner">
+                                                This is the accordion content. It can contain any HTML content including text, images, lists, and other components.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5); margin-top: var(--spacing-md);">Open State</h4>
+                                <div style="margin-bottom: var(--spacing-md); max-width: 540px;">
+                                    <div class="accordion active" data-accordion>
+                                        <button class="accordion-header active">
+                                            <span>Accordion Light</span>
+                                            <span class="accordion-icon">
+                                                <svg class="chevron-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7 0L14 7L7 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <svg class="horizontal-line" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <line x1="0" y1="7" x2="14" y2="7" stroke-width="2" stroke-linecap="round"/>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <div class="accordion-content">
+                                            <div class="accordion-content-inner">
+                                                This accordion is open by default. The chevron icon points down when open. You can click the header to collapse it.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Default:</strong> White background, dark gray text (#1a1a1a), gray top border<br>
+                                    <strong>Hover:</strong> Bold text (#32363b), red top border (#d6002a), subtle shadow<br>
+                                    <strong>Open:</strong> Bold text, red top border, shadow, chevron rotated 90deg<br>
+                                    <strong>Animation:</strong> Smooth height transition (0.3s ease)
+                                </p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/accordion-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/accordion-component/vanilla/accordion-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/accordion-component/vanilla/accordion-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Accordion --&gt;
+&lt;div class="accordion" data-accordion&gt;
+    &lt;button class="accordion-header"&gt;
+        &lt;span&gt;Accordion Light&lt;/span&gt;
+        &lt;span class="accordion-icon"&gt;
+            &lt;svg viewBox="0 0 14 14"&gt;...&lt;/svg&gt;
+        &lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="accordion-content"&gt;
+        &lt;div class="accordion-content-inner"&gt;
+            Content goes here
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="alert" class="section">
+                        <h2 class="section-title">Alert</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Alert components display messages with different states. They can be dismissed with a close button.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Alert Variants</h3>
+                            <div class="component-showcase-description">
+                                <p>Alerts provide a flexible way to display messages to users. Specifications:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Dimensions:</strong> Flexible width × 40px height (min)</li>
+                                    <li><strong>Variants:</strong> Default, Success, Attention</li>
+                                    <li><strong>Default:</strong> Light gray background (#eeeeee), gray top border (#5c5c5c), no leading icon</li>
+                                    <li><strong>Success:</strong> Light green background, green border, green checkmark icon</li>
+                                    <li><strong>Attention:</strong> Light orange background, orange border, orange warning icon</li>
+                                    <li><strong>Close Button:</strong> Dark gray circle with white X on the right</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Default Alert</h4>
+                                <div style="margin-bottom: var(--spacing-md); max-width: 500px;">
+                                    <div class="alert alert-default" data-alert>
+                                        <span class="alert-text">
+                                            <strong>Label</strong> could be combination of weights
+                                        </span>
+                                        <button class="alert-close" aria-label="Close alert">
+                                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="8" fill="#5c5c5c"/>
+                                                <g transform="translate(4 4)">
+                                                    <line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                                                    <line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5); margin-top: var(--spacing-md);">Success Alert</h4>
+                                <div style="margin-bottom: var(--spacing-md); max-width: 500px;">
+                                    <div class="alert alert-success" data-alert>
+                                        <span class="alert-text">
+                                            <strong>Label</strong> could be combination of weights
+                                        </span>
+                                        <button class="alert-close" aria-label="Close alert">
+                                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="8" fill="#5c5c5c"/>
+                                                <g transform="translate(4 4)">
+                                                    <line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                                                    <line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5); margin-top: var(--spacing-md);">Attention Alert</h4>
+                                <div style="margin-bottom: var(--spacing-md); max-width: 500px;">
+                                    <div class="alert alert-attention" data-alert>
+                                        <span class="alert-text">
+                                            <strong>Label</strong> could be combination of weights
+                                        </span>
+                                        <button class="alert-close" aria-label="Close alert">
+                                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="8" fill="#5c5c5c"/>
+                                                <g transform="translate(4 4)">
+                                                    <line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                                                    <line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Default:</strong> Light gray background (#eeeeee), gray top border (#5c5c5c)<br>
+                                    <strong>Success:</strong> Light green background, green border (#009900), green checkmark icon<br>
+                                    <strong>Attention:</strong> Light orange background, orange border (#C56C00), orange warning icon<br>
+                                    <strong>Close:</strong> Click the X button to dismiss the alert
+                                </p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/alert-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/alert-component/vanilla/alert-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/alert-component/vanilla/alert-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Default Alert --&gt;
+&lt;div class="alert alert-default" data-alert&gt;
+    &lt;span class="alert-text"&gt;
+        &lt;strong&gt;Label&lt;/strong&gt; could be combination of weights
+    &lt;/span&gt;
+    &lt;button class="alert-close" aria-label="Close alert"&gt;...&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Success Alert --&gt;
+&lt;div class="alert alert-success" data-alert&gt;
+    &lt;span class="alert-text"&gt;...&lt;/span&gt;
+    &lt;button class="alert-close"&gt;...&lt;/button&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="list-group" class="section">
+                        <h2 class="section-title">List Group</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">A simple, flat list of selectable items. Based on the left navigation component but simplified to remove hierarchy.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">List Group States</h3>
+                            <div class="component-showcase-description">
+                                <p>List groups provide a simple interface for selecting from a list of items. Specifications:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Dimensions:</strong> 361px width (default, flexible) × 32px height per item</li>
+                                    <li><strong>States:</strong> Default, Hover, Active, Disabled</li>
+                                    <li><strong>Default:</strong> Transparent background, dark gray text (#32363b)</li>
+                                    <li><strong>Hover:</strong> Subtle background tint (rgba(0, 0, 0, 0.02))</li>
+                                    <li><strong>Active:</strong> Light gray background (#f0f0f0), red text (#d6002a), red top accent bar (3px)</li>
+                                    <li><strong>Dividers:</strong> Optional 1px gray dividers between items</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Basic List Group</h4>
+                                <div style="display: flex; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                                    <nav class="list-group" id="list-group-showcase">
+                                        <ul class="list-group-list" id="listGroupListShowcase"></ul>
+                                    </nav>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Default:</strong> Transparent background, dark gray text (#32363b)<br>
+                                    <strong>Hover:</strong> Subtle background tint<br>
+                                    <strong>Active:</strong> Light gray background (#f0f0f0), red text (#d6002a), red top accent bar<br>
+                                    <strong>Keyboard:</strong> Enter/Space to select, arrow keys for navigation
+                                </p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/list-group-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/list-group-component/vanilla/list-group-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/list-group-component/vanilla/list-group-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- List Group --&gt;
+&lt;nav class="list-group" id="list-group-container"&gt;
+    &lt;ul class="list-group-list" id="listGroupList"&gt;&lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;!-- Initialize --&gt;
+&lt;script&gt;
+    initListGroup({
+        containerId: 'list-group-container',
+        listId: 'listGroupList',
+        items: [
+            { id: '1', name: 'Item One' },
+            { id: '2', name: 'Item Two' },
+            { id: '3', name: 'Item Three' }
+        ],
+        onItemSelect: function(id, item) {
+            console.log('Selected:', item.name);
+        }
+    });
+&lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="left-nav" class="section">
+                        <h2 class="section-title">In-Page Nav</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Hierarchical navigation component with parent and child structure. Supports two-level navigation with visual hierarchy.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">In-Page Nav Structure</h3>
+                            <div class="component-showcase-description">
+                                <p>In-page navigation provides hierarchical navigation with parent and child levels. Specifications:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Dimensions:</strong> 361px width × flexible height</li>
+                                    <li><strong>Structure:</strong> Parent items (bold, 10px padding) with nested Child items (normal, 20px padding)</li>
+                                    <li><strong>States:</strong> Default, Hover, Active</li>
+                                    <li><strong>Parent Items:</strong> Bold font (700), 10px left padding, dark gray text (#32363b)</li>
+                                    <li><strong>Child Items:</strong> Normal font (400), 20px left padding, dark gray text (#32363b)</li>
+                                    <li><strong>Active:</strong> Light gray background (#f0f0f0), red text (#d6002a), red top accent bar (3px)</li>
+                                    <li><strong>Dividers:</strong> 1px gray dividers between all items</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">In-Page Nav Example</h4>
+                                <div style="display: flex; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                                    <nav class="left-nav" id="left-nav-container">
+                                        <ul class="nav-list" id="navList"></ul>
+                                    </nav>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Parent Items:</strong> Bold, 10px padding, represent top-level entities<br>
+                                    <strong>Child Items:</strong> Normal weight, 20px padding, nested under parents<br>
+                                    <strong>Active:</strong> Light gray background, red text, red top accent bar<br>
+                                    <strong>Hover:</strong> Subtle background tint on all items
+                                </p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/left-nav-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/left-nav-component/vanilla/left-nav-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/left-nav-component/vanilla/left-nav-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- In-Page Nav --&gt;
+&lt;nav class="left-nav" id="left-nav-container"&gt;
+    &lt;ul class="nav-list" id="navList"&gt;&lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;!-- Initialize --&gt;
+&lt;script&gt;
+    initLeftNav({
+        navigationData: {
+            gps: [
+                {
+                    id: 'parent1',
+                    name: 'Parent 1',
+                    funds: [
+                        { id: 'child1', name: 'Child 1' },
+                        { id: 'child2', name: 'Child 2' }
+                    ]
+                },
+                {
+                    id: 'parent2',
+                    name: 'Parent 2',
+                    funds: [
+                        { id: 'child3', name: 'Child 1' },
+                        { id: 'child4', name: 'Child 2' }
+                    ]
+                }
+            ]
+        },
+        onItemSelect: function(type, id) {
+            console.log('Selected:', type, id);
+        },
+        initialSelection: { type: 'fund', id: 'child1' }
+    });
+&lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="alert" class="section">
+                        <h2 class="section-title">Alert</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Banner-style alerts for displaying important messages to users. Supports multiple variants and can be dismissed.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Alert Variants</h3>
+                            <div class="component-showcase-description">
+                                <p>Alerts provide contextual feedback messages. Specifications:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Variants:</strong> Success, Warning, Error, Info</li>
+                                    <li><strong>Features:</strong> Icon, title (optional), message, dismissible close button</li>
+                                    <li><strong>Colors:</strong> Variant-specific background and border colors</li>
+                                    <li><strong>Layout:</strong> Flex layout with icon, content, and close button</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Alert Examples</h4>
+                                <div style="display: flex; flex-direction: column; gap: var(--spacing-md); margin-bottom: var(--spacing-md); max-width: 800px;">
+                                    <div id="alert-success-example"></div>
+                                    <div id="alert-warning-example"></div>
+                                    <div id="alert-error-example"></div>
+                                    <div id="alert-info-example"></div>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Success:</strong> Green background and border for positive feedback<br>
+                                    <strong>Warning:</strong> Orange background and border for cautionary messages<br>
+                                    <strong>Error:</strong> Red background and border for error messages<br>
+                                    <strong>Info:</strong> Blue background and border for informational messages
+                                </p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/alert-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/alert-component/vanilla/alert-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/alert-component/vanilla/alert-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Create Alert --&gt;
+&lt;script&gt;
+    createAlert({
+        variant: 'success',
+        message: 'Your changes have been saved successfully.',
+        title: 'Success',
+        dismissible: true
+    });
+&lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="header" class="section">
+                        <h2 class="section-title">Header</h2>
+                        <div class="component-showcase">
+                            <div class="component-showcase-description">
+                                <p>The header component provides a fixed navigation bar at the top of the page. It includes:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li>S&P Global logo</li>
+                                    <li>Customizable product name</li>
+                                    <li>Notification bell with badge counter</li>
+                                    <li>Help/question icon</li>
+                                    <li>User avatar with initials</li>
+                                    <li>Slide-out panels for user menu, help, and notifications</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <p style="margin-bottom: 1rem; font-size: 1.2rem; color: var(--color-gray-4);">The header is displayed at the top of this page.</p>
+                                <p style="font-size: 1.2rem; color: var(--color-gray-4);">Click on the user avatar, help icon, or notification bell to see the slide-out panels in action.</p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/header-component/header-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/header-component/header-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Add container --&gt;
+&lt;div id="header-container"&gt;&lt;/div&gt;
+&lt;div id="header-panels-container"&gt;&lt;/div&gt;
+
+&lt;!-- Initialize --&gt;
+&lt;script&gt;
+    initHeader({
+        productName: 'My Product',
+        userInitials: 'JD',
+        notificationCount: 3,
+        userName: 'John Doe',
+        userEmail: 'john.doe@company.com'
+    });
+&lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="footer" class="section">
+                        <h2 class="section-title">Footer</h2>
+                        <div class="component-showcase">
+                            <div class="component-showcase-description">
+                                <p>The footer component provides a collapsible footer at the bottom of the page. It includes:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li>Copyright text</li>
+                                    <li>Footer links (Terms, Privacy, Customer Care)</li>
+                                    <li>S&P Global logo</li>
+                                    <li>Smooth toggle animation</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <p style="margin-bottom: 1rem; font-size: 1.2rem; color: var(--color-gray-4);">The footer is displayed at the bottom of this page.</p>
+                                <p style="font-size: 1.2rem; color: var(--color-gray-4);">Click the toggle button (chevron) to expand or collapse the footer.</p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/footer-component/footer-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/footer-component/footer-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Add container --&gt;
+&lt;div id="footer-container"&gt;&lt;/div&gt;
+
+&lt;!-- Initialize (auto-initializes) --&gt;
+&lt;script&gt;
+    // Footer auto-initializes, no configuration needed
+&lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Component Files</h2>
+                        <p>All components are located in the <code>components/</code> directory:</p>
+                        <ul style="margin-left: 2rem; margin-top: 1rem;">
+                            <li><code>button-component/</code> - Button component directory
+                                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                                    <li><code>button-component.css</code> - Button styles</li>
+                                    <li><code>README.md</code> - Button documentation</li>
+                                    <li><code>button-example.html</code> - Standalone example</li>
+                                    <li><code>component.json</code> - Component manifest</li>
+                                </ul>
+                            </li>
+                            <li><code>header-component/</code> - Header component directory
+                                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                                    <li><code>header-component.css</code> - Header styles</li>
+                                    <li><code>header-component.js</code> - Header functionality</li>
+                                    <li><code>README.md</code> - Header documentation</li>
+                                    <li><code>header-example.html</code> - Standalone example</li>
+                                    <li><code>component.json</code> - Component manifest</li>
+                                </ul>
+                            </li>
+                            <li><code>footer-component/</code> - Footer component directory
+                                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                                    <li><code>footer-component.css</code> - Footer styles</li>
+                                    <li><code>footer-component.js</code> - Footer functionality</li>
+                                    <li><code>README.md</code> - Footer documentation</li>
+                                    <li><code>footer-example.html</code> - Standalone example</li>
+                                    <li><code>component.json</code> - Component manifest</li>
+                                </ul>
+                            </li>
+                            <li><code>README.md</code> - Components overview</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="components/header-component/vanilla/header-component.js"></script>
+    <script src="components/footer-component/vanilla/footer-component.js"></script>
+    <script src="components/button-group-component/vanilla/button-group-component.js"></script>
+    <script src="components/accordion-component/vanilla/accordion-component.js"></script>
+    <script src="components/list-group-component/vanilla/list-group-component.js"></script>
+    <script src="components/left-nav-component/vanilla/left-nav-component.js"></script>
+    <script src="components/alert-component/vanilla/alert-component.js"></script>
+    <script>
+        initHeader({
+            productName: 'Design System',
+            userInitials: 'DS',
+            notificationCount: 3,
+            userName: 'Design System',
+            userEmail: 'design.system@spglobal.com'
+        });
+        
+        // Initialize list group showcase
+        initListGroup({
+            containerId: 'list-group-showcase',
+            listId: 'listGroupListShowcase',
+            items: [
+                { id: 'showcase-1', name: 'First Item' },
+                { id: 'showcase-2', name: 'Second Item' },
+                { id: 'showcase-3', name: 'Third Item' },
+                { id: 'showcase-4', name: 'Fourth Item' },
+                { id: 'showcase-5', name: 'Fifth Item' }
+            ],
+            initialSelection: 'showcase-1'
+        });
+        
+        // Initialize in-page nav showcase
+        initLeftNav({
+            navigationData: {
+                gps: [
+                    {
+                        id: 'parent1',
+                        name: 'Parent 1',
+                        funds: [
+                            { id: 'child1', name: 'Child 1' },
+                            { id: 'child2', name: 'Child 2' }
+                        ]
+                    },
+                    {
+                        id: 'parent2',
+                        name: 'Parent 2',
+                        funds: [
+                            { id: 'child3', name: 'Child 1' },
+                            { id: 'child4', name: 'Child 2' }
+                        ]
+                    }
+                ]
+            },
+            initialSelection: { type: 'fund', id: 'child1' }
+        });
+        
+        // Create alert examples
+        createAlert({
+            variant: 'success',
+            message: 'Your changes have been saved successfully.',
+            title: 'Success',
+            dismissible: true,
+            container: document.getElementById('alert-success-example')
+        });
+        
+        createAlert({
+            variant: 'warning',
+            message: 'Please review your input before submitting.',
+            title: 'Warning',
+            dismissible: true,
+            container: document.getElementById('alert-warning-example')
+        });
+        
+        createAlert({
+            variant: 'error',
+            message: 'An error occurred while processing your request.',
+            title: 'Error',
+            dismissible: true,
+            container: document.getElementById('alert-error-example')
+        });
+        
+        createAlert({
+            variant: 'info',
+            message: 'New features are available in this update.',
+            title: 'Information',
+            dismissible: true,
+            container: document.getElementById('alert-info-example')
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,71 @@
+{
+  "name": "button-group-component",
+  "version": "1.0.0",
+  "description": "Button group component for S&P Global Design System - acts like tabs or radio buttons",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["button-group-component.css", "button-group-component.js", "button-group-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required"
+  },
+  "specifications": {
+    "source": "Adobe XD",
+    "button": {
+      "dimensions": "90px × 32px",
+      "states": ["default", "active", "hover", "disabled"],
+      "style": "outlined with borders"
+    },
+    "active": {
+      "background": "#eeeeee",
+      "textColor": "#d6002a",
+      "topBorder": "2px solid #d6002a"
+    },
+    "inactive": {
+      "background": "transparent",
+      "textColor": "#5c5c5c",
+      "border": "1px solid #cccccc"
+    },
+    "behavior": {
+      "type": "radio-button-like",
+      "maxSelections": 1,
+      "minSelections": 1
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true
+  }
+}
+

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Group Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../styles/base.css">
+    
+    <!-- Include List Group Component -->
+    <link rel="stylesheet" href="list-group-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .example-section h3 {
+            font-size: var(--text-3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-5);
+        }
+        
+        .example-container {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+        
+        .info-box {
+            background: var(--color-gray-1);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-top: 1rem;
+            font-size: var(--text-small);
+            color: var(--color-gray-4);
+        }
+        
+        .info-box strong {
+            color: var(--color-gray-5);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">List Group Component Examples</h1>
+    
+    <!-- Basic List Group -->
+    <div class="example-section">
+        <h2>Basic List Group</h2>
+        <p class="description">A simple list of selectable items. Click on any item to select it. The selected item will show a red accent bar at the top.</p>
+        
+        <div class="example-container">
+            <nav class="list-group" id="list-group-basic">
+                <ul class="list-group-list" id="listGroupListBasic"></ul>
+            </nav>
+        </div>
+        
+        <div class="code-example">
+&lt;nav class="list-group" id="list-group-basic"&gt;<br>
+&nbsp;&nbsp;&lt;ul class="list-group-list" id="listGroupListBasic"&gt;&lt;/ul&gt;<br>
+&lt;/nav&gt;<br><br>
+&lt;script&gt;<br>
+&nbsp;&nbsp;initListGroup({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;containerId: 'list-group-basic',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;listId: 'listGroupListBasic',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;items: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ id: '1', name: 'Item One' },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ id: '2', name: 'Item Two' },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ id: '3', name: 'Item Three' }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;});<br>
+&lt;/script&gt;
+        </div>
+        
+        <div class="info-box" id="info-basic">
+            <strong>Selected:</strong> <span id="selected-basic">None</span>
+        </div>
+    </div>
+    
+    <!-- List Group with Initial Selection -->
+    <div class="example-section">
+        <h2>List Group with Initial Selection</h2>
+        <p class="description">A list group with a pre-selected item.</p>
+        
+        <div class="example-container">
+            <nav class="list-group" id="list-group-initial">
+                <ul class="list-group-list" id="listGroupListInitial"></ul>
+            </nav>
+        </div>
+        
+        <div class="code-example">
+initListGroup({<br>
+&nbsp;&nbsp;containerId: 'list-group-initial',<br>
+&nbsp;&nbsp;listId: 'listGroupListInitial',<br>
+&nbsp;&nbsp;items: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '1', name: 'First Item' },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '2', name: 'Second Item' },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '3', name: 'Third Item' }<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;initialSelection: '2'<br>
+});
+        </div>
+    </div>
+    
+    <!-- List Group with Disabled Items -->
+    <div class="example-section">
+        <h2>List Group with Disabled Items</h2>
+        <p class="description">Some items can be disabled and will not be selectable.</p>
+        
+        <div class="example-container">
+            <nav class="list-group" id="list-group-disabled">
+                <ul class="list-group-list" id="listGroupListDisabled"></ul>
+            </nav>
+        </div>
+        
+        <div class="code-example">
+initListGroup({<br>
+&nbsp;&nbsp;containerId: 'list-group-disabled',<br>
+&nbsp;&nbsp;listId: 'listGroupListDisabled',<br>
+&nbsp;&nbsp;items: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '1', name: 'Enabled Item' },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '2', name: 'Disabled Item', disabled: true },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '3', name: 'Another Enabled Item' }<br>
+&nbsp;&nbsp;]<br>
+});
+        </div>
+    </div>
+    
+    <!-- List Group without Dividers -->
+    <div class="example-section">
+        <h2>List Group without Dividers</h2>
+        <p class="description">A list group without dividers between items.</p>
+        
+        <div class="example-container">
+            <nav class="list-group" id="list-group-no-dividers">
+                <ul class="list-group-list" id="listGroupListNoDividers"></ul>
+            </nav>
+        </div>
+        
+        <div class="code-example">
+initListGroup({<br>
+&nbsp;&nbsp;containerId: 'list-group-no-dividers',<br>
+&nbsp;&nbsp;listId: 'listGroupListNoDividers',<br>
+&nbsp;&nbsp;items: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '1', name: 'Item One' },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '2', name: 'Item Two' },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '3', name: 'Item Three' }<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;showDividers: false<br>
+});
+        </div>
+    </div>
+    
+    <!-- List Group with Callback -->
+    <div class="example-section">
+        <h2>List Group with Selection Callback</h2>
+        <p class="description">A list group that triggers a callback function when an item is selected.</p>
+        
+        <div class="example-container">
+            <nav class="list-group" id="list-group-callback">
+                <ul class="list-group-list" id="listGroupListCallback"></ul>
+            </nav>
+        </div>
+        
+        <div class="code-example">
+initListGroup({<br>
+&nbsp;&nbsp;containerId: 'list-group-callback',<br>
+&nbsp;&nbsp;listId: 'listGroupListCallback',<br>
+&nbsp;&nbsp;items: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '1', name: 'Option A' },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '2', name: 'Option B' },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ id: '3', name: 'Option C' }<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;onItemSelect: function(id, item) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('Selected:', id, item.name);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;alert('You selected: ' + item.name);<br>
+&nbsp;&nbsp;}<br>
+});
+        </div>
+        
+        <div class="info-box" id="info-callback">
+            <strong>Last Selected:</strong> <span id="selected-callback">None</span>
+        </div>
+    </div>
+    
+    <!-- Include List Group JavaScript -->
+    <script src="list-group-component.js"></script>
+    
+    <script>
+        // Basic List Group
+        initListGroup({
+            containerId: 'list-group-basic',
+            listId: 'listGroupListBasic',
+            items: [
+                { id: 'basic-1', name: 'Item One' },
+                { id: 'basic-2', name: 'Item Two' },
+                { id: 'basic-3', name: 'Item Three' },
+                { id: 'basic-4', name: 'Item Four' },
+                { id: 'basic-5', name: 'Item Five' }
+            ],
+            onItemSelect: function(id, item) {
+                document.getElementById('selected-basic').textContent = item.name;
+            }
+        });
+        
+        // List Group with Initial Selection
+        initListGroup({
+            containerId: 'list-group-initial',
+            listId: 'listGroupListInitial',
+            items: [
+                { id: 'initial-1', name: 'First Item' },
+                { id: 'initial-2', name: 'Second Item' },
+                { id: 'initial-3', name: 'Third Item' },
+                { id: 'initial-4', name: 'Fourth Item' }
+            ],
+            initialSelection: 'initial-2'
+        });
+        
+        // List Group with Disabled Items
+        initListGroup({
+            containerId: 'list-group-disabled',
+            listId: 'listGroupListDisabled',
+            items: [
+                { id: 'disabled-1', name: 'Enabled Item' },
+                { id: 'disabled-2', name: 'Disabled Item', disabled: true },
+                { id: 'disabled-3', name: 'Another Enabled Item' },
+                { id: 'disabled-4', name: 'Another Disabled Item', disabled: true },
+                { id: 'disabled-5', name: 'Final Enabled Item' }
+            ]
+        });
+        
+        // List Group without Dividers
+        initListGroup({
+            containerId: 'list-group-no-dividers',
+            listId: 'listGroupListNoDividers',
+            items: [
+                { id: 'nodiv-1', name: 'Item One' },
+                { id: 'nodiv-2', name: 'Item Two' },
+                { id: 'nodiv-3', name: 'Item Three' },
+                { id: 'nodiv-4', name: 'Item Four' }
+            ],
+            showDividers: false
+        });
+        
+        // List Group with Callback
+        initListGroup({
+            containerId: 'list-group-callback',
+            listId: 'listGroupListCallback',
+            items: [
+                { id: 'callback-1', name: 'Option A' },
+                { id: 'callback-2', name: 'Option B' },
+                { id: 'callback-3', name: 'Option C' },
+                { id: 'callback-4', name: 'Option D' }
+            ],
+            onItemSelect: function(id, item) {
+                document.getElementById('selected-callback').textContent = item.name + ' (ID: ' + id + ')';
+            }
+        });
+    </script>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+</body>
+</html>
+

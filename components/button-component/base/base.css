@@ -1,0 +1,371 @@
+/**
+ * Button Component - Base Styles
+ * Shared base styles for all button implementations (vanilla, PrimeNG, Kendo)
+ * 
+ * These styles use design tokens from styles/base.css
+ * All implementations should import this file along with the root base.css
+ * 
+ * Usage:
+ * - Vanilla: Import base.css and add vanilla-specific selectors
+ * - PrimeNG: Import base.css and apply to PrimeNG button classes
+ * - Kendo: Import base.css and apply to Kendo button classes
+ */
+
+/* Base Button Styles - Shared across all implementations */
+/* These styles define the core button appearance and behavior */
+
+/* Primary Button Base Styles */
+.btn-primary,
+[class*="btn-primary"],
+[class*="p-button"],
+[class*="k-button"] {
+    /* Layout Properties */
+    width: auto;
+    min-width: 90px;
+    height: 32px;
+    
+    /* Typography */
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph); /* 1.4rem / 14px */
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    
+    /* Colors */
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    
+    /* Border Radius */
+    border-radius: var(--radius-sm); /* 2px */
+    
+    /* Spacing */
+    padding: 0 var(--spacing-sm); /* Horizontal padding */
+    
+    /* Cursor */
+    cursor: pointer;
+    
+    /* UI Properties */
+    opacity: 1;
+    
+    /* Transitions */
+    transition: background-color 0.3s ease-out, opacity 0.3s ease-out;
+    
+    /* Display */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Remove default button styles */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Primary Button Hover State */
+.btn-primary:hover:not(:disabled),
+[class*="btn-primary"]:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+    transition: background-color 0.3s ease-out;
+}
+
+/* Primary Button Disabled State */
+.btn-primary:disabled,
+[class*="btn-primary"]:disabled {
+    background-color: var(--color-gray-2);
+    color: var(--color-gray-n);
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+/* Primary Button Disabled Hover State */
+.btn-primary:disabled:hover,
+[class*="btn-primary"]:disabled:hover {
+    background-color: var(--color-gray-2);
+    color: var(--color-gray-n);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+/* Primary Button Focus State for Accessibility */
+.btn-primary:focus,
+[class*="btn-primary"]:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.btn-primary:focus:not(:focus-visible),
+[class*="btn-primary"]:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Primary Button Active State */
+.btn-primary:active:not(:disabled),
+[class*="btn-primary"]:active:not(:disabled) {
+    background-color: var(--color-primary-hover);
+    transform: translateY(1px);
+}
+
+/* Secondary Button Base Styles */
+.btn-secondary,
+[class*="btn-secondary"] {
+    /* Layout Properties */
+    width: auto;
+    min-width: 87px;
+    height: 32px;
+    
+    /* Typography */
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph); /* 1.4rem / 14px */
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    
+    /* Colors */
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    
+    /* Border Radius */
+    border-radius: var(--radius-sm); /* 2px */
+    
+    /* Spacing */
+    padding: 0 var(--spacing-sm); /* Horizontal padding */
+    
+    /* Cursor */
+    cursor: pointer;
+    
+    /* UI Properties */
+    opacity: 1;
+    
+    /* Transitions */
+    transition: background-color 0.3s ease-out, border-color 0.3s ease-out, color 0.3s ease-out, opacity 0.3s ease-out;
+    
+    /* Display */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Remove default button styles */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Secondary Button Hover State */
+.btn-secondary:hover:not(:disabled),
+[class*="btn-secondary"]:hover:not(:disabled) {
+    background-color: var(--color-gray-1);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    transition: background-color 0.3s ease-out, border-color 0.3s ease-out, color 0.3s ease-out;
+}
+
+/* Secondary Button Disabled State */
+.btn-secondary:disabled,
+[class*="btn-secondary"]:disabled {
+    background-color: transparent;
+    color: var(--color-gray-n);
+    border-color: var(--color-gray-2);
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+/* Secondary Button Disabled Hover State */
+.btn-secondary:disabled:hover,
+[class*="btn-secondary"]:disabled:hover {
+    background-color: transparent;
+    color: var(--color-gray-n);
+    border-color: var(--color-gray-2);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+/* Secondary Button Focus State for Accessibility */
+.btn-secondary:focus,
+[class*="btn-secondary"]:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.btn-secondary:focus:not(:focus-visible),
+[class*="btn-secondary"]:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Secondary Button Hover State */
+.btn-secondary:hover:not(:disabled),
+[class*="btn-secondary"]:hover:not(:disabled) {
+    background-color: var(--color-gray-1);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    transition: background-color 0.3s ease-out, border-color 0.3s ease-out, color 0.3s ease-out;
+}
+
+/* Secondary Button Active State */
+.btn-secondary:active:not(:disabled),
+[class*="btn-secondary"]:active:not(:disabled) {
+    background-color: var(--color-gray-1);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(1px);
+}
+
+/* Button Size Variations - Shared */
+.btn-small,
+[class*="btn-small"] {
+    height: 28px;
+    font-size: var(--text-small);
+    padding: 0 var(--spacing-xs);
+}
+
+.btn-large,
+[class*="btn-large"] {
+    height: 40px;
+    font-size: var(--text-4);
+    padding: 0 var(--spacing-md);
+}
+
+/* Full Width Button - Shared */
+.btn-full-width,
+[class*="btn-full-width"] {
+    width: 100%;
+}
+
+/* Button Icon Support - Shared */
+.btn-primary .btn-icon,
+.btn-secondary .btn-icon,
+.btn-link .btn-icon,
+[class*="btn-primary"] [class*="btn-icon"],
+[class*="btn-secondary"] [class*="btn-icon"],
+[class*="btn-link"] [class*="btn-icon"] {
+    display: inline-flex;
+    align-items: center;
+    margin-right: var(--spacing-xs);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.btn-primary .btn-icon svg,
+.btn-secondary .btn-icon svg,
+.btn-link .btn-icon svg,
+[class*="btn-primary"] [class*="btn-icon"] svg,
+[class*="btn-secondary"] [class*="btn-icon"] svg,
+[class*="btn-link"] [class*="btn-icon"] svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+
+/* Icon-only buttons - Shared */
+.btn-primary.btn-icon-only,
+.btn-secondary.btn-icon-only,
+[class*="btn-primary"][class*="btn-icon-only"],
+[class*="btn-secondary"][class*="btn-icon-only"] {
+    width: 32px;
+    padding: 0;
+    justify-content: center;
+}
+
+.btn-primary.btn-icon-only .btn-icon,
+.btn-secondary.btn-icon-only .btn-icon,
+[class*="btn-primary"][class*="btn-icon-only"] [class*="btn-icon"],
+[class*="btn-secondary"][class*="btn-icon-only"] [class*="btn-icon"] {
+    margin-right: 0;
+}
+
+/* Link Button Base Styles - Shared */
+.btn-link,
+[class*="btn-link"] {
+    /* Layout Properties */
+    height: auto;
+    min-height: 32px;
+    
+    /* Typography */
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph); /* 1.4rem / 14px */
+    font-weight: 700;
+    line-height: 1;
+    text-align: left;
+    
+    /* Colors */
+    background-color: transparent;
+    color: var(--color-primary);
+    border: none;
+    
+    /* Border Radius */
+    border-radius: 0;
+    
+    /* Spacing */
+    padding: 0;
+    
+    /* Cursor */
+    cursor: pointer;
+    
+    /* UI Properties */
+    opacity: 1;
+    
+    /* Transitions */
+    transition: color 0.3s ease-out;
+    
+    /* Display */
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    /* Remove default button styles */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-decoration: none;
+}
+
+/* Link Button Hover State - Darkens text */
+.btn-link:hover:not(:disabled),
+[class*="btn-link"]:hover:not(:disabled) {
+    color: var(--color-primary-hover);
+    transition: color 0.3s ease-out;
+}
+
+/* Link Button Disabled State */
+.btn-link:disabled,
+[class*="btn-link"]:disabled {
+    color: var(--color-gray-n);
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+/* Link Button Disabled Hover State */
+.btn-link:disabled:hover,
+[class*="btn-link"]:disabled:hover {
+    color: var(--color-gray-n);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+/* Link Button Focus State for Accessibility */
+.btn-link:focus,
+[class*="btn-link"]:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+.btn-link:focus:not(:focus-visible),
+[class*="btn-link"]:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Link Button Active State */
+.btn-link:active:not(:disabled),
+[class*="btn-link"]:active:not(:disabled) {
+    color: var(--color-primary-hover);
+    transform: translateY(1px);
+}
+
+/* Link Button with Icon */
+.btn-link .btn-icon,
+[class*="btn-link"] [class*="btn-icon"] {
+    margin-right: var(--spacing-xs);
+}

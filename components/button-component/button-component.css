@@ -1,0 +1,211 @@
+/**
+ * Button Component - Primary and Secondary Buttons
+ * Based on Adobe XD specifications
+ */
+
+/* Base Button Styles */
+.btn-primary {
+    /* Layout Properties */
+    width: 90px;
+    height: 32px;
+    
+    /* Typography */
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph); /* 1.4rem / 14px */
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    
+    /* Colors */
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    
+    /* Border Radius */
+    border-radius: var(--radius-sm); /* 2px */
+    
+    /* Spacing */
+    padding: 0 var(--spacing-sm); /* Horizontal padding */
+    
+    /* Cursor */
+    cursor: pointer;
+    
+    /* UI Properties */
+    opacity: 1;
+    
+    /* Transitions */
+    transition: background-color 0.3s ease-out, opacity 0.3s ease-out;
+    
+    /* Display */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Remove default button styles */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Hover State */
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+    transition: background-color 0.3s ease-out;
+}
+
+/* Disabled State */
+.btn-primary:disabled {
+    background-color: var(--color-gray-2);
+    color: var(--color-gray-n);
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+/* Disabled Hover State */
+.btn-primary:disabled:hover {
+    background-color: var(--color-gray-2);
+    color: var(--color-gray-n);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+/* Focus State for Accessibility */
+.btn-primary:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.btn-primary:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Active State */
+.btn-primary:active:not(:disabled) {
+    background-color: var(--color-primary-hover);
+    transform: translateY(1px);
+}
+
+/* Button Sizes (optional variations) */
+.btn-primary.btn-small {
+    height: 28px;
+    font-size: var(--text-small);
+    padding: 0 var(--spacing-xs);
+}
+
+.btn-primary.btn-large {
+    height: 40px;
+    font-size: var(--text-4);
+    padding: 0 var(--spacing-md);
+}
+
+/* Full Width Button */
+.btn-primary.btn-full-width {
+    width: 100%;
+}
+
+/* Secondary Button Styles */
+.btn-secondary {
+    /* Layout Properties */
+    width: 87px;
+    height: 32px;
+    
+    /* Typography */
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph); /* 1.4rem / 14px */
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    
+    /* Colors */
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    
+    /* Border Radius */
+    border-radius: var(--radius-sm); /* 2px */
+    
+    /* Spacing */
+    padding: 0 var(--spacing-sm); /* Horizontal padding */
+    
+    /* Cursor */
+    cursor: pointer;
+    
+    /* UI Properties */
+    opacity: 1;
+    
+    /* Transitions */
+    transition: background-color 0.3s ease-out, border-color 0.3s ease-out, color 0.3s ease-out, opacity 0.3s ease-out;
+    
+    /* Display */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Remove default button styles */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Secondary Button Hover State */
+.btn-secondary:hover:not(:disabled) {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+    transition: background-color 0.3s ease-out, border-color 0.3s ease-out, color 0.3s ease-out;
+}
+
+/* Secondary Button Disabled State */
+.btn-secondary:disabled {
+    background-color: transparent;
+    color: var(--color-gray-n);
+    border-color: var(--color-gray-2);
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+/* Secondary Button Disabled Hover State */
+.btn-secondary:disabled:hover {
+    background-color: transparent;
+    color: var(--color-gray-n);
+    border-color: var(--color-gray-2);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+/* Secondary Button Focus State for Accessibility */
+.btn-secondary:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.btn-secondary:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Secondary Button Active State */
+.btn-secondary:active:not(:disabled) {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: var(--color-white);
+    transform: translateY(1px);
+}
+
+/* Secondary Button Sizes (optional variations) */
+.btn-secondary.btn-small {
+    height: 28px;
+    font-size: var(--text-small);
+    padding: 0 var(--spacing-xs);
+}
+
+.btn-secondary.btn-large {
+    height: 40px;
+    font-size: var(--text-4);
+    padding: 0 var(--spacing-md);
+}
+
+/* Full Width Secondary Button */
+.btn-secondary.btn-full-width {
+    width: 100%;
+}
+

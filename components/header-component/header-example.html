@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../styles/base.css">
+    
+    <!-- Include Header Component -->
+    <link rel="stylesheet" href="header-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 0;
+            background: var(--color-gray-bg);
+        }
+        
+        main {
+            margin-top: 52.5px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+    <div id="header-panels-container"></div>
+    
+    <main>
+        <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Header Component Example</h1>
+        
+        <div class="example-section">
+            <h2>Features</h2>
+            <p class="description">
+                The header component provides a fixed navigation bar with:
+            </p>
+            <ul style="color: var(--color-gray-4); line-height: var(--line-height-relaxed);">
+                <li>S&P Global logo (clickable, links to home)</li>
+                <li>Product name display</li>
+                <li>Notification bell with badge counter</li>
+                <li>Help/question icon</li>
+                <li>User avatar with initials</li>
+                <li>Slide-out panels for user menu, help, and notifications</li>
+            </ul>
+        </div>
+        
+        <div class="example-section">
+            <h2>Usage</h2>
+            <p class="description">Click on the notification bell, help icon, or user avatar to see the slide-out panels in action.</p>
+            
+            <h3 style="font-size: var(--text-3); margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--color-gray-5);">Basic Implementation</h3>
+            <div class="code-example">
+&lt;!-- Add containers --&gt;
+&lt;div id="header-container"&gt;&lt;/div&gt;
+&lt;div id="header-panels-container"&gt;&lt;/div&gt;
+
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/header-component/header-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/header-component/header-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Initialize --&gt;
+&lt;script&gt;
+    initHeader({
+        productName: 'My Product',
+        userInitials: 'JD',
+        notificationCount: 3,
+        userName: 'John Doe',
+        userEmail: 'john.doe@company.com'
+    });
+&lt;/script&gt;
+            </div>
+        </div>
+        
+        <div class="example-section">
+            <h2>Configuration Options</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                <thead>
+                    <tr style="background: var(--color-gray-1);">
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid var(--color-gray-2);">Option</th>
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid var(--color-gray-2);">Type</th>
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid var(--color-gray-2);">Default</th>
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid var(--color-gray-2);">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);"><code>productName</code></td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">string</td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">''</td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">Product name displayed next to logo</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);"><code>userInitials</code></td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">string</td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">'U'</td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">User avatar initials (2 characters)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);"><code>notificationCount</code></td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">number</td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">0</td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">Number of notifications (badge appears if > 0)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);"><code>userName</code></td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">string</td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">''</td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">User's full name</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);"><code>userEmail</code></td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">string</td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">''</td>
+                        <td style="padding: 0.75rem; border: 1px solid var(--color-gray-2);">User's email address</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="example-section">
+            <h2>Important Notes</h2>
+            <ul style="color: var(--color-gray-4); line-height: var(--line-height-relaxed);">
+                <li><strong>Fixed Position:</strong> The header is fixed at the top. Add <code>margin-top: 52.5px;</code> to your main content.</li>
+                <li><strong>Z-index:</strong> Header has z-index 1000, panels have z-index 999, overlay has z-index 998.</li>
+                <li><strong>Responsive:</strong> Product name is hidden on screens smaller than 768px.</li>
+                <li><strong>Keyboard Support:</strong> Press Escape to close panels, Enter/Space on user avatar to open user panel.</li>
+            </ul>
+        </div>
+    </main>
+    
+    <script src="header-component.js"></script>
+    <script>
+        // Initialize header with example configuration
+        initHeader({
+            productName: 'Example Application',
+            userInitials: 'JD',
+            notificationCount: 5,
+            userName: 'John Doe',
+            userEmail: 'john.doe@company.com'
+        });
+    </script>
+</body>
+</html>
+

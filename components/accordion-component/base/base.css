@@ -1,0 +1,212 @@
+/**
+ * Accordion Component - Base Styles
+ * Shared base styles for all accordion implementations (vanilla, PrimeNG, Kendo)
+ * 
+ * These styles use design tokens from styles/base.css
+ * All implementations should import this file along with the root base.css
+ */
+
+/* Accordion Container Base */
+.accordion,
+[class*="accordion"] {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--color-gray-1);
+    border-radius: 0;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Accordion Header Base */
+.accordion-header,
+[class*="accordion-header"] {
+    /* Layout Properties */
+    width: 100%;
+    height: 32px;
+    min-height: 32px;
+    
+    /* Typography */
+    font-family: var(--font-primary);
+    font-size: 1.6rem; /* 16px */
+    font-weight: 400;
+    line-height: 1;
+    
+    /* Colors - Default (Closed) */
+    background-color: transparent;
+    color: var(--color-gray-5);
+    border: none;
+    border-top: 2px solid var(--color-gray-4);
+    
+    /* Spacing */
+    padding: 0 40px 0 9.5px;
+    
+    /* Cursor */
+    cursor: pointer;
+    
+    /* Display */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    
+    /* Remove default button styles */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-decoration: none;
+    
+    /* Transitions */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Accordion Header Hover State */
+.accordion-header:hover:not(:disabled),
+[class*="accordion-header"]:hover:not(:disabled) {
+    background-color: var(--color-gray-1);
+    color: #32363b;
+    font-weight: 700;
+    border-top-color: var(--color-brand);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Accordion Header Active/Open State */
+.accordion-header.active,
+.accordion-header[aria-expanded="true"],
+[class*="accordion-header"].active,
+[class*="accordion-header"][aria-expanded="true"] {
+    background-color: transparent;
+    color: #32363b;
+    font-weight: 700;
+    border-top-color: var(--color-brand);
+    box-shadow: 0 1px 2px rgba(193, 197, 202, 0.6);
+}
+
+/* Accordion Icon Base */
+.accordion-icon,
+[class*="accordion-icon"] {
+    position: absolute;
+    right: 9.5px;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.accordion-icon svg,
+[class*="accordion-icon"] svg {
+    width: 100%;
+    height: 100%;
+    stroke: var(--color-brand) !important;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.accordion-icon svg path,
+.accordion-icon svg line,
+[class*="accordion-icon"] svg path,
+[class*="accordion-icon"] svg line {
+    stroke: var(--color-brand) !important;
+}
+
+/* Chevron icon (closed state) */
+.accordion-icon .chevron-icon,
+[class*="accordion-icon"] [class*="chevron-icon"] {
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Horizontal line icon (open state) */
+.accordion-icon .horizontal-line,
+[class*="accordion-icon"] [class*="horizontal-line"] {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Accordion Icon - Closed (chevron visible) */
+.accordion-header:not(.active):not([aria-expanded="true"]) .accordion-icon .chevron-icon,
+[class*="accordion-header"]:not(.active):not([aria-expanded="true"]) [class*="accordion-icon"] [class*="chevron-icon"] {
+    opacity: 1;
+}
+
+.accordion-header:not(.active):not([aria-expanded="true"]) .accordion-icon .horizontal-line,
+[class*="accordion-header"]:not(.active):not([aria-expanded="true"]) [class*="accordion-icon"] [class*="horizontal-line"] {
+    opacity: 0;
+}
+
+/* Accordion Icon - Open (horizontal line visible) */
+.accordion-header.active .accordion-icon .chevron-icon,
+.accordion-header[aria-expanded="true"] .accordion-icon .chevron-icon,
+[class*="accordion-header"].active [class*="accordion-icon"] [class*="chevron-icon"],
+[class*="accordion-header"][aria-expanded="true"] [class*="accordion-icon"] [class*="chevron-icon"] {
+    opacity: 0;
+}
+
+.accordion-header.active .accordion-icon .horizontal-line,
+.accordion-header[aria-expanded="true"] .accordion-icon .horizontal-line,
+[class*="accordion-header"].active [class*="accordion-icon"] [class*="horizontal-line"],
+[class*="accordion-header"][aria-expanded="true"] [class*="accordion-icon"] [class*="horizontal-line"] {
+    opacity: 1;
+}
+
+/* Accordion Content Base */
+.accordion-content,
+[class*="accordion-content"] {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: transparent;
+}
+
+/* Accordion Content - Open */
+.accordion.active .accordion-content,
+.accordion[aria-expanded="true"] .accordion-content,
+[class*="accordion"].active [class*="accordion-content"],
+[class*="accordion"][aria-expanded="true"] [class*="accordion-content"] {
+    max-height: 2000px; /* Large enough for most content */
+}
+
+/* Accordion Content Inner */
+.accordion-content-inner,
+[class*="accordion-content-inner"] {
+    padding: 16px 9.5px;
+    color: var(--color-gray-5);
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    line-height: var(--line-height-relaxed);
+}
+
+/* Accordion Disabled State */
+.accordion-header:disabled,
+[class*="accordion-header"]:disabled {
+    color: var(--color-gray-n);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.accordion-header:disabled:hover,
+[class*="accordion-header"]:disabled:hover {
+    background-color: transparent;
+    border-top-color: var(--color-gray-4);
+    box-shadow: none;
+    font-weight: 400;
+}
+
+/* Focus State for Accessibility */
+.accordion-header:focus,
+[class*="accordion-header"]:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+}
+
+.accordion-header:focus:not(:focus-visible),
+[class*="accordion-header"]:focus:not(:focus-visible) {
+    outline: none;
+}
+

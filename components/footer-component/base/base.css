@@ -1,0 +1,135 @@
+/**
+ * Footer Component - Base Styles
+ * Shared base styles for all footer implementations (vanilla, PrimeNG, Kendo)
+ * 
+ * These styles use design tokens from styles/base.css
+ * All implementations should import this file along with the root base.css
+ */
+
+/* Footer Base Styles - Shared across all implementations */
+/* These styles define the core footer appearance and behavior */
+
+/* Footer Container Base */
+.footer,
+[class*="footer"] {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #4c4b4c;
+    z-index: 100;
+    transition: height 0.3s ease;
+    overflow: hidden;
+}
+
+/* Footer States */
+.footer.closed,
+[class*="footer"].closed {
+    height: 24px;
+}
+
+.footer.open,
+[class*="footer"].open {
+    height: 96px;
+}
+
+/* Footer Content */
+.footer-content,
+[class*="footer-content"] {
+    width: 100%;
+    height: 24px;
+    position: relative;
+}
+
+.footer.open .footer-content,
+[class*="footer"].open [class*="footer-content"] {
+    height: 27px;
+}
+
+/* Footer Copyright */
+.footer-copyright,
+[class*="footer-copyright"] {
+    font-size: 14px;
+    color: #fff;
+    font-family: 'Akkurat LL', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 24px;
+    position: absolute;
+    left: 16.001px;
+    top: 0;
+    transition: top 0.3s ease;
+}
+
+.footer.open .footer-copyright,
+[class*="footer"].open [class*="footer-copyright"] {
+    top: 26.797px;
+    line-height: 1;
+}
+
+/* Footer Toggle Button */
+.footer-toggle,
+[class*="footer-toggle"] {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 11px;
+    top: 5px;
+    transition: top 0.3s ease;
+    z-index: 101;
+}
+
+.footer.open .footer-toggle,
+[class*="footer"].open [class*="footer-toggle"] {
+    right: 11px;
+    top: 11.4px;
+}
+
+/* Footer Expanded Content */
+.footer-expanded-content,
+[class*="footer-expanded-content"] {
+    display: none;
+    width: 100%;
+    height: 69px;
+    position: absolute;
+    top: 27px;
+    left: 0;
+}
+
+.footer.open .footer-expanded-content,
+[class*="footer"].open [class*="footer-expanded-content"] {
+    display: block;
+}
+
+/* Footer Links */
+.footer-links,
+[class*="footer-links"] {
+    font-size: 14px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+    white-space: pre;
+    position: absolute;
+    left: 16px;
+    top: 21px;
+}
+
+/* Footer Logo Section */
+.footer-logo-section,
+[class*="footer-logo-section"] {
+    position: absolute;
+    right: 16px;
+    top: 2px;
+    width: 182.963px;
+    height: 50px;
+    overflow: visible;
+}
+
+/* Note: Implementation-specific styles (toggle icons, animations, etc.) should be added
+ * in the respective library folders (vanilla/, primeng-angular/, etc.) */
+

@@ -1,0 +1,126 @@
+/**
+ * Left Navigation Component - Base Styles
+ * Shared base styles for all left navigation implementations (vanilla, PrimeNG, Kendo)
+ * 
+ * These styles use design tokens from styles/base.css
+ * All implementations should import this file along with the root base.css
+ */
+
+/* Left Navigation Panel Base */
+.left-nav,
+[class*="left-nav"] {
+    width: 361px;
+    background: var(--color-gray-bg);
+    border-right: 1px solid #eaeef3;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+/* Navigation List Base */
+.nav-list,
+[class*="nav-list"] {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation Item Base */
+.nav-item,
+[class*="nav-item"] {
+    position: relative;
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    
+    /* Typography */
+    font-family: var(--font-primary);
+    font-size: 1.6rem; /* 16px */
+    color: #32363b;
+}
+
+/* Navigation Item Hover State */
+.nav-item:hover:not(:disabled),
+[class*="nav-item"]:hover:not(:disabled) {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+/* Navigation Item Active State */
+.nav-item.active,
+[class*="nav-item"].active,
+.nav-item[aria-selected="true"],
+[class*="nav-item"][aria-selected="true"] {
+    background: #f0f0f0;
+}
+
+/* Navigation Item Active Accent Bar */
+.nav-item.active::after,
+[class*="nav-item"].active::after,
+.nav-item[aria-selected="true"]::after,
+[class*="nav-item"][aria-selected="true"]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--color-brand);
+}
+
+/* GP Item Base */
+.nav-item.gp,
+[class*="nav-item"].gp,
+[class*="nav-item"][class*="gp"] {
+    padding-left: 10px;
+    font-weight: 700;
+    color: #32363b;
+}
+
+.nav-item.active.gp,
+[class*="nav-item"].active.gp,
+.nav-item.active[class*="gp"],
+[class*="nav-item"].active[class*="gp"] {
+    color: var(--color-brand);
+}
+
+/* Fund Item Base */
+.nav-item.fund,
+[class*="nav-item"].fund,
+[class*="nav-item"][class*="fund"] {
+    padding-left: 20px;
+    font-weight: 400;
+    color: #32363b;
+}
+
+.nav-item.active.fund,
+[class*="nav-item"].active.fund,
+.nav-item.active[class*="fund"],
+[class*="nav-item"].active[class*="fund"] {
+    color: var(--color-brand);
+}
+
+/* Navigation Divider Base */
+.nav-divider,
+[class*="nav-divider"] {
+    width: 100%;
+    height: 1px;
+    background: #eaeef3;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+/* Focus State for Accessibility */
+.nav-item:focus,
+[class*="nav-item"]:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+}
+
+.nav-item:focus:not(:focus-visible),
+[class*="nav-item"]:focus:not(:focus-visible) {
+    outline: none;
+}
+

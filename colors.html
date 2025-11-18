@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors - Design System</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="components/header-component/vanilla/header-component.css">
+    <link rel="stylesheet" href="components/footer-component/vanilla/footer-component.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-container"></div>
+    <div id="header-panels-container"></div>
+
+    <!-- Main Content -->
+    <main class="design-system-main">
+        <div class="design-system-container">
+            <!-- Sidebar Navigation -->
+            <aside class="design-system-sidebar">
+                <nav class="design-system-nav">
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Foundation</h3>
+                        <ul class="nav-list">
+                            <li><a href="index.html" class="nav-link">Overview</a></li>
+                            <li><a href="colors.html" class="nav-link active">Colors</a></li>
+                            <li><a href="typography.html" class="nav-link">Typography</a></li>
+                            <li><a href="icons.html" class="nav-link">Icons</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Components</h3>
+                        <ul class="nav-list">
+                            <li><a href="components.html" class="nav-link">All Components</a></li>
+                            <li><a href="components.html#header" class="nav-link nav-sublink">Header</a></li>
+                            <li><a href="components.html#footer" class="nav-link nav-sublink">Footer</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="design-system-content">
+                <div class="content-wrapper">
+                    <h1 class="page-title">Colors</h1>
+                    <p class="page-intro">Our color palette provides a consistent visual language across all interfaces. Use these colors to maintain brand consistency and create accessible designs.</p>
+
+                    <section class="section">
+                        <h2 class="section-title">Primary Colors</h2>
+                        <div class="color-grid">
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-brand);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-brand</div>
+                                    <div class="color-swatch-hex">#d6002a</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-primary);">
+                                    <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background-color: var(--color-primary-hover);"></div>
+                                </div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-primary</div>
+                                    <div class="color-swatch-hex">#006d89</div>
+                                    <div class="color-swatch-hex" style="margin-top: 4px; font-size: 1rem;">Hover: #00495b</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-info);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-info</div>
+                                    <div class="color-swatch-hex">#782080</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-success);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-success</div>
+                                    <div class="color-swatch-hex">#009900</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-attention);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-attention</div>
+                                    <div class="color-swatch-hex">#C56C00</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-link);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-link</div>
+                                    <div class="color-swatch-hex">#006d89</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-warning);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-warning</div>
+                                    <div class="color-swatch-hex">#8f001c</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Grayscale & Neutrals</h2>
+                        <div class="color-grid">
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-gray-bg); border: 1px solid var(--color-gray-2);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-gray-bg</div>
+                                    <div class="color-swatch-hex">#f8f8f8</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-gray-1);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-gray-1</div>
+                                    <div class="color-swatch-hex">#eeeeee</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-gray-2);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-gray-2</div>
+                                    <div class="color-swatch-hex">#cccccc</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-gray-n);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-gray-n</div>
+                                    <div class="color-swatch-hex">#999999</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-gray-4);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-gray-4</div>
+                                    <div class="color-swatch-hex">#5c5c5c</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-gray-5);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-gray-5</div>
+                                    <div class="color-swatch-hex">#1a1a1a</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-black);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-black</div>
+                                    <div class="color-swatch-hex">#000000</div>
+                                </div>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-swatch-preview" style="background-color: var(--color-white); border: 1px solid var(--color-gray-2);"></div>
+                                <div class="color-swatch-info">
+                                    <div class="color-swatch-name">color-white</div>
+                                    <div class="color-swatch-hex">#FFFFFF</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Usage</h2>
+                        <p>Colors are available as CSS variables throughout the design system. Use them in your stylesheets like this:</p>
+                        <div class="code-block">
+:root {
+    --color-brand: #d6002a;
+    --color-primary: #006d89;
+    --color-primary-hover: #00495b;
+    /* ... */
+}
+
+.my-element {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="components/header-component/vanilla/header-component.js"></script>
+    <script src="components/footer-component/vanilla/footer-component.js"></script>
+    <script>
+        initHeader({
+            productName: 'Design System',
+            userInitials: 'DS',
+            notificationCount: 0
+        });
+    </script>
+</body>
+</html>
+

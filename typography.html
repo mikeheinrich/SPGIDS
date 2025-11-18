@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography - Design System</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="components/header-component/vanilla/header-component.css">
+    <link rel="stylesheet" href="components/footer-component/vanilla/footer-component.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-container"></div>
+    <div id="header-panels-container"></div>
+
+    <!-- Main Content -->
+    <main class="design-system-main">
+        <div class="design-system-container">
+            <!-- Sidebar Navigation -->
+            <aside class="design-system-sidebar">
+                <nav class="design-system-nav">
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Foundation</h3>
+                        <ul class="nav-list">
+                            <li><a href="index.html" class="nav-link">Overview</a></li>
+                            <li><a href="colors.html" class="nav-link">Colors</a></li>
+                            <li><a href="typography.html" class="nav-link active">Typography</a></li>
+                            <li><a href="icons.html" class="nav-link">Icons</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Components</h3>
+                        <ul class="nav-list">
+                            <li><a href="components.html" class="nav-link">All Components</a></li>
+                            <li><a href="components.html#header" class="nav-link nav-sublink">Header</a></li>
+                            <li><a href="components.html#footer" class="nav-link nav-sublink">Footer</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="design-system-content">
+                <div class="content-wrapper">
+                    <h1 class="page-title">Typography</h1>
+                    <p class="page-intro">Our typography system uses Akkurat LL as the primary font family with Arial as a fallback. The base font size is 1.4rem (14px) with 1rem = 10px.</p>
+
+                    <section class="section">
+                        <h2 class="section-title">Text Styles</h2>
+                        
+                        <div class="typography-example">
+                            <div class="typography-example-label">Text Jumbo</div>
+                            <div class="typography-example-text text-jumbo" style="color: var(--color-gray-5);">Text Jumbo - 3.6rem</div>
+                            <div class="typography-example-specs">
+                                Font: Akkurat LL - Regular<br>
+                                Letter spacing: -10<br>
+                                Fallback font: Arial Regular<br>
+                                Color: Gray-5
+                            </div>
+                        </div>
+
+                        <div class="typography-example">
+                            <div class="typography-example-label">Text 1</div>
+                            <div class="typography-example-text text-1" style="color: var(--color-gray-5);">Text 1 - 2.4rem</div>
+                            <div class="typography-example-specs">
+                                Font: Akkurat LL - Regular<br>
+                                Fallback font: Arial Regular<br>
+                                Color: Gray-5
+                            </div>
+                        </div>
+
+                        <div class="typography-example">
+                            <div class="typography-example-label">Text 2</div>
+                            <div class="typography-example-text text-2" style="color: var(--color-gray-5);">Text 2 - 2rem</div>
+                            <div class="typography-example-specs">
+                                Font: Akkurat LL - Regular<br>
+                                Fallback font: Arial Regular<br>
+                                Color: Gray-5
+                            </div>
+                        </div>
+
+                        <div class="typography-example">
+                            <div class="typography-example-label">Text 3</div>
+                            <div class="typography-example-text text-3" style="color: var(--color-gray-5);">Text 3 - 1.8rem</div>
+                            <div class="typography-example-specs">
+                                Line-height: 130%<br>
+                                Font: Akkurat LL - Regular<br>
+                                Fallback font: Arial Regular<br>
+                                Color: Gray-5
+                            </div>
+                        </div>
+
+                        <div class="typography-example">
+                            <div class="typography-example-label">Text 4</div>
+                            <div class="typography-example-text text-4" style="color: var(--color-gray-5);">Text 4 - 1.6rem</div>
+                            <div class="typography-example-specs">
+                                Line-height: 130%<br>
+                                Font: Akkurat LL - Regular<br>
+                                Fallback font: Arial Regular<br>
+                                Color: Gray-5
+                            </div>
+                        </div>
+
+                        <div class="typography-example">
+                            <div class="typography-example-label">Paragraph</div>
+                            <div class="typography-example-text text-paragraph" style="color: var(--color-gray-5);">Paragraph - 1.4rem</div>
+                            <div class="typography-example-specs">
+                                Line-height: 130%<br>
+                                Font: Akkurat LL - Regular<br>
+                                Fallback font: Arial regular<br>
+                                Color: Gray-5
+                            </div>
+                        </div>
+
+                        <div class="typography-example">
+                            <div class="typography-example-label">Small Text</div>
+                            <div class="typography-example-text text-small" style="color: var(--color-gray-5);">Small Text - 1.2rem</div>
+                            <div class="typography-example-specs">
+                                Line-height: 130%<br>
+                                Font: Akkurat LL - Regular<br>
+                                Fallback font: Arial regular<br>
+                                Color: Gray-5
+                            </div>
+                        </div>
+
+                        <div class="typography-example">
+                            <div class="typography-example-label">Extra Small Text</div>
+                            <div class="typography-example-text text-extra-small" style="color: var(--color-gray-5);">Extra Small Text - 1.1rem</div>
+                            <div class="typography-example-specs">
+                                Line-height: 130%<br>
+                                Font: Akkurat LL - Regular<br>
+                                Fallback font: Arial regular<br>
+                                Color: Gray-5
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Font Family</h2>
+                        <p>Our primary font is <strong>Akkurat LL</strong> with <strong>Arial</strong> as the fallback. The font stack is:</p>
+                        <div class="code-block">
+font-family: 'Akkurat LL', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Usage</h2>
+                        <p>Typography styles are available as CSS classes and variables:</p>
+                        <div class="code-block">
+/* Using CSS classes */
+&lt;h1 class="text-1"&gt;Heading&lt;/h1&gt;
+&lt;p class="text-paragraph"&gt;Body text&lt;/p&gt;
+
+/* Using CSS variables */
+.my-heading {
+    font-size: var(--text-1);
+    font-family: var(--font-primary);
+    color: var(--color-gray-5);
+}
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="components/header-component/vanilla/header-component.js"></script>
+    <script src="components/footer-component/vanilla/footer-component.js"></script>
+    <script>
+        initHeader({
+            productName: 'Design System',
+            userInitials: 'DS',
+            notificationCount: 0
+        });
+    </script>
+</body>
+</html>
+

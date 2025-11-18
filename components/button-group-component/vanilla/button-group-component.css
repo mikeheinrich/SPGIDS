@@ -1,0 +1,118 @@
+/**
+ * Button Group Component - Vanilla Implementation
+ * Button groups act like tabs or radio buttons with one selected item
+ */
+
+/* Import base styles */
+/* Base styles are in base/base.css and should be imported separately */
+
+/* Button Group Container */
+.btn-group {
+    display: inline-flex;
+    border: 1px solid var(--color-gray-2);
+    border-radius: 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Button Group Item */
+.btn-group-item {
+    /* Layout Properties */
+    width: 90px;
+    height: 32px;
+    
+    /* Typography */
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph); /* 1.4rem / 14px */
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    
+    /* Colors - Default (Inactive) */
+    background-color: transparent;
+    color: var(--color-gray-4);
+    border: none;
+    border-right: 1px solid var(--color-gray-2);
+    
+    /* Border Radius */
+    border-radius: 0;
+    
+    /* Spacing */
+    padding: 0;
+    
+    /* Cursor */
+    cursor: pointer;
+    
+    /* UI Properties */
+    opacity: 1;
+    
+    /* Transitions */
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    
+    /* Display */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Remove default button styles */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-decoration: none;
+    
+    /* Position for top border */
+    position: relative;
+}
+
+/* Remove right border from last item */
+.btn-group-item:last-child {
+    border-right: none;
+}
+
+/* Active/Selected State */
+.btn-group-item.active,
+.btn-group-item[aria-selected="true"] {
+    background-color: var(--color-gray-1);
+    color: var(--color-brand);
+}
+
+/* Active State Top Border */
+.btn-group-item.active::before,
+.btn-group-item[aria-selected="true"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-brand);
+}
+
+/* Hover State (for inactive items) */
+.btn-group-item:hover:not(.active):not([aria-selected="true"]) {
+    background-color: rgba(0, 0, 0, 0.02);
+    transition: background-color 0.3s ease-out;
+}
+
+/* Focus State for Accessibility */
+.btn-group-item:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+    z-index: 1;
+}
+
+.btn-group-item:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Disabled State */
+.btn-group-item:disabled {
+    color: var(--color-gray-n);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-group-item:disabled:hover {
+    background-color: transparent;
+}
+

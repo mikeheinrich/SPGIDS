@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System - S&P Global</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="components/header-component/vanilla/header-component.css">
+    <link rel="stylesheet" href="components/footer-component/vanilla/footer-component.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-container"></div>
+    <div id="header-panels-container"></div>
+
+    <!-- Main Content -->
+    <main class="design-system-main">
+        <div class="design-system-container">
+            <!-- Sidebar Navigation -->
+            <aside class="design-system-sidebar">
+                <nav class="design-system-nav">
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Foundation</h3>
+                        <ul class="nav-list">
+                            <li><a href="index.html" class="nav-link active">Overview</a></li>
+                            <li><a href="colors.html" class="nav-link">Colors</a></li>
+                            <li><a href="typography.html" class="nav-link">Typography</a></li>
+                            <li><a href="icons.html" class="nav-link">Icons</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Components</h3>
+                        <ul class="nav-list">
+                            <li><a href="components.html" class="nav-link">All Components</a></li>
+                            <li><a href="components.html#button" class="nav-link nav-sublink">Button</a></li>
+                            <li><a href="components.html#list-group" class="nav-link nav-sublink">List Group</a></li>
+                            <li><a href="components.html#left-nav" class="nav-link nav-sublink">In-Page Nav</a></li>
+                            <li><a href="components.html#alert" class="nav-link nav-sublink">Alert</a></li>
+                            <li><a href="components.html#header" class="nav-link nav-sublink">Header</a></li>
+                            <li><a href="components.html#footer" class="nav-link nav-sublink">Footer</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="design-system-content">
+                <div class="content-wrapper">
+                    <h1 class="page-title">Design System</h1>
+                    <p class="page-intro">Welcome to the S&P Global Design System. This is a living library of reusable components, design tokens, and guidelines for building consistent user interfaces.</p>
+
+                    <section class="section">
+                        <h2 class="section-title">Getting Started</h2>
+                        <p>This design system provides a foundation for building consistent, accessible, and maintainable user interfaces. Start by exploring the foundation elements, then dive into the component library.</p>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Foundation</h2>
+                        <div class="card-grid">
+                            <a href="colors.html" class="card">
+                                <h3 class="card-title">Colors</h3>
+                                <p class="card-description">Primary colors, grayscale, and utility colors for consistent theming.</p>
+                            </a>
+                            <a href="typography.html" class="card">
+                                <h3 class="card-title">Typography</h3>
+                                <p class="card-description">Text styles, font families, and sizing scale for readable content.</p>
+                            </a>
+                            <a href="icons.html" class="card">
+                                <h3 class="card-title">Icons</h3>
+                                <p class="card-description">SVG icon library with consistent styling and theming.</p>
+                            </a>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Components</h2>
+                        <div class="card-grid">
+                            <a href="components.html#button" class="card">
+                                <h3 class="card-title">Button</h3>
+                                <p class="card-description">Primary button component with multiple states and size variations.</p>
+                            </a>
+                            <a href="components.html#list-group" class="card">
+                                <h3 class="card-title">List Group</h3>
+                                <p class="card-description">Simple list of selectable items with active states.</p>
+                            </a>
+                            <a href="components.html#left-nav" class="card">
+                                <h3 class="card-title">In-Page Nav</h3>
+                                <p class="card-description">Hierarchical navigation with parent and child structure.</p>
+                            </a>
+                            <a href="components.html#alert" class="card">
+                                <h3 class="card-title">Alert</h3>
+                                <p class="card-description">Banner-style alerts for displaying important messages.</p>
+                            </a>
+                            <a href="components.html#header" class="card">
+                                <h3 class="card-title">Header</h3>
+                                <p class="card-description">Fixed header with logo, navigation, and user actions.</p>
+                            </a>
+                            <a href="components.html#footer" class="card">
+                                <h3 class="card-title">Footer</h3>
+                                <p class="card-description">Collapsible footer with copyright and links.</p>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="components/header-component/vanilla/header-component.js"></script>
+    <script src="components/footer-component/vanilla/footer-component.js"></script>
+    <script>
+        // Initialize header
+        initHeader({
+            productName: 'Design System',
+            userInitials: 'DS',
+            notificationCount: 0
+        });
+    </script>
+</body>
+</html>
+

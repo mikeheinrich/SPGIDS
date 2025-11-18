@@ -1,0 +1,169 @@
+/**
+ * Alert Component - Base Styles
+ * Shared base styles for all alert implementations (vanilla, PrimeNG, Kendo)
+ * 
+ * These styles use design tokens from styles/base.css
+ * All implementations should import this file along with the root base.css
+ */
+
+/* Alert Container Base */
+.alert,
+[class*="alert"] {
+    position: relative;
+    width: 100%;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 34px 0 9px;
+    border-radius: 0;
+    border: none;
+    
+    /* Typography */
+    font-family: var(--font-primary);
+    font-size: 1.4rem; /* 14px */
+    line-height: 1.4;
+    color: #32363b;
+}
+
+/* Alert Text */
+.alert-text,
+[class*="alert-text"] {
+    flex: 1;
+    color: #32363b;
+    font-weight: 400;
+}
+
+.alert-text strong,
+.alert-text .alert-label,
+[class*="alert-text"] strong,
+[class*="alert-text"] [class*="alert-label"] {
+    font-weight: 700;
+    color: #32363b;
+}
+
+/* Alert Icon (leading icon for success/attention) */
+.alert-icon,
+[class*="alert-icon"] {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+}
+
+.alert-icon svg,
+[class*="alert-icon"] svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.alert-icon svg path,
+[class*="alert-icon"] svg path,
+.alert-icon svg circle,
+[class*="alert-icon"] svg circle,
+.alert-icon svg line,
+[class*="alert-icon"] svg line {
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+/* Alert Close Button */
+.alert-close,
+[class*="alert-close"] {
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--color-gray-4);
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+}
+
+.alert-close:hover,
+[class*="alert-close"]:hover {
+    opacity: 0.7;
+}
+
+.alert-close svg,
+[class*="alert-close"] svg {
+    width: 100%;
+    height: 100%;
+}
+
+.alert-close svg circle,
+[class*="alert-close"] svg circle {
+    fill: #5c5c5c;
+}
+
+.alert-close svg line,
+[class*="alert-close"] svg line {
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-width: 1.5;
+}
+
+/* Alert Variants - Success */
+.alert-success,
+[class*="alert-success"],
+.alert.alert-success,
+[class*="alert"].alert-success {
+    background-color: #e5f5e5; /* Light green tint */
+    border-top: 2px solid #090;
+    color: #32363b;
+}
+
+.alert-success .alert-icon,
+[class*="alert-success"] [class*="alert-icon"],
+.alert.alert-success .alert-icon {
+    color: var(--color-success);
+}
+
+/* Alert Variants - Attention/Warning */
+.alert-attention,
+[class*="alert-attention"],
+.alert.alert-attention {
+    background-color: #fff4e6; /* Light orange tint */
+    border-top: 2px solid var(--color-attention);
+    color: #32363b;
+}
+
+.alert-attention .alert-icon,
+[class*="alert-attention"] [class*="alert-icon"],
+.alert.alert-attention .alert-icon {
+    color: var(--color-attention);
+}
+
+/* Alert Variants - Default (explicit) */
+.alert-default,
+[class*="alert-default"],
+.alert.alert-default {
+    background-color: var(--color-gray-1);
+    border-top: 2px solid var(--color-gray-4);
+    color: #32363b;
+}
+
+/* Focus State for Accessibility */
+.alert-close:focus,
+[class*="alert-close"]:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.alert-close:focus:not(:focus-visible),
+[class*="alert-close"]:focus:not(:focus-visible) {
+    outline: none;
+}

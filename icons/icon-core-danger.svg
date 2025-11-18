@@ -1,0 +1,9 @@
+<svg id="icon-core-danger" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="Group_3257" data-name="Group 3257" transform="translate(-1 -0.998)">
+    <g id="Ellipse_27" data-name="Ellipse 27" transform="translate(1 0.998)" fill="none" stroke="#707070" stroke-width="1.5">
+      <circle cx="8" cy="8" r="8" stroke="none"/>
+      <circle cx="8" cy="8" r="7.25" fill="none"/>
+    </g>
+    <line id="Line_1081" data-name="Line 1081" x2="11" y2="11" transform="translate(3.5 3.498)" fill="none" stroke="#707070" stroke-width="1.5"/>
+  </g>
+</svg>

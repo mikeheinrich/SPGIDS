@@ -1,0 +1,145 @@
+/**
+ * Footer Component Styles - Shareable Export
+ * 
+ * Include this CSS file in your <head> section:
+ * <link rel="stylesheet" href="path/to/footer-component.css">
+ * 
+ * REQUIRED FONTS:
+ * - 'Akkurat LL' (or similar sans-serif fallback)
+ * - Arial (for footer links)
+ */
+
+/* Footer Base Styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #4c4b4c;
+    z-index: 100;
+    transition: height 0.3s ease;
+    overflow: hidden;
+}
+
+.footer.closed {
+    height: 24px;
+}
+
+.footer.open {
+    height: 96px;
+}
+
+.footer-content {
+    width: 100%;
+    height: 24px;
+    position: relative;
+}
+
+.footer.open .footer-content {
+    height: 27px;
+}
+
+.footer-copyright {
+    font-size: 14px;
+    color: #fff;
+    font-family: 'Akkurat LL', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 24px;
+    position: absolute;
+    left: 16.001px;
+    top: 0;
+    transition: top 0.3s ease;
+}
+
+.footer.open .footer-copyright {
+    top: 26.797px;
+    line-height: 1;
+}
+
+.footer.closed .footer-copyright {
+    top: 0;
+}
+
+.footer-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 11px;
+    top: 5px;
+    transition: top 0.3s ease;
+    z-index: 101;
+}
+
+.footer.open .footer-toggle {
+    right: 11px;
+    top: 11.4px;
+}
+
+.footer-toggle:hover {
+    opacity: 0.8;
+}
+
+.footer-toggle svg {
+    width: 14px;
+    height: 14px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-toggle .chevron-up {
+    position: absolute;
+    opacity: 1;
+}
+
+.footer-toggle .chevron-horizontal {
+    position: absolute;
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+.footer-toggle.open .chevron-up {
+    opacity: 0;
+}
+
+.footer-toggle.open .chevron-horizontal {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.footer-expanded-content {
+    display: none;
+    width: 100%;
+    height: 69px;
+    position: absolute;
+    top: 27px;
+    left: 0;
+}
+
+.footer.open .footer-expanded-content {
+    display: block;
+}
+
+.footer-links {
+    font-size: 14px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+    white-space: pre;
+    position: absolute;
+    left: 16px;
+    top: 21px;
+}
+
+.footer-logo-section {
+    position: absolute;
+    right: 16px;
+    top: 2px;
+    width: 182.963px;
+    height: 50px;
+    overflow: visible;
+}

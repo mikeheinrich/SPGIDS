@@ -1,0 +1,77 @@
+{
+  "name": "alert-component",
+  "version": "1.0.0",
+  "description": "Alert component for S&P Global Design System - displays messages with different states",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["alert-component.css", "alert-component.js", "alert-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required"
+  },
+  "specifications": {
+    "source": "Adobe XD",
+    "dimensions": {
+      "height": "40px (min)",
+      "width": "flexible"
+    },
+    "default": {
+      "background": "#eeeeee",
+      "borderTop": "2px solid #5c5c5c",
+      "textColor": "#32363b",
+      "leadingIcon": "none"
+    },
+    "success": {
+      "background": "#e6f7e6",
+      "borderTop": "2px solid #009900",
+      "textColor": "#32363b",
+      "leadingIcon": "green checkmark"
+    },
+    "attention": {
+      "background": "#fff4e6",
+      "borderTop": "2px solid #C56C00",
+      "textColor": "#32363b",
+      "leadingIcon": "orange warning"
+    },
+    "closeButton": {
+      "position": "right: 9px",
+      "icon": "dark gray circle with white X",
+      "color": "#5c5c5c"
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true
+  }
+}

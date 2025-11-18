@@ -1,0 +1,100 @@
+/**
+ * Left Navigation Component - Vanilla Implementation
+ * Hierarchical navigation with GP and Fund structure
+ */
+
+/* Left Navigation Panel */
+.left-nav {
+    width: 361px;
+    background: var(--color-gray-bg);
+    border-right: 1px solid #eaeef3;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+/* Navigation List */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation Item */
+.nav-item {
+    position: relative;
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    
+    /* Typography */
+    font-family: var(--font-primary);
+    font-size: 1.6rem; /* 16px */
+    color: #32363b;
+}
+
+/* Navigation Item Hover State */
+.nav-item:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+/* Navigation Item Active State */
+.nav-item.active {
+    background: #f0f0f0;
+}
+
+/* Navigation Item Active Accent Bar */
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--color-brand);
+}
+
+/* GP Item */
+.nav-item.gp {
+    padding-left: 10px;
+    font-weight: 700;
+    color: #32363b;
+}
+
+.nav-item.active.gp {
+    color: var(--color-brand);
+}
+
+/* Fund Item */
+.nav-item.fund {
+    padding-left: 20px;
+    font-weight: 400;
+    color: #32363b;
+}
+
+.nav-item.active.fund {
+    color: var(--color-brand);
+}
+
+/* Navigation Divider */
+.nav-divider {
+    width: 100%;
+    height: 1px;
+    background: #eaeef3;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+/* Focus State for Accessibility */
+.nav-item:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+}
+
+.nav-item:focus:not(:focus-visible) {
+    outline: none;
+}
+

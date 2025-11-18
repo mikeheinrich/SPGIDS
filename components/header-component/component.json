@@ -1,0 +1,68 @@
+{
+  "name": "header-component",
+  "version": "1.0.0",
+  "description": "Fixed header component with logo, navigation, notifications, help, and user menu for S&P Global Design System",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["header-component.css", "header-component.js", "header-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required",
+    "javascript": "required"
+  },
+  "features": [
+    "Fixed position header",
+    "S&P Global logo",
+    "Product name display",
+    "Notification bell with badge",
+    "Help/question icon",
+    "User avatar with initials",
+    "Slide-out panels (user, help, notifications)",
+    "Responsive design",
+    "Keyboard navigation",
+    "Accessibility support"
+  ],
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "javascript": "ES6+",
+    "modernBrowsers": true
+  },
+  "configuration": {
+    "productName": "string (optional)",
+    "userInitials": "string (default: 'U')",
+    "notificationCount": "number (default: 0)",
+    "userName": "string (optional)",
+    "userEmail": "string (optional)"
+  }
+}

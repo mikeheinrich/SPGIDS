@@ -1,0 +1,81 @@
+{
+  "name": "list-group-component",
+  "version": "1.0.0",
+  "description": "List group component for S&P Global Design System - simple list of selectable items",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["list-group-component.css", "list-group-component.js", "list-group-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required"
+  },
+  "specifications": {
+    "source": "Based on left-nav-component",
+    "container": {
+      "width": "361px (default, flexible)",
+      "background": "#f8f8f8",
+      "border": "1px solid #eaeef3 (right border)"
+    },
+    "item": {
+      "dimensions": "100% width × 32px height",
+      "states": ["default", "hover", "active", "disabled"],
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "padding": "0 0 0 10px"
+    },
+    "default": {
+      "background": "transparent",
+      "textColor": "#32363b"
+    },
+    "hover": {
+      "background": "rgba(0, 0, 0, 0.02)"
+    },
+    "active": {
+      "background": "#f0f0f0",
+      "textColor": "#d6002a",
+      "accentBar": "3px solid #d6002a (top border)"
+    },
+    "divider": {
+      "height": "1px",
+      "background": "#eaeef3",
+      "margin": "0"
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true,
+    "transitions": true
+  }
+}
+

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Group Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../styles/base.css">
+    
+    <!-- Include Button Group Component -->
+    <link rel="stylesheet" href="button-group-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .example-section h3 {
+            font-size: var(--text-3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-5);
+        }
+        
+        .button-group-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Button Group Component Examples</h1>
+    
+    <!-- Basic Button Group -->
+    <div class="example-section">
+        <h2>Basic Button Group</h2>
+        <p class="description">Button groups act like tabs or radio buttons. Only one button can be active at a time. The active button has a gray background, red text, and a red top border.</p>
+        
+        <h3>Two Buttons</h3>
+        <div class="button-group-container">
+            <div class="btn-group" data-button-group>
+                <button class="btn-group-item active">button</button>
+                <button class="btn-group-item">button</button>
+            </div>
+        </div>
+        <div class="code-example">
+&lt;div class="btn-group" data-button-group&gt;<br>
+&nbsp;&nbsp;&lt;button class="btn-group-item active"&gt;button&lt;/button&gt;<br>
+&nbsp;&nbsp;&lt;button class="btn-group-item"&gt;button&lt;/button&gt;<br>
+&lt;/div&gt;
+        </div>
+        
+        <h3>Three Buttons</h3>
+        <div class="button-group-container">
+            <div class="btn-group" data-button-group>
+                <button class="btn-group-item active">button</button>
+                <button class="btn-group-item">button</button>
+                <button class="btn-group-item">button</button>
+            </div>
+        </div>
+        <div class="code-example">
+&lt;div class="btn-group" data-button-group&gt;<br>
+&nbsp;&nbsp;&lt;button class="btn-group-item active"&gt;button&lt;/button&gt;<br>
+&nbsp;&nbsp;&lt;button class="btn-group-item"&gt;button&lt;/button&gt;<br>
+&nbsp;&nbsp;&lt;button class="btn-group-item"&gt;button&lt;/button&gt;<br>
+&lt;/div&gt;
+        </div>
+    </div>
+    
+    <!-- Interactive Examples -->
+    <div class="example-section">
+        <h2>Interactive Examples</h2>
+        <p class="description">Click on the buttons below to see the selection change. Use arrow keys to navigate when a button is focused.</p>
+        
+        <h3>Example: View Options</h3>
+        <div class="button-group-container">
+            <div class="btn-group" data-button-group id="viewGroup">
+                <button class="btn-group-item active">List</button>
+                <button class="btn-group-item">Grid</button>
+                <button class="btn-group-item">Table</button>
+            </div>
+        </div>
+        <p id="viewStatus" style="color: var(--color-gray-4); font-size: var(--text-small); margin-top: 0.5rem;">Selected: List</p>
+        
+        <h3>Example: Filter Options</h3>
+        <div class="button-group-container">
+            <div class="btn-group" data-button-group id="filterGroup">
+                <button class="btn-group-item active">All</button>
+                <button class="btn-group-item">Active</button>
+                <button class="btn-group-item">Inactive</button>
+            </div>
+        </div>
+        <p id="filterStatus" style="color: var(--color-gray-4); font-size: var(--text-small); margin-top: 0.5rem;">Selected: All</p>
+    </div>
+    
+    <!-- Disabled State -->
+    <div class="example-section">
+        <h2>Disabled State</h2>
+        <p class="description">Buttons can be disabled individually.</p>
+        
+        <div class="button-group-container">
+            <div class="btn-group" data-button-group>
+                <button class="btn-group-item active">button</button>
+                <button class="btn-group-item">button</button>
+                <button class="btn-group-item" disabled>disabled</button>
+            </div>
+        </div>
+        <div class="code-example">
+&lt;button class="btn-group-item" disabled&gt;disabled&lt;/button&gt;
+        </div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+    
+    <script src="button-group-component.js"></script>
+    <script>
+        // Listen for button group changes
+        document.getElementById('viewGroup').addEventListener('buttonGroupChange', function(e) {
+            document.getElementById('viewStatus').textContent = 'Selected: ' + e.detail.selectedText;
+        });
+        
+        document.getElementById('filterGroup').addEventListener('buttonGroupChange', function(e) {
+            document.getElementById('filterStatus').textContent = 'Selected: ' + e.detail.selectedText;
+        });
+    </script>
+</body>
+</html>
+

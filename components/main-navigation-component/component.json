@@ -1,0 +1,76 @@
+{
+  "name": "main-navigation-component",
+  "version": "1.0.0",
+  "description": "Main Navigation component for S&P Global Design System - fixed left sidebar navigation with tooltips",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["main-navigation-component.css", "main-navigation-component.js", "main-navigation-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required"
+  },
+  "specifications": {
+    "source": "Based on sidebar component requirements",
+    "sidebar": {
+      "position": "fixed",
+      "left": "0",
+      "top": "55px (below header)",
+      "bottom": "24px (above footer)",
+      "width": "53px",
+      "background": "#ffffff",
+      "border": "1px solid #e0e0e0 (right border)"
+    },
+    "icon": {
+      "dimensions": "50px × 70px",
+      "states": ["default", "hover", "active"],
+      "iconSize": "24px × 24px"
+    },
+    "active": {
+      "indicator": "2px solid #d6002a (left border)",
+      "iconColor": "#d6002a"
+    },
+    "tooltip": {
+      "position": "right of icon",
+      "background": "#fff",
+      "fontSize": "0.8125rem",
+      "shadow": "0 3px 6px rgba(0, 0, 0, 0.161)"
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true,
+    "transitions": true
+  }
+}
+

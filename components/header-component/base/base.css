@@ -1,0 +1,89 @@
+/**
+ * Header Component - Base Styles
+ * Shared base styles for all header implementations (vanilla, PrimeNG, Kendo)
+ * 
+ * These styles use design tokens from styles/base.css
+ * All implementations should import this file along with the root base.css
+ */
+
+/* Header Base Styles - Shared across all implementations */
+/* These styles define the core header appearance and layout */
+
+/* Header Container Base */
+.header,
+[class*="header"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 52.5px;
+    background: #fff;
+    z-index: 1000;
+}
+
+/* Header Top Line (Red accent) */
+.header-top-line,
+[class*="header-top-line"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    z-index: 10;
+    overflow: visible;
+}
+
+/* Main Header Container */
+.header-container,
+[class*="header-container"] {
+    position: absolute;
+    top: 0.5px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+/* Header Left Section */
+.header-left,
+[class*="header-left"] {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Logo Group */
+.logo-group,
+[class*="logo-group"] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Product Name */
+.product-name,
+[class*="product-name"] {
+    color: #32363b;
+    font-size: 22px;
+    font-family: 'Akkurat LL', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+}
+
+/* Header Right Section */
+.header-right,
+[class*="header-right"] {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+}
+
+/* Note: Implementation-specific styles (icons, panels, etc.) should be added
+ * in the respective library folders (vanilla/, primeng-angular/, etc.) */
+

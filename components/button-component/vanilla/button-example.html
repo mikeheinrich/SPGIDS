@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../styles/base.css">
+    
+    <!-- Include Button Component -->
+    <link rel="stylesheet" href="button-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .example-section h3 {
+            font-size: var(--text-3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-5);
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Button Component Examples</h1>
+    
+    <!-- Primary Buttons -->
+    <div class="example-section">
+        <h2>Primary Buttons</h2>
+        <p class="description">Primary buttons are used for the main call-to-action. They have a filled background with white text.</p>
+        
+        <h3>Default State</h3>
+        <div class="button-group">
+            <button class="btn-primary">Button</button>
+            <button class="btn-primary">Submit</button>
+            <button class="btn-primary">Save Changes</button>
+        </div>
+        <div class="code-example">&lt;button class="btn-primary"&gt;Button&lt;/button&gt;</div>
+        
+        <h3>Size Variations</h3>
+        <div class="button-group">
+            <button class="btn-primary btn-small">Small</button>
+            <button class="btn-primary">Default</button>
+            <button class="btn-primary btn-large">Large</button>
+        </div>
+        <div class="code-example">
+&lt;button class="btn-primary btn-small"&gt;Small&lt;/button&gt;<br>
+&lt;button class="btn-primary"&gt;Default&lt;/button&gt;<br>
+&lt;button class="btn-primary btn-large"&gt;Large&lt;/button&gt;
+        </div>
+        
+        <h3>Disabled State</h3>
+        <div class="button-group">
+            <button class="btn-primary" disabled>Disabled</button>
+        </div>
+        <div class="code-example">&lt;button class="btn-primary" disabled&gt;Disabled&lt;/button&gt;</div>
+        
+        <h3>Full Width</h3>
+        <div class="button-group" style="flex-direction: column; width: 100%;">
+            <button class="btn-primary btn-full-width">Full Width Button</button>
+        </div>
+        <div class="code-example">&lt;button class="btn-primary btn-full-width"&gt;Full Width Button&lt;/button&gt;</div>
+        
+        <h3>With Icon</h3>
+        <div class="button-group">
+            <button class="btn-primary">
+                <span class="btn-icon">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                Button primary icon
+            </button>
+        </div>
+        <div class="code-example">
+&lt;button class="btn-primary"&gt;<br>
+&nbsp;&nbsp;&lt;span class="btn-icon"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;svg viewBox="0 0 16 16"&gt;...&lt;/svg&gt;<br>
+&nbsp;&nbsp;&lt;/span&gt;<br>
+&nbsp;&nbsp;Button primary icon<br>
+&lt;/button&gt;
+        </div>
+        
+        <h3>Icon Only</h3>
+        <div class="button-group">
+            <button class="btn-primary btn-icon-only" aria-label="Add">
+                <span class="btn-icon">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </button>
+        </div>
+        <div class="code-example">&lt;button class="btn-primary btn-icon-only" aria-label="Add"&gt;...&lt;/button&gt;</div>
+    </div>
+    
+    <!-- Secondary Buttons -->
+    <div class="example-section">
+        <h2>Secondary Buttons</h2>
+        <p class="description">Secondary buttons are used for secondary actions. They have an outlined style with transparent background.</p>
+        
+        <h3>Default State</h3>
+        <div class="button-group">
+            <button class="btn-secondary">Button</button>
+            <button class="btn-secondary">Cancel</button>
+            <button class="btn-secondary">Learn More</button>
+        </div>
+        <div class="code-example">&lt;button class="btn-secondary"&gt;Button&lt;/button&gt;</div>
+        
+        <h3>Size Variations</h3>
+        <div class="button-group">
+            <button class="btn-secondary btn-small">Small</button>
+            <button class="btn-secondary">Default</button>
+            <button class="btn-secondary btn-large">Large</button>
+        </div>
+        <div class="code-example">
+&lt;button class="btn-secondary btn-small"&gt;Small&lt;/button&gt;<br>
+&lt;button class="btn-secondary"&gt;Default&lt;/button&gt;<br>
+&lt;button class="btn-secondary btn-large"&gt;Large&lt;/button&gt;
+        </div>
+        
+        <h3>Disabled State</h3>
+        <div class="button-group">
+            <button class="btn-secondary" disabled>Disabled</button>
+        </div>
+        <div class="code-example">&lt;button class="btn-secondary" disabled&gt;Disabled&lt;/button&gt;</div>
+        
+        <h3>Full Width</h3>
+        <div class="button-group" style="flex-direction: column; width: 100%;">
+            <button class="btn-secondary btn-full-width">Full Width Button</button>
+        </div>
+        <div class="code-example">&lt;button class="btn-secondary btn-full-width"&gt;Full Width Button&lt;/button&gt;</div>
+        
+        <h3>With Icon</h3>
+        <div class="button-group">
+            <button class="btn-secondary">
+                <span class="btn-icon">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                Button secondary icon
+            </button>
+        </div>
+        <div class="code-example">
+&lt;button class="btn-secondary"&gt;<br>
+&nbsp;&nbsp;&lt;span class="btn-icon"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;svg viewBox="0 0 16 16"&gt;...&lt;/svg&gt;<br>
+&nbsp;&nbsp;&lt;/span&gt;<br>
+&nbsp;&nbsp;Button secondary icon<br>
+&lt;/button&gt;
+        </div>
+        
+        <h3>Icon Only</h3>
+        <div class="button-group">
+            <button class="btn-secondary btn-icon-only" aria-label="Add">
+                <span class="btn-icon">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </button>
+        </div>
+        <div class="code-example">&lt;button class="btn-secondary btn-icon-only" aria-label="Add"&gt;...&lt;/button&gt;</div>
+    </div>
+    
+    <!-- Link Buttons -->
+    <div class="example-section">
+        <h2>Link Buttons</h2>
+        <p class="description">Link buttons are used for text-based actions. They have no background or border, and the text darkens on hover.</p>
+        
+        <h3>Default State</h3>
+        <div class="button-group">
+            <button class="btn-link">button</button>
+        </div>
+        <div class="code-example">&lt;button class="btn-link"&gt;button&lt;/button&gt;</div>
+        
+        <h3>With Icon</h3>
+        <div class="button-group">
+            <button class="btn-link">
+                <span class="btn-icon">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                button
+            </button>
+        </div>
+        <div class="code-example">
+&lt;button class="btn-link"&gt;<br>
+&nbsp;&nbsp;&lt;span class="btn-icon"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;svg viewBox="0 0 16 16"&gt;...&lt;/svg&gt;<br>
+&nbsp;&nbsp;&lt;/span&gt;<br>
+&nbsp;&nbsp;button<br>
+&lt;/button&gt;
+        </div>
+        
+        <h3>Disabled State</h3>
+        <div class="button-group">
+            <button class="btn-link" disabled>disabled</button>
+            <button class="btn-link" disabled>
+                <span class="btn-icon">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                disabled
+            </button>
+        </div>
+        <div class="code-example">&lt;button class="btn-link" disabled&gt;disabled&lt;/button&gt;</div>
+    </div>
+    
+    <!-- Button Combinations -->
+    <div class="example-section">
+        <h2>Button Combinations</h2>
+        <p class="description">Common button combinations and patterns.</p>
+        
+        <h3>Primary and Secondary Together</h3>
+        <div class="button-group">
+            <button class="btn-primary">Primary Action</button>
+            <button class="btn-secondary">Secondary Action</button>
+        </div>
+        
+        <h3>Form Actions</h3>
+        <div class="button-group">
+            <button class="btn-primary">Save</button>
+            <button class="btn-secondary">Cancel</button>
+            <button class="btn-secondary">Reset</button>
+        </div>
+        
+        <h3>Dialog Actions</h3>
+        <div class="button-group">
+            <button class="btn-secondary">Cancel</button>
+            <button class="btn-primary">Confirm</button>
+        </div>
+    </div>
+    
+    <!-- Interactive States -->
+    <div class="example-section">
+        <h2>Interactive States</h2>
+        <p class="description">Hover over the buttons below to see the transition animations. Click to see the active state.</p>
+        
+        <h3>Primary Button States</h3>
+        <div class="button-group">
+            <button class="btn-primary" onclick="alert('Clicked!')">Hover & Click Me</button>
+            <button class="btn-primary" disabled>Disabled (Hover for opacity)</button>
+        </div>
+        
+        <h3>Secondary Button States</h3>
+        <div class="button-group">
+            <button class="btn-secondary" onclick="alert('Clicked!')">Hover & Click Me</button>
+            <button class="btn-secondary" disabled>Disabled (Hover for opacity)</button>
+        </div>
+        
+        <h3>Link Button States</h3>
+        <div class="button-group">
+            <button class="btn-link" onclick="alert('Clicked!')">Hover to darken</button>
+            <button class="btn-link" disabled>Disabled (Hover for opacity)</button>
+        </div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+</body>
+</html>
+

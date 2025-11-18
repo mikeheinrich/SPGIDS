@@ -1,0 +1,29 @@
+# Alert Component - PrimeNG Angular Implementation
+
+PrimeNG Angular implementation of the alert component.
+
+## Status
+
+🚧 **Coming Soon** - This implementation will be available in a future release.
+
+## Planned Structure
+
+```
+primeng-angular/
+├── alert.component.ts      # Angular component
+├── alert.component.html   # Template
+├── alert.component.scss   # Styles (imports base styles)
+└── README.md               # This file
+```
+
+## Usage (Planned)
+
+This implementation will use PrimeNG's Message component or custom implementation with PrimeNG styling.
+
+## See Also
+
+- [Main Component README](../README.md)
+- [Vanilla Implementation](../vanilla/README.md)
+- [Kendo Angular Implementation](../kendo-angular/README.md)
+- [Kendo React Implementation](../kendo-react/README.md)
+
