@@ -9,6 +9,14 @@
  * - Arial (for footer links)
  */
 
+/* Footer Container - Ensure it's positioned correctly */
+#footer-container {
+    position: relative;
+    z-index: 2000;
+    /* Ensure footer container is above main content */
+    isolation: isolate;
+}
+
 /* Footer Base Styles */
 .footer {
     position: fixed;
@@ -16,9 +24,24 @@
     left: 0;
     width: 100%;
     background: #4c4b4c;
-    z-index: 100;
+    z-index: 2000;
     transition: height 0.3s ease;
     overflow: hidden;
+    /* Ensure footer is below header panels but above content */
+    isolation: isolate;
+    /* Force footer to be above body content */
+    transform: translateZ(0);
+    will-change: height;
+}
+
+/* Ensure body has proper spacing when footer is present */
+body:has(#footer-container) {
+    padding-bottom: 24px; /* Default to closed footer height */
+    transition: padding-bottom 0.3s ease;
+}
+
+body:has(#footer-container .footer.open) {
+    padding-bottom: 96px; /* Open footer height */
 }
 
 .footer.closed {
@@ -73,7 +96,10 @@
     right: 11px;
     top: 5px;
     transition: top 0.3s ease;
-    z-index: 101;
+    z-index: 2001;
+    pointer-events: auto;
+    /* Ensure button is always clickable */
+    isolation: isolate;
 }
 
 .footer.open .footer-toggle {
@@ -118,10 +144,13 @@
     position: absolute;
     top: 27px;
     left: 0;
+    z-index: 2001;
+    /* Ensure expanded content is visible above footer background */
 }
 
 .footer.open .footer-expanded-content {
     display: block;
+    visibility: visible;
 }
 
 .footer-links {

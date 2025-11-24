@@ -1,0 +1,5 @@
+---
+globs: Design-system
+alwaysApply: false
+---
+We are building an atomic style design system. Use styles in the system like font and colors so we don't create one-off styles unless absolutly required. When building patterns use components and ask before creating one-off parts. 

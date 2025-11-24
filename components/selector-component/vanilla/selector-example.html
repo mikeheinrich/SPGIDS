@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../../../styles/base.css">
+    
+    <!-- Include component base styles -->
+    <link rel="stylesheet" href="../base/base.css">
+    
+    <!-- Include vanilla implementation -->
+    <link rel="stylesheet" href="selector-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .example-section h3 {
+            font-size: var(--text-3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-5);
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Selector Component Examples</h1>
+    
+    <!-- Checkboxes -->
+    <div class="example-section">
+        <h2>Checkbox Group</h2>
+        <p class="description">Checkboxes allow users to select one or more options from a list. Selected checkboxes display a red checkmark.</p>
+        
+        <h3>Default State</h3>
+        <div class="selector-group">
+            <div class="selector-item">
+                <input type="checkbox" id="checkbox1" class="selector-checkbox" checked />
+                <label for="checkbox1">Label</label>
+            </div>
+            <div class="selector-item">
+                <input type="checkbox" id="checkbox2" class="selector-checkbox" />
+                <label for="checkbox2">Label</label>
+            </div>
+            <div class="selector-item">
+                <input type="checkbox" id="checkbox3" class="selector-checkbox" />
+                <label for="checkbox3">Label</label>
+            </div>
+        </div>
+        <div class="code-example">&lt;div class="selector-item"&gt;
+    &lt;input type="checkbox" id="checkbox1" class="selector-checkbox" checked /&gt;
+    &lt;label for="checkbox1"&gt;Label&lt;/label&gt;
+&lt;/div&gt;</div>
+        
+        <h3>Disabled State</h3>
+        <div class="selector-group">
+            <div class="selector-item">
+                <input type="checkbox" id="checkbox4" class="selector-checkbox" checked disabled />
+                <label for="checkbox4">Label</label>
+            </div>
+            <div class="selector-item">
+                <input type="checkbox" id="checkbox5" class="selector-checkbox" disabled />
+                <label for="checkbox5">Label</label>
+            </div>
+        </div>
+        <div class="code-example">&lt;input type="checkbox" class="selector-checkbox" disabled /&gt;</div>
+    </div>
+    
+    <!-- Radio Buttons -->
+    <div class="example-section">
+        <h2>Radio Group</h2>
+        <p class="description">Radio buttons allow users to select a single option from a list. Selected radio buttons display a red filled circle.</p>
+        
+        <h3>Default State</h3>
+        <div class="selector-group">
+            <div class="selector-item">
+                <input type="radio" id="radio1" name="radio-group" class="selector-radio" checked />
+                <label for="radio1">Label</label>
+            </div>
+            <div class="selector-item">
+                <input type="radio" id="radio2" name="radio-group" class="selector-radio" />
+                <label for="radio2">Label</label>
+            </div>
+        </div>
+        <div class="code-example">&lt;div class="selector-item"&gt;
+    &lt;input type="radio" id="radio1" name="radio-group" class="selector-radio" checked /&gt;
+    &lt;label for="radio1"&gt;Label&lt;/label&gt;
+&lt;/div&gt;</div>
+        
+        <h3>Disabled State</h3>
+        <div class="selector-group">
+            <div class="selector-item">
+                <input type="radio" id="radio3" name="radio-group-disabled" class="selector-radio" checked disabled />
+                <label for="radio3">Label</label>
+            </div>
+            <div class="selector-item">
+                <input type="radio" id="radio4" name="radio-group-disabled" class="selector-radio" disabled />
+                <label for="radio4">Label</label>
+            </div>
+        </div>
+        <div class="code-example">&lt;input type="radio" class="selector-radio" disabled /&gt;</div>
+    </div>
+    
+    <!-- Switches -->
+    <div class="example-section">
+        <h2>Switch</h2>
+        <p class="description">Switches allow users to toggle an option on or off. The on state uses primary blue, and the off state uses gray.</p>
+        
+        <h3>Default State</h3>
+        <div class="selector-group">
+            <div class="selector-item">
+                <input type="checkbox" id="switch1" class="selector-switch" checked />
+                <label for="switch1">Label</label>
+            </div>
+            <div class="selector-item">
+                <input type="checkbox" id="switch2" class="selector-switch" />
+                <label for="switch2">Label</label>
+            </div>
+        </div>
+        <div class="code-example">&lt;div class="selector-item"&gt;
+    &lt;input type="checkbox" id="switch1" class="selector-switch" checked /&gt;
+    &lt;label for="switch1"&gt;Label&lt;/label&gt;
+&lt;/div&gt;</div>
+        
+        <h3>Disabled State</h3>
+        <div class="selector-group">
+            <div class="selector-item">
+                <input type="checkbox" id="switch3" class="selector-switch" checked disabled />
+                <label for="switch3">Label</label>
+            </div>
+            <div class="selector-item">
+                <input type="checkbox" id="switch4" class="selector-switch" disabled />
+                <label for="switch4">Label</label>
+            </div>
+        </div>
+        <div class="code-example">&lt;input type="checkbox" class="selector-switch" disabled /&gt;</div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+</body>
+</html>
+

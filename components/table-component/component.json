@@ -1,0 +1,70 @@
+{
+  "name": "table-component",
+  "version": "1.0.0",
+  "description": "Data table component for S&P Global Design System with sortable columns, row selection, and custom rendering",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["table-component.css", "table-component.js", "table-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required",
+    "javascript": "required"
+  },
+  "specifications": {
+    "source": "SPGIDS Patterns",
+    "features": [
+      "Sortable columns with visual indicators",
+      "Optional row selection with checkboxes",
+      "Select all functionality",
+      "Custom cell rendering",
+      "Row click handlers",
+      "Hover effects"
+    ],
+    "styling": {
+      "border": "1px solid var(--color-gray-2)",
+      "borderRadius": "var(--radius-md)",
+      "headerBackground": "var(--color-gray-bg)",
+      "headerTextColor": "var(--color-gray-5)",
+      "rowHover": "var(--color-gray-bg)"
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "javascript": true,
+    "modernBrowsers": true
+  }
+}
+
+
+

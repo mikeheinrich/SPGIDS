@@ -1,0 +1,18 @@
+/**
+ * Selector Component - Base Styles
+ * Shared base styles for all selector implementations
+ */
+
+/* Base selector container */
+.selector-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Base selector item */
+.selector-item {
+    display: flex;
+    align-items: center;
+}
+

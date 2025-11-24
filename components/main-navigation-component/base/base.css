@@ -22,6 +22,8 @@
     flex-direction: column;
     align-items: center;
     z-index: 1000;
+    /* Ensure main navigation is below header and footer */
+    isolation: isolate;
     overflow: visible;
 }
 
@@ -37,12 +39,12 @@
     position: relative;
     border-bottom: 1px solid var(--color-gray-2);
     margin: 0 1.5px;
-    z-index: 101;
+    z-index: 1001;
 }
 
 .main-navigation-icon:hover,
 [class*="main-navigation-icon"]:hover {
-    z-index: 10000;
+    z-index: 1002;
 }
 
 .main-navigation-icon:first-child,
@@ -87,18 +89,22 @@
     top: 50%;
     transform: translateY(-50%);
     background-color: var(--color-white);
-    padding: 8px 12px;
+    height: 24px;
+    padding: 0 10px;
     border-radius: var(--radius-md);
-    font-size: 0.8125rem;
+    font-size: 1.2rem !important;
     font-family: var(--font-primary);
     color: var(--color-gray-5);
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease;
-    z-index: 10001;
+    z-index: 1003;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.161);
     visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-navigation-tooltip::before,

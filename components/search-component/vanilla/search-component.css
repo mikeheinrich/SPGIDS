@@ -1,0 +1,216 @@
+/**
+ * Search Component CSS
+ * Primary and secondary search inputs with typeahead
+ */
+
+/* Search Container */
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 325px;
+}
+
+/* Search Input Wrapper */
+.search-input-wrapper {
+    position: relative;
+    width: 100%;
+    height: 32px;
+    background: var(--color-white);
+    display: flex;
+    align-items: center;
+}
+
+/* Search Input */
+.search-input {
+    width: 100%;
+    height: 100%;
+    padding: 0 40px 0 10px;
+    border: none;
+    background: transparent;
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    color: var(--color-gray-5);
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: var(--color-gray-4);
+    font-style: italic;
+}
+
+/* Search Icons Container */
+.search-icons {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.search-icons button {
+    pointer-events: auto;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.search-icons button.visible {
+    opacity: 1;
+}
+
+.search-icons svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+/* Search Icon */
+.search-icon {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.search-icon svg path {
+    fill: var(--color-gray-4);
+}
+
+/* Clear Icon */
+.clear-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clear-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.clear-icon svg circle {
+    fill: var(--color-gray-4);
+}
+
+.clear-icon svg line {
+    stroke: var(--color-white);
+    stroke-linecap: round;
+    stroke-width: 1.5;
+}
+
+.clear-icon:hover svg circle {
+    fill: var(--color-gray-5);
+}
+
+/* Underline - Primary (Red) */
+.search-input-wrapper--primary::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-brand);
+    transition: opacity 0.2s ease;
+    opacity: 0.5;
+}
+
+.search-input-wrapper--primary.focused::after {
+    opacity: 1;
+}
+
+/* Underline - Secondary (Gray) */
+.search-input-wrapper--secondary::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-gray-4);
+    transition: opacity 0.2s ease;
+    opacity: 0.5;
+}
+
+.search-input-wrapper--secondary.focused::after {
+    opacity: 1;
+}
+
+/* Secondary search icon color */
+.search-input-wrapper--secondary .search-icon svg path {
+    fill: #474747;
+}
+
+/* Typeahead Dropdown */
+.search-typeahead {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-2);
+    border-top: none;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    margin-top: 1px;
+}
+
+.search-typeahead.visible {
+    display: block;
+}
+
+.search-typeahead-item {
+    padding: 12px 10px;
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    color: var(--color-gray-5);
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-gray-2);
+    transition: background-color 0.2s ease;
+}
+
+.search-typeahead-item:last-child {
+    border-bottom: none;
+}
+
+.search-typeahead-item:hover,
+.search-typeahead-item.highlighted {
+    background-color: var(--color-gray-1);
+}
+
+.search-typeahead-item.selected {
+    background-color: var(--color-gray-1);
+    font-weight: 700;
+}
+
+/* No Results */
+.search-typeahead-no-results {
+    padding: 12px 10px;
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    color: var(--color-gray-n);
+    text-align: center;
+    font-style: italic;
+}
+

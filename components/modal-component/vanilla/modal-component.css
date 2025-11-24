@@ -1,0 +1,111 @@
+/**
+ * Modal Component CSS
+ * Clean, minimal modal implementation matching SVG specifications
+ */
+
+/* ============================================
+   OVERLAY
+   ============================================ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ============================================
+   MODAL CONTAINER
+   ============================================ */
+.modal {
+    position: relative;
+    width: 639.133px;
+    height: 346.5px;
+    background-color: var(--color-white);
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 3px rgba(138, 143, 149, 0.902);
+}
+
+/* ============================================
+   HEADER - 40px tall, title 20px from left
+   ============================================ */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    padding: 0 20px 0 20px;
+    border-bottom: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+.modal-title {
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    font-weight: 400;
+    color: var(--color-brand);
+    margin: 0;
+    padding: 0;
+    line-height: var(--line-height-normal);
+}
+
+/* ============================================
+   CLOSE BUTTON - Using icon-core-close.svg
+   ============================================ */
+.modal-close {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18.828px;
+    height: 18.828px;
+    cursor: pointer;
+    color: var(--color-gray-4);
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+}
+
+.modal-close:hover {
+    opacity: 0.7;
+}
+
+.modal-close svg {
+    width: 18.828px;
+    height: 18.828px;
+    display: block;
+}
+
+.modal-close svg line {
+    stroke: var(--color-gray-4);
+    stroke-linecap: round;
+    stroke-width: 2;
+}
+
+/* ============================================
+   CONTENT - 20px padding
+   ============================================ */
+.modal-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: var(--color-white);
+    color: var(--color-gray-5);
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    line-height: var(--line-height-relaxed);
+}

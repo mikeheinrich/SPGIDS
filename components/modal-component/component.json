@@ -1,0 +1,74 @@
+{
+  "name": "modal-component",
+  "version": "1.0.0",
+  "description": "Modal component for S&P Global Design System - dialog with overlay, header, and shadow effect",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["modal-component.css", "modal-component.js", "modal-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required",
+    "javascript": "required"
+  },
+  "specifications": {
+    "source": "SVG Model",
+    "dimensions": {
+      "height": "346.5px (default)",
+      "width": "639.133px (default)"
+    },
+    "default": {
+      "background": "#fff",
+      "border": "1px solid #ccc",
+      "shadow": "0 0 3px rgba(138, 143, 149, 0.902)",
+      "overlay": "rgba(0, 0, 0, 0.5)"
+    },
+    "header": {
+      "titleColor": "#d6002a (var(--color-brand))",
+      "closeButton": "16px × 16px, gray (#5c5c5c)",
+      "divider": "1px solid #ccc"
+    },
+    "shadow": {
+      "offset": "0 (no offset, centered shadow)",
+      "blur": "1.5px (Gaussian blur)",
+      "color": "#8a8f95",
+      "opacity": "0.902"
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "boxShadow": true,
+    "flexbox": true,
+    "javascript": true,
+    "modernBrowsers": true
+  }
+}

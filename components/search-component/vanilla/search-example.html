@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../styles/base.css">
+    
+    <!-- Include Search Component -->
+    <link rel="stylesheet" href="search-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+        
+        .component-preview {
+            padding: 1rem;
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-2);
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Search Component Examples</h1>
+    
+    <!-- Primary Search -->
+    <div class="example-section">
+        <h2>Primary Search</h2>
+        <p class="description">The primary search component has a red underline when focused. It includes typeahead functionality with autocomplete suggestions.</p>
+        
+        <div class="component-preview">
+            <div id="search-primary-example"></div>
+        </div>
+        <div class="code-example">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/search-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/search-component/vanilla/search-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/search-component/vanilla/search-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Container --&gt;
+&lt;div id="search-container"&gt;&lt;/div&gt;
+
+&lt;!-- Initialize --&gt;
+&lt;script&gt;
+    initSearch({
+        containerId: 'search-container',
+        variant: 'primary',
+        data: ['Item 1', 'Item 2', 'Item 3'],
+        onSelect: function(value) {
+            console.log('Selected:', value);
+        }
+    });
+&lt;/script&gt;
+        </div>
+    </div>
+    
+    <!-- Secondary Search -->
+    <div class="example-section">
+        <h2>Secondary Search</h2>
+        <p class="description">The secondary search component has a gray underline when focused. It uses the same typeahead functionality.</p>
+        
+        <div class="component-preview">
+            <div id="search-secondary-example"></div>
+        </div>
+        <div class="code-example">
+&lt;!-- Initialize Secondary Search --&gt;
+&lt;script&gt;
+    initSearch({
+        containerId: 'search-container',
+        variant: 'secondary',
+        data: ['Item 1', 'Item 2', 'Item 3'],
+        onSelect: function(value) {
+            console.log('Selected:', value);
+        }
+    });
+&lt;/script&gt;
+        </div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+    
+    <script src="search-component.js"></script>
+    <script>
+        initSearch({
+            containerId: 'search-primary-example',
+            variant: 'primary',
+            onSelect: function(value) {
+                console.log('Primary search selected:', value);
+            }
+        });
+        
+        initSearch({
+            containerId: 'search-secondary-example',
+            variant: 'secondary',
+            onSelect: function(value) {
+                console.log('Secondary search selected:', value);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+

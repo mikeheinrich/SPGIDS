@@ -66,6 +66,7 @@ Initializes the main navigation component.
 #### Parameters
 
 - `options` (Object, optional)
+  - `containerId` (String, optional): ID of the container element. Defaults to `'main-navigation-container'`.
   - `menuItems` (Array, optional): Array of menu item objects. Defaults to predefined items.
     - `label` (String, required): Tooltip text displayed on hover
     - `svg` (String, required): SVG markup for the icon

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../styles/base.css">
+    
+    <!-- Include Tab Component -->
+    <link rel="stylesheet" href="tab-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+        
+        .component-preview {
+            padding: 1rem;
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-2);
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+            min-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Tab Component Examples</h1>
+    
+    <!-- Basic Usage -->
+    <div class="example-section">
+        <h2>Basic Usage</h2>
+        <p class="description">The tab component provides a tabbed interface for organizing content into multiple panels.</p>
+        
+        <div class="component-preview">
+            <div id="tabs-example-1"></div>
+        </div>
+        <div class="code-example">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/tab-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/tab-component/vanilla/tab-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/tab-component/vanilla/tab-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Container --&gt;
+&lt;div id="tabs-container"&gt;&lt;/div&gt;
+
+&lt;!-- Initialize --&gt;
+&lt;script&gt;
+    initTabs({
+        containerId: 'tabs-container',
+        tabs: [
+            { id: 'tab1', label: 'Tab 1', content: '&lt;p&gt;Content for tab 1&lt;/p&gt;' },
+            { id: 'tab2', label: 'Tab 2', content: '&lt;p&gt;Content for tab 2&lt;/p&gt;' },
+            { id: 'tab3', label: 'Tab 3', content: '&lt;p&gt;Content for tab 3&lt;/p&gt;' }
+        ]
+    });
+&lt;/script&gt;
+        </div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+    
+    <script src="tab-component.js"></script>
+    <script>
+        initTabs({
+            containerId: 'tabs-example-1',
+            tabs: [
+                { 
+                    id: 'overview', 
+                    label: 'Overview', 
+                    content: '<p>This is the overview tab content. It can contain any HTML content.</p>' 
+                },
+                { 
+                    id: 'details', 
+                    label: 'Details', 
+                    content: '<p>This is the details tab content. You can add forms, tables, or any other components here.</p>' 
+                },
+                { 
+                    id: 'settings', 
+                    label: 'Settings', 
+                    content: '<p>This is the settings tab content. Configure your preferences here.</p>' 
+                }
+            ],
+            onTabChange: function(tabId, pane) {
+                console.log('Tab changed to:', tabId);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+

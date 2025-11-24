@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../../../styles/base.css">
+    
+    <!-- Include Table Component -->
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="table-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .example-section h3 {
+            font-size: var(--text-3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-5);
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Table Component Examples</h1>
+    
+    <!-- Basic Table -->
+    <div class="example-section">
+        <h2>Basic Table (No Checkboxes)</h2>
+        <p class="description">Simple table with sortable columns. Click column headers to sort (sorting functionality can be added).</p>
+        
+        <div id="basic-table"></div>
+        
+        <div class="code-example">initTable({
+    containerId: 'basic-table',
+    columns: [
+        { key: 'entity', label: 'Booking Entity', sortable: true },
+        { key: 'product', label: 'Product', sortable: true },
+        { key: 'status', label: 'Status', sortable: true }
+    ],
+    data: [
+        { entity: 'Mizuho Bank (USA)', product: 'Term Loans', status: 'Complete' },
+        { entity: 'Mizuho Capital Markets LLC', product: 'Credit Default Swap', status: 'Complete' }
+    ]
+});</div>
+    </div>
+    
+    <!-- Table with Checkboxes -->
+    <div class="example-section">
+        <h2>Table with Checkboxes</h2>
+        <p class="description">Table with row selection checkboxes and select all functionality.</p>
+        
+        <div id="checkbox-table"></div>
+        
+        <div class="code-example">initTable({
+    containerId: 'checkbox-table',
+    columns: [
+        { key: 'name', label: 'Name', sortable: true },
+        { key: 'uploadDate', label: 'Upload Date', sortable: true },
+        { key: 'fileSize', label: 'File Size', sortable: true },
+        { key: 'modifiedBy', label: 'Modified By', sortable: true },
+        { key: 'type', label: 'Type', sortable: true }
+    ],
+    data: [
+        { name: 'Onboarding', uploadDate: '19-Nov-2024', fileSize: '4', modifiedBy: 'sarah.mitchell@spglobal.com', type: 'Folder' },
+        { name: 'KYC', uploadDate: '10-Oct-2024', fileSize: '15', modifiedBy: 'michael.chen@spglobal.com', type: 'Folder' }
+    ],
+    showCheckboxes: true,
+    onSelectAll: function(selected) {
+        console.log('Select all:', selected);
+    },
+    onRowSelect: function(rowData, selected, rowIndex) {
+        console.log('Row selected:', rowData, selected, rowIndex);
+    }
+});</div>
+    </div>
+    
+    <!-- Table with Custom Rendering -->
+    <div class="example-section">
+        <h2>Table with Custom Cell Rendering</h2>
+        <p class="description">Table with custom render functions for cells, including icons and formatted content.</p>
+        
+        <div id="custom-table"></div>
+        
+        <div class="code-example">initTable({
+    containerId: 'custom-table',
+    columns: [
+        { 
+            key: 'name', 
+            label: 'Name', 
+            sortable: true,
+            render: function(cellData, rowData) {
+                return '&lt;svg class="file-icon" viewBox="0 0 17 14"&gt;...&lt;/svg&gt;' + 
+                       '&lt;span&gt;' + cellData + '&lt;/span&gt;';
+            }
+        },
+        { key: 'date', label: 'Date', sortable: true },
+        { key: 'size', label: 'Size', sortable: true }
+    ],
+    data: [
+        { name: 'Document 1', date: '2024-01-01', size: '1.2 MB' },
+        { name: 'Document 2', date: '2024-01-02', size: '2.5 MB' }
+    ],
+    showCheckboxes: true
+});</div>
+    </div>
+    
+    <!-- Table with Row Click -->
+    <div class="example-section">
+        <h2>Table with Row Click Handler</h2>
+        <p class="description">Table with clickable rows. Clicking a row triggers a callback function.</p>
+        
+        <div id="clickable-table"></div>
+        
+        <div class="code-example">initTable({
+    containerId: 'clickable-table',
+    columns: [
+        { key: 'name', label: 'Name', sortable: true },
+        { key: 'status', label: 'Status', sortable: true }
+    ],
+    data: [
+        { name: 'Item 1', status: 'Active' },
+        { name: 'Item 2', status: 'Inactive' }
+    ],
+    onRowClick: function(rowData, rowIndex) {
+        console.log('Row clicked:', rowData, rowIndex);
+        alert('Clicked: ' + rowData.name);
+    }
+});</div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+    
+    <script src="table-component.js"></script>
+    <script>
+        // Basic Table
+        initTable({
+            containerId: 'basic-table',
+            columns: [
+                { key: 'entity', label: 'Booking Entity', sortable: true },
+                { key: 'product', label: 'Product', sortable: true },
+                { key: 'status', label: 'Status', sortable: true }
+            ],
+            data: [
+                { entity: 'Mizuho Bank (USA)', product: 'Term Loans', status: 'Complete' },
+                { entity: 'Mizuho Capital Markets LLC', product: 'Credit Default Swap', status: 'Complete' },
+                { entity: 'Mizuho Securities USA LLC', product: 'Equity Options', status: 'Pending' }
+            ]
+        });
+        
+        // Table with Checkboxes
+        initTable({
+            containerId: 'checkbox-table',
+            columns: [
+                { key: 'name', label: 'Name', sortable: true },
+                { key: 'uploadDate', label: 'Upload Date', sortable: true },
+                { key: 'fileSize', label: 'File Size', sortable: true },
+                { key: 'modifiedBy', label: 'Modified By', sortable: true },
+                { key: 'type', label: 'Type', sortable: true }
+            ],
+            data: [
+                { name: 'Onboarding', uploadDate: '19-Nov-2024', fileSize: '4', modifiedBy: 'sarah.mitchell@spglobal.com', type: 'Folder' },
+                { name: 'KYC', uploadDate: '10-Oct-2024', fileSize: '15', modifiedBy: 'michael.chen@spglobal.com', type: 'Folder' },
+                { name: 'Agreement.pdf', uploadDate: '05-Nov-2024', fileSize: '2.3 MB', modifiedBy: 'john.doe@spglobal.com', type: 'File' }
+            ],
+            showCheckboxes: true,
+            onSelectAll: function(selected) {
+                console.log('Select all:', selected);
+            },
+            onRowSelect: function(rowData, selected, rowIndex) {
+                console.log('Row selected:', rowData.name, selected, rowIndex);
+            }
+        });
+        
+        // Table with Custom Rendering
+        initTable({
+            containerId: 'custom-table',
+            columns: [
+                { 
+                    key: 'name', 
+                    label: 'Name', 
+                    sortable: true,
+                    render: function(cellData, rowData) {
+                        return '<svg class="file-icon" viewBox="0 0 17 14" xmlns="http://www.w3.org/2000/svg"><path d="M1 1h15v12H1z" fill="none" stroke="currentColor" stroke-width="1"/></svg><span>' + cellData + '</span>';
+                    }
+                },
+                { key: 'date', label: 'Date', sortable: true },
+                { key: 'size', label: 'Size', sortable: true }
+            ],
+            data: [
+                { name: 'Document 1', date: '2024-01-01', size: '1.2 MB' },
+                { name: 'Document 2', date: '2024-01-02', size: '2.5 MB' },
+                { name: 'Report.pdf', date: '2024-01-03', size: '3.1 MB' }
+            ],
+            showCheckboxes: true
+        });
+        
+        // Table with Row Click
+        initTable({
+            containerId: 'clickable-table',
+            columns: [
+                { key: 'name', label: 'Name', sortable: true },
+                { key: 'status', label: 'Status', sortable: true }
+            ],
+            data: [
+                { name: 'Item 1', status: 'Active' },
+                { name: 'Item 2', status: 'Inactive' },
+                { name: 'Item 3', status: 'Active' }
+            ],
+            onRowClick: function(rowData, rowIndex) {
+                console.log('Row clicked:', rowData, rowIndex);
+                alert('Clicked: ' + rowData.name + ' (' + rowData.status + ')');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+

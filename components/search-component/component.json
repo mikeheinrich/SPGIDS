@@ -1,0 +1,71 @@
+{
+  "name": "search-component",
+  "version": "1.0.0",
+  "description": "Search component for S&P Global Design System - search input with typeahead/autocomplete functionality",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["search-component.css", "search-component.js", "search-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required"
+  },
+  "specifications": {
+    "source": "SVG Design",
+    "dimensions": {
+      "height": "32px",
+      "width": "325px (max, flexible)"
+    },
+    "primary": {
+      "underline": "Red (#d6002a) when focused",
+      "iconColor": "Gray (#5c5c5c)"
+    },
+    "secondary": {
+      "underline": "Gray (#5c5c5c) when focused",
+      "iconColor": "Dark gray (#474747)"
+    },
+    "features": {
+      "typeahead": true,
+      "clearButton": true,
+      "keyboardNavigation": true
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true
+  }
+}
+
+
+
+

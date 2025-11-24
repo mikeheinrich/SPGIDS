@@ -8,7 +8,10 @@
     <!-- Include Design System Base (for CSS variables) -->
     <link rel="stylesheet" href="../../styles/base.css">
     
-    <!-- Include Button Component -->
+    <!-- Include component base styles -->
+    <link rel="stylesheet" href="base/base.css">
+    
+    <!-- Include vanilla implementation -->
     <link rel="stylesheet" href="button-component.css">
     
     <style>
@@ -149,6 +152,52 @@
         <div class="code-example">&lt;button class="btn-secondary btn-full-width"&gt;Full Width Button&lt;/button&gt;</div>
     </div>
     
+    <!-- Link Buttons -->
+    <div class="example-section">
+        <h2>Link Buttons</h2>
+        <p class="description">Link buttons are used for text-based actions. They have no background or border, and the text darkens on hover.</p>
+        
+        <h3>Default State</h3>
+        <div class="button-group">
+            <button class="btn-link">button</button>
+        </div>
+        <div class="code-example">&lt;button class="btn-link"&gt;button&lt;/button&gt;</div>
+        
+        <h3>With Icon</h3>
+        <div class="button-group">
+            <button class="btn-link">
+                <span class="btn-icon">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                button
+            </button>
+        </div>
+        <div class="code-example">
+&lt;button class="btn-link"&gt;<br>
+&nbsp;&nbsp;&lt;span class="btn-icon"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;svg viewBox="0 0 16 16"&gt;...&lt;/svg&gt;<br>
+&nbsp;&nbsp;&lt;/span&gt;<br>
+&nbsp;&nbsp;button<br>
+&lt;/button&gt;
+        </div>
+        
+        <h3>Disabled State</h3>
+        <div class="button-group">
+            <button class="btn-link" disabled>disabled</button>
+            <button class="btn-link" disabled>
+                <span class="btn-icon">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                disabled
+            </button>
+        </div>
+        <div class="code-example">&lt;button class="btn-link" disabled&gt;disabled&lt;/button&gt;</div>
+    </div>
+    
     <!-- Button Combinations -->
     <div class="example-section">
         <h2>Button Combinations</h2>
@@ -189,6 +238,12 @@
         <div class="button-group">
             <button class="btn-secondary" onclick="alert('Clicked!')">Hover & Click Me</button>
             <button class="btn-secondary" disabled>Disabled (Hover for opacity)</button>
+        </div>
+        
+        <h3>Link Button States</h3>
+        <div class="button-group">
+            <button class="btn-link" onclick="alert('Clicked!')">Hover to darken</button>
+            <button class="btn-link" disabled>Disabled (Hover for opacity)</button>
         </div>
     </div>
     

@@ -1,0 +1,175 @@
+/**
+ * Table Component Styles
+ * 
+ * Include this CSS file in your <head> section:
+ * <link rel="stylesheet" href="path/to/table-component.css">
+ * 
+ * REQUIRED:
+ * - Design system base styles (styles/base.css)
+ * - Component base styles (base/base.css)
+ */
+
+/* Table Container */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--color-gray-2);
+    border-radius: var(--radius-md);
+}
+
+/* Base Table Styles */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-white);
+}
+
+.data-table thead {
+    background-color: var(--color-gray-bg);
+    border-bottom: 1px solid var(--color-gray-2);
+}
+
+.data-table th {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    text-align: left;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: var(--text-paragraph);
+    line-height: var(--line-height-normal);
+    color: var(--color-gray-5);
+    cursor: pointer;
+    user-select: none;
+}
+
+.data-table th:first-child {
+    display: flex;
+    align-items: center;
+    padding-left: var(--spacing-sm);
+}
+
+.data-table th:first-child .file-checkbox {
+    margin-right: 10px;
+}
+
+.data-table th:hover {
+    background-color: var(--color-gray-1);
+}
+
+.data-table td {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-bottom: 1px solid var(--color-gray-2);
+    color: var(--color-gray-5);
+    font-size: var(--text-paragraph);
+    font-family: var(--font-primary);
+    line-height: var(--line-height-normal);
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--color-gray-bg);
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* File Icon Styles */
+.data-table .file-icon {
+    width: 17px;
+    height: 14px;
+    margin-right: var(--spacing-xs);
+    margin-left: var(--spacing-xs);
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.data-table td:first-child {
+    display: flex;
+    align-items: center;
+    padding-left: var(--spacing-sm);
+}
+
+.data-table td:first-child span {
+    color: var(--color-primary);
+}
+
+/* Checkbox Styles */
+.data-table .file-checkbox {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
+    border: 1px solid var(--color-gray-4);
+    background-color: var(--color-white);
+    flex-shrink: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+.data-table .file-checkbox:checked {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.data-table .file-checkbox:focus {
+    box-shadow: none;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.data-table .file-checkbox:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.data-table .file-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg fill='%23fff' stroke='%235c5c5c' stroke-width='1'%3E%3Crect width='16' height='16' stroke='none'/%3E%3Crect x='0.5' y='0.5' width='15' height='15' fill='none'/%3E%3C/g%3E%3Cpath d='M3482.191-20974.4l3.747,4.146,7.6-8.322' transform='translate(-3480.191 20982.602)' fill='none' stroke='%23d6002a' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.data-table .file-checkbox:indeterminate {
+    background-color: var(--color-white);
+    border-color: var(--color-gray-4);
+}
+
+.data-table .file-checkbox:indeterminate::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-brand);
+}
+
+/* Last column alignment (for action buttons) */
+.data-table td:last-child {
+    text-align: center;
+}
+
+.data-table td:last-child svg {
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .table-container {
+        overflow-x: scroll;
+    }
+}
+

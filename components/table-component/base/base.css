@@ -1,0 +1,20 @@
+/**
+ * Table Component - Base Styles
+ * Shared base styles for all table implementations
+ */
+
+/* Base table container */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Base table styles */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-white);
+}
+
+
+

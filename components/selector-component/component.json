@@ -1,0 +1,68 @@
+{
+  "name": "selector-component",
+  "version": "1.0.0",
+  "description": "Form selector components for S&P Global Design System - checkboxes, radio buttons, and switches",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["selector-component.css", "selector-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required"
+  },
+  "specifications": {
+    "source": "Design System",
+    "checkbox": {
+      "size": "16px × 16px",
+      "selectedColor": "var(--color-brand) (#d6002a)",
+      "borderColor": "var(--color-gray-4)",
+      "labelSpacing": "10px"
+    },
+    "radio": {
+      "size": "16px × 16px",
+      "selectedColor": "var(--color-brand) (#d6002a)",
+      "borderColor": "var(--color-gray-4)",
+      "labelSpacing": "10px"
+    },
+    "switch": {
+      "onColor": "var(--color-primary) (#006d89)",
+      "offColor": "var(--color-gray-2)",
+      "labelSpacing": "10px"
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true
+  }
+}
+

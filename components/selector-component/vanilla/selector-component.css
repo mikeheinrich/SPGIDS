@@ -1,0 +1,255 @@
+/**
+ * Selector Component Styles
+ * 
+ * Include this CSS file in your <head> section:
+ * <link rel="stylesheet" href="path/to/selector-component.css">
+ * 
+ * REQUIRED:
+ * - Design system base styles (styles/base.css)
+ * - Component base styles (base/base.css)
+ */
+
+/* ============================================
+   CHECKBOX STYLES
+   ============================================ */
+.selector-checkbox {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
+    border: 1px solid var(--color-gray-4);
+    background-color: var(--color-white);
+    flex-shrink: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+.selector-checkbox:checked {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.selector-checkbox:focus {
+    box-shadow: none;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.selector-checkbox:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.selector-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg fill='%23fff' stroke='%235c5c5c' stroke-width='1'%3E%3Crect width='16' height='16' stroke='none'/%3E%3Crect x='0.5' y='0.5' width='15' height='15' fill='none'/%3E%3C/g%3E%3Cpath d='M3482.191-20974.4l3.747,4.146,7.6-8.322' transform='translate(-3480.191 20982.602)' fill='none' stroke='%23d6002a' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.selector-checkbox:indeterminate {
+    background-color: var(--color-white);
+    border-color: var(--color-gray-4);
+}
+
+.selector-checkbox:indeterminate::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-brand);
+}
+
+.selector-checkbox:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Checkbox Label */
+.selector-checkbox + label {
+    margin-left: 0;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    color: var(--color-gray-5);
+    user-select: none;
+}
+
+.selector-checkbox:disabled + label {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   RADIO BUTTON STYLES
+   ============================================ */
+.selector-radio {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
+    border: 1px solid var(--color-gray-4);
+    background-color: var(--color-white);
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+.selector-radio:checked {
+    border-color: var(--color-gray-4);
+    background-color: var(--color-white);
+}
+
+.selector-radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-brand);
+}
+
+.selector-radio:focus {
+    box-shadow: none;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.selector-radio:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.selector-radio:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Radio Label */
+.selector-radio + label {
+    margin-left: 0;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    color: var(--color-gray-5);
+    user-select: none;
+}
+
+.selector-radio:disabled + label {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   SWITCH STYLES
+   ============================================ */
+.selector-switch {
+    position: relative;
+    width: 24px;
+    height: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-gray-2);
+    flex-shrink: 0;
+    box-shadow: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.selector-switch:checked {
+    background-color: var(--color-primary);
+}
+
+.selector-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.selector-switch:checked::after {
+    transform: translateX(9px);
+}
+
+.selector-switch:focus {
+    box-shadow: none;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.selector-switch:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.selector-switch:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Switch Label */
+.selector-switch + label {
+    margin-left: 0;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    color: var(--color-gray-5);
+    user-select: none;
+}
+
+.selector-switch:disabled + label {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   SELECTOR GROUP STYLES
+   ============================================ */
+.selector-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.selector-item {
+    display: flex;
+    align-items: center;
+}
+

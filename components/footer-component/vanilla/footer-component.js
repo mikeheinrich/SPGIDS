@@ -55,49 +55,131 @@ function createFooter() {
     `;
 }
 
+// Update body/main spacing based on footer state
+function updateFooterSpacing() {
+    const footer = document.getElementById('footer');
+    if (!footer) return;
+    
+    const isOpen = footer.classList.contains('open');
+    const footerHeight = isOpen ? 96 : 24;
+    
+    // Update body padding-bottom
+    document.body.style.paddingBottom = footerHeight + 'px';
+    
+    // Update main content margin-bottom if it exists
+    const mainElements = document.querySelectorAll('main, .design-system-main, [role="main"]');
+    mainElements.forEach(main => {
+        main.style.marginBottom = footerHeight + 'px';
+    });
+    
+    // Dispatch custom event for other components to listen to
+    const event = new CustomEvent('footerStateChange', {
+        detail: { isOpen, height: footerHeight }
+    });
+    document.dispatchEvent(event);
+}
+
 // Initialize footer function
 function initFooter() {
     const footerContainer = document.getElementById('footer-container');
-    if (footerContainer) {
-        footerContainer.innerHTML = createFooter();
-        
+    if (!footerContainer) {
+        console.warn('Footer container not found');
+        return;
+    }
+    
+    footerContainer.innerHTML = createFooter();
+    
+    // Small delay to ensure DOM is updated
+    setTimeout(function() {
         // Initialize footer toggle functionality
         const footer = document.getElementById('footer');
         const footerToggle = document.getElementById('footerToggle');
 
-        if (footer && footerToggle) {
-            footerToggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Footer toggle clicked'); // Debug
-                
-                // Toggle classes - ensure only one state is active
-                if (footer.classList.contains('closed')) {
-                    footer.classList.remove('closed');
-                    footer.classList.add('open');
-                    footerToggle.classList.add('open');
-                } else {
-                    footer.classList.remove('open');
-                    footer.classList.add('closed');
-                    footerToggle.classList.remove('open');
-                }
-                console.log('Footer classes:', footer.className); // Debug
-            });
-        } else {
-            console.error('Footer or footerToggle not found', { footer, footerToggle }); // Debug
+        if (!footer) {
+            console.error('Footer element not found after creation');
+            return;
         }
-    }
+        
+        if (!footerToggle) {
+            console.error('Footer toggle button not found after creation');
+            return;
+        }
+
+        // Initial spacing update
+        updateFooterSpacing();
+        
+        // Ensure button is clickable
+        footerToggle.style.pointerEvents = 'auto';
+        footerToggle.style.cursor = 'pointer';
+        
+        // Remove any existing event listeners by cloning the button
+        const newToggle = footerToggle.cloneNode(true);
+        footerToggle.parentNode.replaceChild(newToggle, footerToggle);
+        
+        // Add click event listener
+        newToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const currentFooter = document.getElementById('footer');
+            if (!currentFooter) return;
+            
+            // Toggle classes - ensure only one state is active
+            if (currentFooter.classList.contains('closed')) {
+                currentFooter.classList.remove('closed');
+                currentFooter.classList.add('open');
+                newToggle.classList.add('open');
+                console.log('Footer opened - height should be 96px');
+            } else {
+                currentFooter.classList.remove('open');
+                currentFooter.classList.add('closed');
+                newToggle.classList.remove('open');
+                console.log('Footer closed - height should be 24px');
+            }
+            
+            // Force a reflow to ensure styles are applied
+            currentFooter.offsetHeight;
+            
+            // Update spacing after state change
+            updateFooterSpacing();
+            
+            // Debug: Log footer state
+            console.log('Footer state:', {
+                classes: currentFooter.className,
+                height: currentFooter.offsetHeight,
+                computedHeight: getComputedStyle(currentFooter).height,
+                zIndex: getComputedStyle(currentFooter).zIndex
+            });
+        });
+        
+        // Also handle mousedown for better compatibility
+        newToggle.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+        });
+    }, 10);
 }
 
 // Auto-initialize when DOM is ready (optional - you can also call initFooter() manually)
 if (typeof document !== 'undefined') {
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initFooter);
+        document.addEventListener('DOMContentLoaded', function() {
+            initFooter();
+            // Update spacing after a short delay to ensure all styles are applied
+            setTimeout(updateFooterSpacing, 100);
+        });
     } else {
         // DOM already loaded
         initFooter();
+        // Update spacing after a short delay to ensure all styles are applied
+        setTimeout(updateFooterSpacing, 100);
     }
 }
+
+// Listen for footer state changes to update spacing
+document.addEventListener('footerStateChange', function() {
+    // Spacing is already updated in updateFooterSpacing, but this ensures
+    // other components can react to footer state changes
+});
 
 // Export for module systems (if using ES6 modules)
 if (typeof module !== 'undefined' && module.exports) {

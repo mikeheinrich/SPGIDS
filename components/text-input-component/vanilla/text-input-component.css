@@ -1,0 +1,76 @@
+/**
+ * Text Input Component - Vanilla Implementation
+ */
+
+/* Import base styles */
+@import url('../base/base.css');
+
+/* Focus State */
+.text-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+/* Disabled State */
+.text-input:disabled {
+    background-color: var(--color-gray-1);
+    color: var(--color-gray-n);
+    cursor: not-allowed;
+}
+
+/* Error State */
+.text-input--error {
+    border-color: var(--color-attention);
+}
+
+.text-input-error-message {
+    margin-top: 5px;
+    font-size: var(--text-paragraph);
+    color: var(--color-attention);
+    font-weight: 700;
+}
+
+/* Clear Icon */
+.text-input-clear {
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.text-input-clear.visible {
+    display: flex;
+}
+
+.text-input-wrapper.has-clear-icon .text-input {
+    padding-right: 3.2rem;
+}
+
+.text-input-clear svg {
+    width: 100%;
+    height: 100%;
+}
+
+.text-input-clear svg circle {
+    fill: var(--color-gray-4);
+}
+
+.text-input-clear:hover svg circle {
+    fill: var(--color-gray-5);
+}
+
+.text-input-clear svg line {
+    stroke: var(--color-white);
+    stroke-linecap: round;
+    stroke-width: 1.5;
+}

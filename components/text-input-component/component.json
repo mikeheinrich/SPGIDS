@@ -1,0 +1,83 @@
+{
+  "name": "text-input-component",
+  "version": "1.0.0",
+  "description": "Text input component for S&P Global Design System - text input fields with label layouts and multiple states",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["text-input-component.css", "text-input-component.js", "text-input-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required"
+  },
+  "specifications": {
+    "source": "Design System",
+    "layouts": {
+      "stack": {
+        "description": "Label above input field",
+        "labelPosition": "above"
+      },
+      "inline": {
+        "description": "Label to the left, right-aligned",
+        "labelPosition": "left",
+        "labelAlignment": "right"
+      }
+    },
+    "states": {
+      "empty": {
+        "description": "Default state with italic lighter hint text",
+        "placeholder": "italic, lighter color"
+      },
+      "filled": {
+        "description": "Input with value and clear icon",
+        "clearIcon": true
+      },
+      "error": {
+        "description": "Error state with orange border and error message",
+        "borderColor": "orange",
+        "errorMessage": true
+      },
+      "disabled": {
+        "description": "Disabled state with gray background"
+      }
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true
+  }
+}
+
+
+
+

@@ -17,7 +17,9 @@
     width: 100%;
     height: 52.5px;
     background: #fff;
-    z-index: 1000;
+    z-index: 3000;
+    /* Ensure proper stacking context */
+    isolation: isolate;
 }
 
 /* Red top border line */
@@ -95,7 +97,9 @@
     align-items: center;
     flex-shrink: 0;
     position: relative;
-    z-index: 3;
+    z-index: 3001;
+    /* Ensure icons are above header background */
+    isolation: isolate;
 }
 
 .icon-container {
@@ -106,7 +110,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
+    z-index: 3002;
+    /* Ensure icons are clickable and visible */
+    isolation: isolate;
 }
 
 .icon-container:hover {
@@ -346,6 +352,21 @@
 }
 
 /* ============================================
+   PANEL CONTAINER - Ensures panels are properly positioned
+   ============================================ */
+#header-panels-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3001;
+    /* Ensure proper stacking context */
+    isolation: isolate;
+}
+
+/* ============================================
    PANEL STYLES - User Menu, Help Menu, Notifications Menu
    ============================================ */
 
@@ -358,11 +379,13 @@
     height: 100vh;
     background: #F8F8F8;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
-    z-index: 999;
+    z-index: 3001;
     transition: transform 0.3s ease;
     overflow-y: auto;
     transform: translateY(-100%);
     pointer-events: none;
+    /* Ensure panels are above header and other content */
+    isolation: isolate;
 }
 
 .user-menu.open {
@@ -523,11 +546,13 @@
     height: 100vh;
     background: #F8F8F8;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
-    z-index: 999;
+    z-index: 3001;
     transition: transform 0.3s ease;
     overflow-y: auto;
     transform: translateY(-100%);
     pointer-events: none;
+    /* Ensure panels are above header and other content */
+    isolation: isolate;
 }
 
 .help-menu.open {
@@ -647,11 +672,13 @@
     height: 100vh;
     background: #F8F8F8;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
-    z-index: 999;
+    z-index: 3001;
     transition: transform 0.3s ease;
     overflow-y: auto;
     transform: translateY(-100%);
     pointer-events: none;
+    /* Ensure panels are above header and other content */
+    isolation: isolate;
 }
 
 .notifications-menu.open {

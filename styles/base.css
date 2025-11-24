@@ -122,6 +122,9 @@ body {
     background-color: var(--color-white);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Ensure body content is always behind core UI elements */
+    position: relative;
+    z-index: 1;
 }
 
 /* Typography Base Styles */

@@ -1,0 +1,21 @@
+/**
+ * Modal Component - Base Styles
+ * Minimal base styles - keep it simple
+ */
+
+/* Base overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+
+/* Base modal */
+.modal {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+}

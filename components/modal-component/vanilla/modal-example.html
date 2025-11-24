@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../../../styles/base.css">
+    
+    <!-- Include Modal Component -->
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="modal-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .example-section h3 {
+            font-size: var(--text-3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-5);
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: var(--text-paragraph);
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Modal Component Examples</h1>
+    
+    <!-- Basic Modal -->
+    <div class="example-section">
+        <h2>Basic Modal</h2>
+        <p class="description">Basic modal with header (title and close button), divider, and content area. Click the button to open the modal.</p>
+        
+        <button class="btn-primary" onclick="openModal('basicModal')">Open Basic Modal</button>
+        
+        <div class="code-example">
+&lt;div class="modal-overlay" id="basicModal"&gt;<br>
+&nbsp;&nbsp;&lt;div class="modal"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-header"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2 class="modal-title"&gt;Modal title&lt;/h2&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="modal-close" aria-label="Close modal"&gt;...&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-content"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Modal content here&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/div&gt;
+        </div>
+    </div>
+    
+    <!-- Programmatic Modal -->
+    <div class="example-section">
+        <h2>Programmatic Modal</h2>
+        <p class="description">Create and open a modal programmatically using JavaScript.</p>
+        
+        <button class="btn-primary" onclick="openProgrammaticModal()">Open Programmatic Modal</button>
+        
+        <div class="code-example">
+const modal = createModal({<br>
+&nbsp;&nbsp;title: 'Modal title',<br>
+&nbsp;&nbsp;content: '&lt;p&gt;Modal content here&lt;/p&gt;',<br>
+&nbsp;&nbsp;onOpen: function() { console.log('Modal opened'); },<br>
+&nbsp;&nbsp;onClose: function() { console.log('Modal closed'); }<br>
+});<br>
+openModal(modal);
+        </div>
+    </div>
+    
+    <!-- Modal with Custom Content -->
+    <div class="example-section">
+        <h2>Modal with Custom Content</h2>
+        <p class="description">Modal can contain any HTML content.</p>
+        
+        <button class="btn-primary" onclick="openModal('customModal')">Open Custom Content Modal</button>
+        
+        <div class="code-example">
+&lt;div class="modal-overlay" id="customModal"&gt;<br>
+&nbsp;&nbsp;&lt;div class="modal"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-header"&gt;...&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-content"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Any HTML content --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/div&gt;
+        </div>
+    </div>
+    
+    <!-- Basic Modal HTML -->
+    <div class="modal-overlay" id="basicModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Modal title</h2>
+                <button class="modal-close" aria-label="Close modal" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <path d="M12.854 3.146a.5.5 0 0 0-.708 0L8 7.293 3.854 3.146a.5.5 0 1 0-.708.708L7.293 8l-4.147 4.146a.5.5 0 0 0 .708.708L8 8.707l4.146 4.147a.5.5 0 0 0 .708-.708L8.707 8l4.147-4.146a.5.5 0 0 0 0-.708z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-content">
+                <p style="margin: 0; color: var(--color-gray-5);">This is the modal content area. You can add any content here.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Content Modal HTML -->
+    <div class="modal-overlay" id="customModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Modal title</h2>
+                <button class="modal-close" aria-label="Close modal" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <path d="M12.854 3.146a.5.5 0 0 0-.708 0L8 7.293 3.854 3.146a.5.5 0 1 0-.708.708L7.293 8l-4.147 4.146a.5.5 0 0 0 .708.708L8 8.707l4.146 4.147a.5.5 0 0 0 .708-.708L8.707 8l4.147-4.146a.5.5 0 0 0 0-.708z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-content">
+                <h3 style="margin-top: 0; color: var(--color-gray-5);">Custom Content</h3>
+                <p style="color: var(--color-gray-5);">This modal contains custom HTML content including headings, paragraphs, and more.</p>
+                <ul style="color: var(--color-gray-5);">
+                    <li>List item one</li>
+                    <li>List item two</li>
+                    <li>List item three</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+    
+    <script src="modal-component.js"></script>
+    <script>
+        // Initialize modals
+        initAllModals();
+        
+        // Programmatic modal example
+        function openProgrammaticModal() {
+            const modal = createModal({
+                title: 'Modal title',
+                content: '<p style="margin: 0; color: var(--color-gray-5);">This modal was created programmatically using the createModal() function.</p>',
+                onOpen: function() {
+                    console.log('Programmatic modal opened');
+                },
+                onClose: function() {
+                    console.log('Programmatic modal closed');
+                }
+            });
+            openModal(modal);
+        }
+    </script>
+</body>
+</html>

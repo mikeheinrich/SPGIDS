@@ -366,7 +366,24 @@ function initHeader(options = {}) {
             // Create panels container if it doesn't exist
             const panelsDiv = document.createElement('div');
             panelsDiv.id = 'header-panels-container';
-            document.body.appendChild(panelsDiv);
+            // Ensure panels container is positioned correctly
+            panelsDiv.style.position = 'fixed';
+            panelsDiv.style.top = '0';
+            panelsDiv.style.left = '0';
+            panelsDiv.style.width = '100%';
+            panelsDiv.style.height = '100%';
+            panelsDiv.style.pointerEvents = 'none';
+            panelsDiv.style.zIndex = '3001';
+            
+            // Insert right after header-container to maintain correct DOM order
+            // This ensures: header-container -> header-panels-container -> main content -> footer-container
+            if (headerContainer) {
+                headerContainer.parentNode.insertBefore(panelsDiv, headerContainer.nextSibling);
+            } else {
+                // Fallback: insert at the beginning of body if header-container not found
+                document.body.insertBefore(panelsDiv, document.body.firstChild);
+            }
+            
             panelsDiv.innerHTML = createPanels(options);
         }
         

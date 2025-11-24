@@ -1,0 +1,82 @@
+{
+  "name": "back-arrow-navigation-component",
+  "version": "1.0.0",
+  "description": "Back arrow navigation component for S&P Global Design System - displays back arrow, divider, and customizable page title",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["back-arrow-navigation-component.css", "back-arrow-navigation-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required",
+    "arrow-left-icon": "required"
+  },
+  "specifications": {
+    "source": "SVG Design",
+    "dimensions": {
+      "height": "29px",
+      "width": "auto"
+    },
+    "arrowIcon": {
+      "size": "24px × 15.46px",
+      "color": "#006d89",
+      "source": "icons/arrow-left.svg"
+    },
+    "divider": {
+      "width": "1px",
+      "height": "24px",
+      "color": "#ccc"
+    },
+    "title": {
+      "fontSize": "24px",
+      "fontFamily": "Akkurat LL Regular",
+      "color": "#32363b",
+      "customizable": true
+    },
+    "spacing": {
+      "gap": "10px"
+    },
+    "hover": {
+      "arrowOpacity": "0.7"
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true
+  }
+}
+
+
+
+
+

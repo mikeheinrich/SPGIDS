@@ -1,0 +1,107 @@
+/**
+ * Modal Component - Base Styles
+ * Shared base styles for all modal implementations (vanilla, PrimeNG, Kendo)
+ * 
+ * These styles use design tokens from styles/base.css
+ * All implementations should import this file along with the root base.css
+ */
+
+/* Modal Overlay/Backdrop */
+.modal-overlay,
+[class*="modal-overlay"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active,
+[class*="modal-overlay"].active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Container */
+.modal,
+[class*="modal"] {
+    position: relative;
+    width: 639.133px;
+    height: 346.5px;
+    background: var(--color-white);
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    /* Shadow effect matching SVG filter exactly */
+    /* SVG filter: feGaussianBlur(stdDeviation="1.5") + feFlood(#8a8f95, flood-opacity="0.902") */
+    box-shadow: 0 0 3px rgba(138, 143, 149, 0.902);
+}
+
+/* Modal Header */
+.modal-header,
+[class*="modal-header"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+/* Modal Title */
+.modal-title,
+[class*="modal-title"] {
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    font-weight: 400;
+    color: var(--color-brand);
+    margin: 0;
+    flex: 1;
+}
+
+/* Modal Close Button */
+.modal-close,
+[class*="modal-close"] {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    color: var(--color-gray-4);
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+}
+
+.modal-close:hover,
+[class*="modal-close"]:hover {
+    opacity: 0.7;
+}
+
+.modal-close svg,
+[class*="modal-close"] svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Modal Content */
+.modal-content,
+[class*="modal-content"] {
+    flex: 1;
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+    box-sizing: border-box;
+}

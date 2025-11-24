@@ -5,9 +5,13 @@
 /* Layout */
 .design-system-main {
     margin-top: 52.5px; /* Header height */
-    margin-bottom: 96px; /* Footer height when open */
+    /* Footer spacing is handled dynamically by footer component */
     min-height: calc(100vh - 52.5px - 96px);
     background: var(--color-gray-bg);
+    transition: margin-bottom 0.3s ease;
+    /* Ensure main content is behind core UI elements */
+    position: relative;
+    z-index: 1;
 }
 
 .design-system-container {

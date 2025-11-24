@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patterns - Design System</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="components/header-component/vanilla/header-component.css">
+    <link rel="stylesheet" href="components/footer-component/vanilla/footer-component.css">
+    <link rel="stylesheet" href="components/list-group-component/base/base.css">
+    <link rel="stylesheet" href="components/list-group-component/vanilla/list-group-component.css">
+    <link rel="stylesheet" href="components/search-component/base/base.css">
+    <link rel="stylesheet" href="components/search-component/vanilla/search-component.css">
+    <link rel="stylesheet" href="patterns/query-builder-pattern/vanilla/query-builder-pattern.css">
+</head>
+<body>
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+    <div id="header-panels-container"></div>
+
+    <!-- Main Content -->
+    <main class="design-system-main">
+        <div class="design-system-container">
+            <!-- Sidebar Navigation -->
+            <aside class="design-system-sidebar">
+                <nav class="design-system-nav">
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Foundation</h3>
+                        <ul class="nav-list">
+                            <li><a href="index.html" class="nav-link">Overview</a></li>
+                            <li><a href="colors.html" class="nav-link">Colors</a></li>
+                            <li><a href="typography.html" class="nav-link">Typography</a></li>
+                            <li><a href="icons.html" class="nav-link">Icons</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Components</h3>
+                        <ul class="nav-list">
+                            <li><a href="components.html" class="nav-link">All Components</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3 class="nav-section-title">Patterns</h3>
+                        <ul class="nav-list">
+                            <li><a href="patterns.html" class="nav-link active">All Patterns</a></li>
+                            <li><a href="patterns.html#query-builder" class="nav-link nav-sublink">Query Builder</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="design-system-content">
+                <div class="content-wrapper">
+                    <h1 class="page-title">Patterns</h1>
+                    <p class="page-intro">Patterns are groups of components that work together to create functional parts of an interface. These patterns provide reusable solutions for common UI challenges.</p>
+
+                    <section class="section">
+                        <h2 class="section-title">About Patterns</h2>
+                        <p>Patterns combine multiple components to solve specific user interface problems. Each pattern is designed to be reusable and adaptable to different contexts while maintaining consistency across the design system.</p>
+                    </section>
+
+                    <section id="query-builder" class="section">
+                        <h2 class="section-title">Query Builder</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">A 3-column pattern for building queries by selecting attributes across multiple categories. The first column displays categories, the second column shows selectable attributes with search, and the third column displays a summary of selections grouped by category.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Query Builder Pattern</h3>
+                            <div class="component-showcase-description">
+                                <p>The Query Builder pattern provides a comprehensive interface for selecting attributes across multiple categories. Specifications:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Layout:</strong> 3-column layout with fixed widths</li>
+                                    <li><strong>Column 1:</strong> Category list (256px) using list-group component</li>
+                                    <li><strong>Column 2:</strong> Attributes with search and checkboxes (flexible width)</li>
+                                    <li><strong>Column 3:</strong> Summary of selections grouped by category (320px)</li>
+                                    <li><strong>Height:</strong> 600px with scrollable content areas</li>
+                                    <li><strong>Features:</strong> Search filtering, checkbox selection, tag removal, save/cancel actions</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Query Builder Example</h4>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <div id="query-builder-showcase"></div>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Categories:</strong> Click on a category in the left column to view its attributes<br>
+                                    <strong>Search:</strong> Use the search box to filter attributes in the current category<br>
+                                    <strong>Selection:</strong> Click checkboxes to move attributes from center to right column<br>
+                                    <strong>Summary:</strong> View all selected attributes grouped by category, click X to remove items and move them back to center
+                                </p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/list-group-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/list-group-component/vanilla/list-group-component.css"&gt;
+&lt;link rel="stylesheet" href="components/search-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/search-component/vanilla/search-component.css"&gt;
+&lt;link rel="stylesheet" href="patterns/query-builder-pattern/vanilla/query-builder-pattern.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/list-group-component/vanilla/list-group-component.js"&gt;&lt;/script&gt;
+&lt;script src="components/search-component/vanilla/search-component.js"&gt;&lt;/script&gt;
+&lt;script src="patterns/query-builder-pattern/vanilla/query-builder-pattern.js"&gt;&lt;/script&gt;
+
+&lt;!-- Container --&gt;
+&lt;div id="query-builder-container"&gt;&lt;/div&gt;
+
+&lt;!-- Initialize --&gt;
+&lt;script&gt;
+    initQueryBuilder({
+        containerId: 'query-builder-container',
+        categories: {
+            'Deal Size': ['Seed Stage', 'Series A', 'Series B', 'Series C'],
+            'Technology': ['Software', 'Hardware', 'AI/ML', 'Fintech'],
+            'Healthcare': ['Pharmaceuticals', 'Medical Devices', 'Digital Health']
+        },
+        selectedAttributes: {
+            'Deal Size': ['Series A'],
+            'Technology': ['Software', 'AI/ML']
+        },
+        onSave: function(selected) {
+            console.log('Selected attributes:', selected);
+        },
+        onCancel: function() {
+            console.log('Cancelled');
+        }
+    });
+&lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="components/header-component/vanilla/header-component.js"></script>
+    <script src="components/footer-component/vanilla/footer-component.js"></script>
+    <script src="components/list-group-component/vanilla/list-group-component.js"></script>
+    <script src="components/search-component/vanilla/search-component.js"></script>
+    <script src="patterns/query-builder-pattern/vanilla/query-builder-pattern.js"></script>
+    <script>
+        initHeader({
+            productName: 'Design System',
+            userInitials: 'DS',
+            notificationCount: 0
+        });
+
+        // Initialize query builder showcase
+        const sampleCategories = {
+            'Deal Size': [
+                'Seed Stage',
+                'Series A',
+                'Series B',
+                'Series C',
+                'Growth Stage',
+                'Late Stage'
+            ],
+            'Technology': [
+                'Software',
+                'Hardware',
+                'AI/ML',
+                'Fintech',
+                'SaaS',
+                'Mobile Apps',
+                'Cloud Services'
+            ],
+            'Healthcare': [
+                'Pharmaceuticals',
+                'Medical Devices',
+                'Digital Health',
+                'Biotechnology',
+                'Telemedicine',
+                'Healthcare IT'
+            ],
+            'Energy': [
+                'Solar',
+                'Wind',
+                'Carbon',
+                'Nuclear',
+                'Hydro',
+                'Geothermal',
+                'Oil & Gas'
+            ],
+            'Real Estate': [
+                'Commercial',
+                'Residential',
+                'Industrial',
+                'Retail',
+                'Office',
+                'Mixed-Use'
+            ],
+            'Financial Services': [
+                'Banking',
+                'Insurance',
+                'Investment',
+                'Payment Processing',
+                'Lending',
+                'Wealth Management'
+            ]
+        };
+
+        initQueryBuilder({
+            containerId: 'query-builder-showcase',
+            categories: sampleCategories,
+            selectedAttributes: {},
+            title: 'Manage Attributes',
+            summaryTitle: 'Summary',
+            searchPlaceholder: 'Search...',
+            noFiltersText: 'No filters selected',
+            noResultsText: 'No filters found'
+        });
+    </script>
+</body>
+</html>
+

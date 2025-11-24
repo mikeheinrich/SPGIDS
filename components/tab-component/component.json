@@ -1,0 +1,68 @@
+{
+  "name": "tab-component",
+  "version": "1.0.0",
+  "description": "Tab component for S&P Global Design System - provides tabbed interface for organizing content",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["tab-component.css", "tab-component.js", "tab-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required"
+  },
+  "specifications": {
+    "source": "Component Reference",
+    "dimensions": {
+      "tabHeight": "flexible",
+      "tabPadding": "2rem (20px)"
+    },
+    "tab": {
+      "fontSize": "1.6rem (16px)",
+      "fontFamily": "Akkurat LL",
+      "color": "Dark gray (#1a1a1a)",
+      "hoverColor": "Red (#d6002a)",
+      "activeIndicator": "3px red underline"
+    },
+    "content": {
+      "padding": "2rem (20px)"
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true
+  }
+}
+
+
+
+

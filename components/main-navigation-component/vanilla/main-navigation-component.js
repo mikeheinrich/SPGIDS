@@ -60,16 +60,19 @@ const defaultMenuItems = [
 
 // Main Navigation Component Function
 function createMainNavigation(options = {}) {
-    const { menuItems = defaultMenuItems } = options;
+    const { menuItems = defaultMenuItems, isDemo = false } = options;
     
-    let navigationHTML = '<aside class="main-navigation">';
+    const demoClass = isDemo ? ' main-navigation-demo' : '';
+    let navigationHTML = `<aside class="main-navigation${demoClass}">`;
     
     menuItems.forEach((item, index) => {
         const activeClass = item.active ? ' active' : '';
+        // Ensure SVG is properly formatted
+        const svgContent = item.svg ? item.svg.trim() : '';
         navigationHTML += `
             <div class="main-navigation-icon${activeClass}" data-index="${index}">
                 <span class="main-navigation-tooltip">${item.label}</span>
-                ${item.svg}
+                ${svgContent}
             </div>`;
     });
     
@@ -80,25 +83,201 @@ function createMainNavigation(options = {}) {
 
 // Initialize Main Navigation
 function initMainNavigation(options = {}) {
-    const container = document.getElementById('main-navigation-container');
+    console.log('=== initMainNavigation CALLED ===');
+    console.log('Options received:', options);
+    
+    const containerId = options.containerId || 'main-navigation-container';
+    console.log('Looking for container with ID:', containerId);
+    
+    const container = document.getElementById(containerId);
     if (!container) {
-        console.error('Main navigation container not found. Add <aside id="main-navigation-container"></aside> to your HTML.');
+        console.error(`❌ Main navigation container not found. Add <aside id="${containerId}"></aside> to your HTML.`);
+        console.log('Available elements in document:', {
+            allIds: Array.from(document.querySelectorAll('[id]')).map(el => el.id),
+            mainNavIds: Array.from(document.querySelectorAll('[id*="main-navigation"]')).map(el => el.id),
+            allAsides: Array.from(document.querySelectorAll('aside')).map(el => ({ id: el.id, className: el.className }))
+        });
         return;
     }
     
-    // Generate and insert navigation HTML
-    container.outerHTML = createMainNavigation(options);
+    console.log('✅ Main navigation container found:', container);
+    console.log('Container details:', {
+        tagName: container.tagName,
+        id: container.id,
+        className: container.className,
+        parentElement: container.parentElement,
+        parentElementTag: container.parentElement?.tagName,
+        parentElementClass: container.parentElement?.className,
+        isConnected: container.isConnected,
+        offsetParent: container.offsetParent
+    });
     
-    // Get the newly created navigation
-    const navigation = document.querySelector('.main-navigation');
-    if (!navigation) {
-        console.error('Failed to create main navigation.');
-        return;
+    // Check if this is a demo context (container is inside a demo/preview area)
+    const isDemo = container.closest('.component-preview, .component-showcase') !== null;
+    console.log('Is demo mode:', isDemo);
+    if (isDemo) {
+        const closestPreview = container.closest('.component-preview, .component-showcase');
+        console.log('Found demo container:', closestPreview);
+        console.log('Demo container classes:', closestPreview?.className);
+    } else {
+        console.log('⚠️ No demo container found - checking parent chain:');
+        let current = container.parentElement;
+        let level = 0;
+        while (current && level < 5) {
+            console.log(`  Level ${level}:`, current.tagName, current.className);
+            current = current.parentElement;
+            level++;
+        }
     }
     
-    // Attach click handlers
+    // Simple approach: directly set classes and content on the container
+    // This transforms <aside id="main-navigation-showcase"></aside> 
+    // into <aside id="main-navigation-showcase" class="main-navigation main-navigation-demo">...</aside>
+    
+    console.log('=== MODIFYING CONTAINER ===');
+    console.log('Container before modification:', {
+        element: container,
+        tagName: container.tagName,
+        id: container.id,
+        className: container.className,
+        innerHTML: container.innerHTML,
+        childrenCount: container.children.length
+    });
+    
+    // Set the classes
+    const newClassName = isDemo ? 'main-navigation main-navigation-demo' : 'main-navigation';
+    console.log('Setting className to:', newClassName);
+    container.className = newClassName;
+    console.log('✅ Container className after:', container.className);
+    console.log('Container.classList:', Array.from(container.classList));
+    
+    // Build the icons HTML directly from menuItems
     const menuItems = options.menuItems || defaultMenuItems;
-    const navigationIcons = navigation.querySelectorAll('.main-navigation-icon');
+    console.log('=== BUILDING ICONS ===');
+    console.log('Menu items count:', menuItems.length);
+    console.log('Menu items:', menuItems.map((item, idx) => ({ index: idx, label: item.label, hasSvg: !!item.svg, active: item.active })));
+    
+    let iconsHTML = '';
+    menuItems.forEach((item, index) => {
+        const activeClass = item.active ? ' active' : '';
+        const svgContent = item.svg ? item.svg.trim() : '';
+        const iconHTML = `
+            <div class="main-navigation-icon${activeClass}" data-index="${index}">
+                <span class="main-navigation-tooltip">${item.label}</span>
+                ${svgContent}
+            </div>`;
+        iconsHTML += iconHTML;
+        console.log(`  Icon ${index} (${item.label}):`, {
+            activeClass,
+            svgLength: svgContent.length,
+            iconHTMLLength: iconHTML.length
+        });
+    });
+    
+    console.log('=== SETTING INNERHTML ===');
+    console.log('Icons HTML total length:', iconsHTML.length);
+    console.log('Icons HTML preview (first 500 chars):', iconsHTML.substring(0, 500));
+    console.log('Icons HTML preview (last 200 chars):', iconsHTML.substring(Math.max(0, iconsHTML.length - 200)));
+    
+    try {
+        container.innerHTML = iconsHTML;
+        console.log('✅ innerHTML set successfully');
+    } catch (error) {
+        console.error('❌ Error setting innerHTML:', error);
+        return;
+    }
+    
+    console.log('=== VERIFICATION ===');
+    console.log('Container after innerHTML set:', {
+        element: container,
+        tagName: container.tagName,
+        id: container.id,
+        className: container.className,
+        innerHTMLLength: container.innerHTML.length,
+        childrenCount: container.children.length,
+        children: Array.from(container.children).map((child, idx) => ({
+            index: idx,
+            tagName: child.tagName,
+            className: child.className,
+            innerHTML: child.innerHTML.substring(0, 100)
+        }))
+    });
+    
+    // Verify icons were created
+    const iconElements = container.querySelectorAll('.main-navigation-icon');
+    console.log('Icon elements found:', iconElements.length);
+    iconElements.forEach((icon, idx) => {
+        console.log(`  Icon ${idx}:`, {
+            element: icon,
+            className: icon.className,
+            hasTooltip: !!icon.querySelector('.main-navigation-tooltip'),
+            hasSvg: !!icon.querySelector('svg'),
+            childrenCount: icon.children.length
+        });
+    });
+    
+    if (iconElements.length === 0) {
+        console.error('❌ NO ICON ELEMENTS FOUND!');
+        console.log('Container.innerHTML:', container.innerHTML);
+        console.log('Container.children:', Array.from(container.children));
+    }
+    
+    // Ensure the container has the correct tag (should already be aside)
+    if (container.tagName !== 'ASIDE') {
+        console.warn('Container is not an <aside> element, it is:', container.tagName);
+    }
+    
+    console.log('Navigation classes applied to container:', container.className);
+    console.log('Container innerHTML length:', container.innerHTML.length);
+    console.log('Container innerHTML preview:', container.innerHTML.substring(0, 200));
+    console.log('Container children count:', container.children.length);
+    console.log('Container tagName:', container.tagName);
+    console.log('Container id:', container.id);
+    
+    // Verify icons were created
+    const iconsBeforeReflow = container.querySelectorAll('.main-navigation-icon');
+    console.log('Icons found before reflow:', iconsBeforeReflow.length);
+    
+    // Use the container as the navigation element for the rest of the function
+    // (container now has the navigation classes and content)
+    
+    // Force a reflow to ensure styles are applied
+    void container.offsetHeight;
+    
+    // Verify it's visible - log all computed styles
+    const computedStyle = window.getComputedStyle(container);
+    console.log('=== Container Computed Styles ===');
+    console.log('display:', computedStyle.display);
+    console.log('position:', computedStyle.position);
+    console.log('visibility:', computedStyle.visibility);
+    console.log('opacity:', computedStyle.opacity);
+    console.log('width:', computedStyle.width);
+    console.log('height:', computedStyle.height);
+    console.log('top:', computedStyle.top);
+    console.log('left:', computedStyle.left);
+    console.log('bottom:', computedStyle.bottom);
+    console.log('z-index:', computedStyle.zIndex);
+    console.log('offsetWidth:', container.offsetWidth);
+    console.log('offsetHeight:', container.offsetHeight);
+    console.log('getBoundingClientRect:', container.getBoundingClientRect());
+    
+    // Check if parent has position relative
+    const parent = container.parentElement;
+    if (parent) {
+        const parentStyle = window.getComputedStyle(parent);
+        console.log('Parent position:', parentStyle.position);
+        console.log('Parent overflow:', parentStyle.overflow);
+    }
+    
+    // Attach click handlers - menuItems already defined above
+    const navigationIcons = container.querySelectorAll('.main-navigation-icon');
+    
+    console.log('Found navigation icons:', navigationIcons.length);
+    
+    if (navigationIcons.length === 0) {
+        console.error('No navigation icons found in container element');
+        console.log('Container innerHTML:', container.innerHTML);
+    }
     
     navigationIcons.forEach((icon, index) => {
         const menuItem = menuItems[index];
