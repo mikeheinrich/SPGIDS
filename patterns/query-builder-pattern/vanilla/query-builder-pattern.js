@@ -276,25 +276,37 @@ function renderSummary(instanceId) {
                 <div class="query-builder__summary-category">
                     <h4 class="query-builder__summary-category-title">${category}</h4>
                     <div class="query-builder__summary-tags">
-                        ${attributeArray.map(attr => `
-                            <div class="query-builder__summary-tag">
-                                <span>${attr}</span>
-                                <button 
-                                    class="query-builder__summary-tag-remove"
-                                    data-category="${category}"
-                                    data-attribute="${attr}"
-                                    aria-label="Remove ${attr}"
-                                >
-                                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="8" cy="8" r="8" fill="currentColor"/>
-                                        <g transform="translate(4 4)">
-                                            <line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
-                                            <line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
-                                        </g>
-                                    </svg>
-                                </button>
-                            </div>
-                        `).join('')}
+                        ${attributeArray.map(attr => {
+                            // Use pod component
+                            if (typeof createPod === 'function') {
+                                // Create pod with data attributes for category and attribute
+                                const podId = `pod-${category.replace(/\s+/g, '-')}-${attr.replace(/\s+/g, '-')}`;
+                                const podHTML = createPod(attr, null, podId);
+                                // Add data attributes to the pod element
+                                return podHTML.replace('<span class="pod"', `<span class="pod" data-category="${category}" data-attribute="${attr}"`);
+                            } else {
+                                // Fallback to old tag style if pod component not loaded
+                                return `
+                                    <div class="query-builder__summary-tag">
+                                        <span>${attr}</span>
+                                        <button 
+                                            class="query-builder__summary-tag-remove"
+                                            data-category="${category}"
+                                            data-attribute="${attr}"
+                                            aria-label="Remove ${attr}"
+                                        >
+                                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="8" fill="currentColor"/>
+                                                <g transform="translate(4 4)">
+                                                    <line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                                                    <line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                `;
+                            }
+                        }).join('')}
                     </div>
                 </div>
             `;
@@ -323,6 +335,22 @@ function attachEventListeners(instanceId) {
     });
 
     // Remove tag handlers - clicking removes item from summary and moves back to center
+    // Handle pod remove buttons (if using pod component)
+    container.querySelectorAll('.pod-remove').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const pod = e.target.closest('.pod');
+            if (pod) {
+                const category = pod.getAttribute('data-category');
+                const attribute = pod.getAttribute('data-attribute');
+                if (category && attribute) {
+                    removeAttributeFromSummary(instanceId, category, attribute);
+                }
+            }
+        });
+    });
+    
+    // Handle old tag remove buttons (fallback if pod component not loaded)
     container.querySelectorAll('.query-builder__summary-tag-remove').forEach(button => {
         button.addEventListener('click', (e) => {
             const category = e.target.closest('button').dataset.category;

@@ -1,0 +1,68 @@
+{
+  "name": "pod-component",
+  "version": "1.0.0",
+  "description": "Pod component for S&P Global Design System - removable chip/tag with rounded pill shape",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["pod-component.css", "pod-component.js", "pod-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required"
+  },
+  "specifications": {
+    "source": "Design System",
+    "dimensions": {
+      "height": "auto",
+      "padding": "4px 10px",
+      "borderRadius": "16px"
+    },
+    "colors": {
+      "background": "Light gray (#f8f8f8)",
+      "border": "Gray (#cccccc)",
+      "text": "Dark gray (#1a1a1a)",
+      "removeButton": "Gray (#5c5c5c) circle with white X"
+    },
+    "features": {
+      "removable": true,
+      "pillShape": true,
+      "onRemoveCallback": true
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true
+  }
+}
+
+

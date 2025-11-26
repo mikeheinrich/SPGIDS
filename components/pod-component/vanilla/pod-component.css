@@ -1,0 +1,64 @@
+/**
+ * Pod Component - Vanilla CSS
+ * Removable chip/tag with rounded pill shape
+ */
+
+.pod {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: var(--color-gray-bg);
+    border: 1px solid var(--color-gray-2);
+    border-radius: 16px;
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    color: var(--color-gray-5);
+    white-space: nowrap;
+    max-width: 300px;
+}
+
+.pod-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+}
+
+.pod-remove {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+}
+
+.pod-remove:hover {
+    opacity: 0.7;
+}
+
+.pod-remove svg {
+    width: 16px;
+    height: 16px;
+}
+
+.pod-remove path {
+    fill: var(--color-white);
+}
+
+.pod-remove:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.pod-remove:focus:not(:focus-visible) {
+    outline: none;
+}
+

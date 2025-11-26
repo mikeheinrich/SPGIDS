@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Label Component - Example</title>
+    
+    <!-- Include Design System Base -->
+    <link rel="stylesheet" href="../../../../styles/base.css">
+    
+    <!-- Include Component CSS -->
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="label-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 2rem;
+            background: var(--color-gray-bg);
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .label-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Label Component Examples</h1>
+    
+    <div class="example-section">
+        <h2>Label Variants</h2>
+        <p>Colored labels without remove buttons:</p>
+        <div class="label-container">
+            <div id="label-default"></div>
+            <div id="label-success"></div>
+            <div id="label-info"></div>
+            <div id="label-attention"></div>
+        </div>
+    </div>
+    
+    <div class="example-section">
+        <h2>Multiple Labels</h2>
+        <p>Group of labels with different variants:</p>
+        <div class="label-container" id="labels-multiple"></div>
+    </div>
+    
+    <script src="label-component.js"></script>
+    <script>
+        // Single labels
+        initLabel('label-default', { text: 'Default', variant: 'default' });
+        initLabel('label-success', { text: 'Success', variant: 'success' });
+        initLabel('label-info', { text: 'Info', variant: 'info' });
+        initLabel('label-attention', { text: 'Attention', variant: 'attention' });
+        
+        // Multiple labels
+        const labelItems = [
+            { text: 'Default', variant: 'default' },
+            { text: 'Success', variant: 'success' },
+            { text: 'Info', variant: 'info' },
+            { text: 'Attention', variant: 'attention' }
+        ];
+        document.getElementById('labels-multiple').innerHTML = createLabels(labelItems);
+    </script>
+</body>
+</html>
+
+

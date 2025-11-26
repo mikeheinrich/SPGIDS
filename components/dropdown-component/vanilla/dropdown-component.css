@@ -1,0 +1,283 @@
+/**
+ * Dropdown Component - Vanilla CSS
+ * Default, Light, and Multi-select variants
+ */
+
+/* ============================================
+   BASE DROPDOWN STYLES
+   ============================================ */
+.dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+    min-width: 200px;
+}
+
+/* ============================================
+   DEFAULT DROPDOWN
+   ============================================ */
+.dropdown {
+    width: 100%;
+    height: 32px;
+    padding: 0 10px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-2);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    color: var(--color-gray-5);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: none;
+    transition: border-color 0.2s ease;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.dropdown:hover {
+    border-color: var(--color-gray-4);
+}
+
+.dropdown:focus {
+    border-color: var(--color-primary);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.dropdown:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.dropdown.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.dropdown-text {
+    flex: 1;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+.dropdown-placeholder {
+    color: var(--color-gray-4);
+}
+
+.dropdown--light .dropdown-placeholder {
+    color: var(--color-primary);
+}
+
+.dropdown-chevron {
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    pointer-events: none;
+}
+
+.dropdown.open .dropdown-chevron {
+    transform: rotate(180deg);
+}
+
+.dropdown-chevron svg {
+    width: 100%;
+    height: 100%;
+}
+
+.dropdown-chevron path {
+    fill: var(--color-gray-4);
+}
+
+/* ============================================
+   LIGHT DROPDOWN
+   ============================================ */
+.dropdown--light {
+    background: transparent;
+    border: none;
+    padding: 0 20px 0 0;
+    height: auto;
+}
+
+.dropdown--light:hover {
+    border: none;
+}
+
+.dropdown--light:focus {
+    border: none;
+    outline: none;
+}
+
+.dropdown--light .dropdown-text {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.dropdown--light .dropdown-chevron path {
+    fill: var(--color-primary);
+}
+
+/* ============================================
+   MULTI-SELECT DROPDOWN
+   ============================================ */
+.dropdown--multi-select {
+    /* Uses same styles as default dropdown */
+}
+
+.dropdown--multi-select .dropdown-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+}
+
+/* Chip/Pod styling */
+.dropdown-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 22px;
+    padding: 0 6px 0 10px;
+    background: var(--color-gray-bg);
+    border: 1px solid var(--color-gray-2);
+    border-radius: 12px;
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    color: var(--color-gray-5);
+    white-space: nowrap;
+    line-height: 22px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.dropdown-chip-text {
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100px;
+    line-height: inherit;
+}
+
+.dropdown-chip-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+    padding: 0;
+    margin: 0;
+    background: var(--color-gray-4);
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+.dropdown-chip-remove:hover {
+    background: var(--color-gray-5);
+}
+
+.dropdown-more-text {
+    color: var(--color-gray-4);
+    font-size: var(--text-paragraph);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   DROPDOWN MENU
+   ============================================ */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-2);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 2px;
+}
+
+.dropdown-menu.open {
+    display: block;
+}
+
+.dropdown-menu-item {
+    padding: 10px 12px;
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    color: var(--color-gray-5);
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-gray-2);
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu-item:hover,
+.dropdown-menu-item.highlighted {
+    background-color: var(--color-gray-bg);
+}
+
+.dropdown-menu-item.selected {
+    background-color: var(--color-gray-bg);
+    font-weight: 700;
+}
+
+.dropdown-menu-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Multi-select menu items */
+.dropdown-menu-item--multi {
+    padding-left: 12px;
+}
+
+/* Use the selector-checkbox class from selector component */
+.dropdown-menu-item--multi .selector-checkbox {
+    margin-right: 10px;
+}
+
+.dropdown-menu-item-label {
+    flex: 1;
+    text-align: left;
+}
+
+/* Empty state */
+.dropdown-menu-empty {
+    padding: 12px;
+    text-align: center;
+    color: var(--color-gray-4);
+    font-size: var(--text-paragraph);
+    font-style: italic;
+}
+

@@ -1,0 +1,49 @@
+/**
+ * Label Component - Vanilla CSS
+ * Colored tags without remove button
+ */
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: var(--color-white);
+    border: 1px solid;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-primary);
+    font-size: var(--text-paragraph);
+    white-space: nowrap;
+    max-width: 300px;
+}
+
+.label-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Default variant */
+.label--default {
+    border-color: var(--color-gray-4);
+    color: var(--color-gray-4);
+}
+
+/* Success variant */
+.label--success {
+    border-color: var(--color-success);
+    color: var(--color-success);
+}
+
+/* Info variant */
+.label--info {
+    border-color: var(--color-info);
+    color: var(--color-info);
+}
+
+/* Attention variant */
+.label--attention {
+    border-color: var(--color-attention);
+    color: var(--color-attention);
+}
+
+

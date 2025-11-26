@@ -12,7 +12,10 @@
     <link rel="stylesheet" href="components/list-group-component/vanilla/list-group-component.css">
     <link rel="stylesheet" href="components/search-component/base/base.css">
     <link rel="stylesheet" href="components/search-component/vanilla/search-component.css">
+    <link rel="stylesheet" href="components/pod-component/base/base.css">
+    <link rel="stylesheet" href="components/pod-component/vanilla/pod-component.css">
     <link rel="stylesheet" href="patterns/query-builder-pattern/vanilla/query-builder-pattern.css">
+    <link rel="stylesheet" href="patterns/file-upload-pattern/vanilla/file-upload-pattern.css">
 </head>
 <body>
     <!-- Footer -->
@@ -40,14 +43,34 @@
                     <div class="nav-section">
                         <h3 class="nav-section-title">Components</h3>
                         <ul class="nav-list">
-                            <li><a href="components.html" class="nav-link">All Components</a></li>
+                            <li><a href="components.html#button" class="nav-link">Button</a></li>
+                            <li><a href="components.html#button-group" class="nav-link">Button Group</a></li>
+                            <li><a href="components.html#back-arrow-navigation" class="nav-link">Back Arrow Navigation</a></li>
+                            <li><a href="components.html#tab" class="nav-link">Tab</a></li>
+                            <li><a href="components.html#search" class="nav-link">Search</a></li>
+                            <li><a href="components.html#prefilter-primary-search" class="nav-link">Prefilter Primary Search</a></li>
+                            <li><a href="components.html#text-input" class="nav-link">Text Input</a></li>
+                            <li><a href="components.html#accordion" class="nav-link">Accordion</a></li>
+                            <li><a href="components.html#list-group" class="nav-link">List Group</a></li>
+                            <li><a href="components.html#left-nav" class="nav-link">In-Page Nav</a></li>
+                            <li><a href="components.html#alert" class="nav-link">Alert</a></li>
+                            <li><a href="components.html#header" class="nav-link">Header</a></li>
+                            <li><a href="components.html#footer" class="nav-link">Footer</a></li>
+                            <li><a href="components.html#main-navigation" class="nav-link">Main Navigation</a></li>
+                            <li><a href="components.html#modal" class="nav-link">Modal</a></li>
+                            <li><a href="components.html#table" class="nav-link">Table</a></li>
+                            <li><a href="components.html#data-grid" class="nav-link">Data Grid</a></li>
+                            <li><a href="components.html#selector" class="nav-link">Selectors</a></li>
+                            <li><a href="components.html#dropdown" class="nav-link">Dropdown</a></li>
+                            <li><a href="components.html#pod" class="nav-link">Pod</a></li>
+                            <li><a href="components.html#label" class="nav-link">Label</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
                         <h3 class="nav-section-title">Patterns</h3>
                         <ul class="nav-list">
-                            <li><a href="patterns.html" class="nav-link active">All Patterns</a></li>
-                            <li><a href="patterns.html#query-builder" class="nav-link nav-sublink">Query Builder</a></li>
+                            <li><a href="patterns.html#query-builder" class="nav-link">Query Builder</a></li>
+                            <li><a href="patterns.html#file-upload" class="nav-link">File Upload</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -62,6 +85,64 @@
                     <section class="section">
                         <h2 class="section-title">About Patterns</h2>
                         <p>Patterns combine multiple components to solve specific user interface problems. Each pattern is designed to be reusable and adaptable to different contexts while maintaining consistency across the design system.</p>
+                    </section>
+
+                    <section id="file-upload" class="section">
+                        <h2 class="section-title">File Upload</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">A drag-and-drop file upload pattern with file list display. Supports both file browsing and drag-and-drop, with the ability to display uploaded files either below or to the right of the drop zone.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Vertical Layout</h3>
+                            <div class="component-showcase-description">
+                                <p>The file list appears below the drop zone. Best for narrow containers or when the list can grow long.</p>
+                            </div>
+                            <div class="component-preview">
+                                <div id="file-upload-vertical"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Horizontal Layout</h3>
+                            <div class="component-showcase-description">
+                                <p>The file list appears to the right of the drop zone. Best for wider containers where horizontal space is available.</p>
+                            </div>
+                            <div class="component-preview">
+                                <div id="file-upload-horizontal"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="component-showcase">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Usage</h3>
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="patterns/file-upload-pattern/vanilla/file-upload-pattern.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="patterns/file-upload-pattern/vanilla/file-upload-pattern.js"&gt;&lt;/script&gt;
+
+&lt;!-- Container --&gt;
+&lt;div id="file-upload-container"&gt;&lt;/div&gt;
+
+&lt;!-- Initialize --&gt;
+&lt;script&gt;
+    initFileUpload({
+        containerId: 'file-upload-container',
+        layout: 'vertical',  // or 'horizontal'
+        dropzoneText: 'Drag and drop file to upload',
+        acceptedFormats: 'Accepted formats: pdf, doc, docx',
+        accept: '.pdf,.doc,.docx',
+        multiple: true,
+        maxFileSize: 10 * 1024 * 1024, // 10MB
+        maxFiles: 10,
+        browseButtonText: 'Browse files',
+        fileListTitle: 'Uploaded files',
+        onFilesChange: function(files) {
+            console.log('Files:', files);
+        }
+    });
+&lt;/script&gt;
+                            </div>
+                        </div>
                     </section>
 
                     <section id="query-builder" class="section">
@@ -143,12 +224,41 @@
     <script src="components/footer-component/vanilla/footer-component.js"></script>
     <script src="components/list-group-component/vanilla/list-group-component.js"></script>
     <script src="components/search-component/vanilla/search-component.js"></script>
+    <script src="components/pod-component/vanilla/pod-component.js"></script>
     <script src="patterns/query-builder-pattern/vanilla/query-builder-pattern.js"></script>
+    <script src="patterns/file-upload-pattern/vanilla/file-upload-pattern.js"></script>
     <script>
         initHeader({
             productName: 'Design System',
             userInitials: 'DS',
             notificationCount: 0
+        });
+
+        // Initialize file upload showcases
+        initFileUpload({
+            containerId: 'file-upload-vertical',
+            layout: 'vertical',
+            dropzoneText: 'Drag and drop file to upload',
+            acceptedFormats: 'Accepted formats: pdf, doc, docx',
+            accept: '.pdf,.doc,.docx',
+            browseButtonText: 'Browse files',
+            fileListTitle: 'Uploaded files',
+            onFilesChange: function(files) {
+                console.log('Vertical upload files:', files.map(f => f.name || f));
+            }
+        });
+
+        initFileUpload({
+            containerId: 'file-upload-horizontal',
+            layout: 'horizontal',
+            dropzoneText: 'Drag and drop file to upload',
+            acceptedFormats: 'Accepted formats: pdf, doc, docx',
+            accept: '.pdf,.doc,.docx',
+            browseButtonText: 'Browse files',
+            fileListTitle: 'Uploaded files',
+            onFilesChange: function(files) {
+                console.log('Horizontal upload files:', files.map(f => f.name || f));
+            }
         });
 
         // Initialize query builder showcase
@@ -214,6 +324,34 @@
             searchPlaceholder: 'Search...',
             noFiltersText: 'No filters selected',
             noResultsText: 'No filters found'
+        });
+        
+        // Handle navigation active state based on URL hash
+        function updateNavActiveState() {
+            const hash = window.location.hash;
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (hash && href && href.endsWith(hash)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Update on page load
+        updateNavActiveState();
+        
+        // Update on hash change
+        window.addEventListener('hashchange', updateNavActiveState);
+        
+        // Update on click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
         });
     </script>
 </body>

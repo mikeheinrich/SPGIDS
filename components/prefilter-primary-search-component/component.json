@@ -1,0 +1,70 @@
+{
+  "name": "prefilter-primary-search-component",
+  "version": "1.0.0",
+  "description": "Prefilter primary search component for S&P Global Design System - search input with integrated prefilter dropdown",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["prefilter-primary-search-component.css", "prefilter-primary-search-component.js", "prefilter-primary-search-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required"
+  },
+  "specifications": {
+    "source": "SVG Design",
+    "dimensions": {
+      "height": "32.5px",
+      "prefilter-width": "120px",
+      "search-width": "flexible (max 500px)"
+    },
+    "colors": {
+      "underline": "Red (#d6002a)",
+      "text": "Dark gray (#1a1a1a)",
+      "placeholder": "Gray (#5c5c5c)",
+      "caret": "Gray (#5c5c5c)"
+    },
+    "features": {
+      "prefilter-dropdown": true,
+      "search-input": true,
+      "red-underline": true,
+      "keyboard-support": true,
+      "callbacks": true
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true
+  }
+}
+
+

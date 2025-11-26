@@ -27,14 +27,27 @@
     <link rel="stylesheet" href="components/tab-component/vanilla/tab-component.css">
     <link rel="stylesheet" href="components/search-component/base/base.css">
     <link rel="stylesheet" href="components/search-component/vanilla/search-component.css">
+    <link rel="stylesheet" href="components/prefilter-primary-search-component/base/base.css">
+    <link rel="stylesheet" href="components/prefilter-primary-search-component/vanilla/prefilter-primary-search-component.css">
     <link rel="stylesheet" href="components/text-input-component/base/base.css">
     <link rel="stylesheet" href="components/text-input-component/vanilla/text-input-component.css">
     <link rel="stylesheet" href="components/modal-component/base/base.css">
     <link rel="stylesheet" href="components/modal-component/vanilla/modal-component.css">
     <link rel="stylesheet" href="components/table-component/base/base.css">
     <link rel="stylesheet" href="components/table-component/vanilla/table-component.css">
+    <!-- AG-Grid CSS - Local files (v32.3.3) -->
+    <link rel="stylesheet" href="vendor/ag-grid/ag-grid.css">
+    <link rel="stylesheet" href="vendor/ag-grid/ag-theme-alpine.css">
+    <link rel="stylesheet" href="components/data-grid-component/base/base.css">
+    <link rel="stylesheet" href="components/data-grid-component/vanilla/data-grid-component.css">
     <link rel="stylesheet" href="components/selector-component/base/base.css">
     <link rel="stylesheet" href="components/selector-component/vanilla/selector-component.css">
+    <link rel="stylesheet" href="components/dropdown-component/base/base.css">
+    <link rel="stylesheet" href="components/dropdown-component/vanilla/dropdown-component.css">
+    <link rel="stylesheet" href="components/pod-component/base/base.css">
+    <link rel="stylesheet" href="components/pod-component/vanilla/pod-component.css">
+    <link rel="stylesheet" href="components/label-component/base/base.css">
+    <link rel="stylesheet" href="components/label-component/vanilla/label-component.css">
 </head>
 <body>
     <!-- Footer -->
@@ -62,30 +75,34 @@
                     <div class="nav-section">
                         <h3 class="nav-section-title">Components</h3>
                         <ul class="nav-list">
-                            <li><a href="components.html" class="nav-link active">All Components</a></li>
-                            <li><a href="components.html#button" class="nav-link nav-sublink">Button</a></li>
-                            <li><a href="components.html#button-group" class="nav-link nav-sublink">Button Group</a></li>
-                            <li><a href="components.html#back-arrow-navigation" class="nav-link nav-sublink">Back Arrow Navigation</a></li>
-                            <li><a href="components.html#tab" class="nav-link nav-sublink">Tab</a></li>
-                            <li><a href="components.html#search" class="nav-link nav-sublink">Search</a></li>
-                            <li><a href="components.html#text-input" class="nav-link nav-sublink">Text Input</a></li>
-                            <li><a href="components.html#accordion" class="nav-link nav-sublink">Accordion</a></li>
-                            <li><a href="components.html#list-group" class="nav-link nav-sublink">List Group</a></li>
-                            <li><a href="components.html#left-nav" class="nav-link nav-sublink">In-Page Nav</a></li>
-                            <li><a href="components.html#alert" class="nav-link nav-sublink">Alert</a></li>
-                            <li><a href="components.html#header" class="nav-link nav-sublink">Header</a></li>
-                            <li><a href="components.html#footer" class="nav-link nav-sublink">Footer</a></li>
-                            <li><a href="components.html#main-navigation" class="nav-link nav-sublink">Main Navigation</a></li>
-                            <li><a href="components.html#modal" class="nav-link nav-sublink">Modal</a></li>
-                            <li><a href="components.html#table" class="nav-link nav-sublink">Table</a></li>
-                            <li><a href="components.html#selector" class="nav-link nav-sublink">Selectors</a></li>
+                            <li><a href="components.html#button" class="nav-link">Button</a></li>
+                            <li><a href="components.html#button-group" class="nav-link">Button Group</a></li>
+                            <li><a href="components.html#back-arrow-navigation" class="nav-link">Back Arrow Navigation</a></li>
+                            <li><a href="components.html#tab" class="nav-link">Tab</a></li>
+                            <li><a href="components.html#search" class="nav-link">Search</a></li>
+                            <li><a href="components.html#prefilter-primary-search" class="nav-link">Prefilter Primary Search</a></li>
+                            <li><a href="components.html#text-input" class="nav-link">Text Input</a></li>
+                            <li><a href="components.html#accordion" class="nav-link">Accordion</a></li>
+                            <li><a href="components.html#list-group" class="nav-link">List Group</a></li>
+                            <li><a href="components.html#left-nav" class="nav-link">In-Page Nav</a></li>
+                            <li><a href="components.html#alert" class="nav-link">Alert</a></li>
+                            <li><a href="components.html#header" class="nav-link">Header</a></li>
+                            <li><a href="components.html#footer" class="nav-link">Footer</a></li>
+                            <li><a href="components.html#main-navigation" class="nav-link">Main Navigation</a></li>
+                            <li><a href="components.html#modal" class="nav-link">Modal</a></li>
+                            <li><a href="components.html#table" class="nav-link">Table</a></li>
+                            <li><a href="components.html#data-grid" class="nav-link">Data Grid</a></li>
+                            <li><a href="components.html#selector" class="nav-link">Selectors</a></li>
+                            <li><a href="components.html#dropdown" class="nav-link">Dropdown</a></li>
+                            <li><a href="components.html#pod" class="nav-link">Pod</a></li>
+                            <li><a href="components.html#label" class="nav-link">Label</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
                         <h3 class="nav-section-title">Patterns</h3>
                         <ul class="nav-list">
-                            <li><a href="patterns.html" class="nav-link">All Patterns</a></li>
-                            <li><a href="patterns.html#query-builder" class="nav-link nav-sublink">Query Builder</a></li>
+                            <li><a href="patterns.html#query-builder" class="nav-link">Query Builder</a></li>
+                            <li><a href="patterns.html#file-upload" class="nav-link">File Upload</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -582,6 +599,66 @@
                         </div>
                     </section>
 
+                    <section id="prefilter-primary-search" class="section">
+                        <h2 class="section-title">Prefilter Primary Search</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">A search input component with an integrated prefilter dropdown. Users can select a search context (e.g., "CLM Pro" or "Snowflake") before performing their search.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Prefilter Primary Search</h3>
+                            <div class="component-showcase-description">
+                                <p>The prefilter primary search component combines a search input field with a prefilter dropdown selector. Specifications:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Dimensions:</strong> 32.5px height (including red underline), prefilter width 120px, search width flexible (max 500px)</li>
+                                    <li><strong>Font:</strong> Akkurat LL, 14px</li>
+                                    <li><strong>Underline:</strong> Red (#d6002a) - always visible, spans entire component</li>
+                                    <li><strong>Prefilter Dropdown:</strong> Clickable button with dropdown menu</li>
+                                    <li><strong>Search Input:</strong> Placeholder text with search icon on the right</li>
+                                    <li><strong>Keyboard Support:</strong> Enter key to trigger search</li>
+                                    <li><strong>Debounced Search:</strong> Automatic debouncing (300ms)</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Prefilter Primary Search Example</h4>
+                                <div style="margin-bottom: var(--spacing-md); max-width: 900px;">
+                                    <div id="prefilter-primary-search-showcase"></div>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Prefilter:</strong> Click the prefilter button to select search context<br>
+                                    <strong>Search:</strong> Type in the search field to perform a search<br>
+                                    <strong>Red Underline:</strong> Always visible, spans the entire component width<br>
+                                    <strong>Callbacks:</strong> Supports onPrefilterChange and onSearch callbacks
+                                </p>
+                            </div>
+                            
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/prefilter-primary-search-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/prefilter-primary-search-component/vanilla/prefilter-primary-search-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/prefilter-primary-search-component/vanilla/prefilter-primary-search-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Prefilter Primary Search --&gt;
+&lt;div id="prefilter-search-container"&gt;&lt;/div&gt;
+&lt;script&gt;
+    initPrefilterPrimarySearch({
+        containerId: 'prefilter-search-container',
+        placeholder: 'Search by Legal Name, LEI, Entity ID, RFO ID...',
+        defaultPrefilter: 'CLM Pro',
+        options: ['CLM Pro', 'Snowflake'],
+        onPrefilterChange: function(value) {
+            console.log('Prefilter changed to:', value);
+        },
+        onSearch: function(query) {
+            console.log('Search query:', query);
+        }
+    });
+&lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+
                     <section id="text-input" class="section">
                         <h2 class="section-title">Text Input</h2>
                         <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Text input components with two layout options (stack and inline) and multiple states (empty, filled, error, disabled). Includes clear icon functionality for filled inputs.</p>
@@ -1070,58 +1147,6 @@
                         </div>
                     </section>
 
-                    <section id="alert" class="section">
-                        <h2 class="section-title">Alert</h2>
-                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Banner-style alerts for displaying important messages to users. Supports multiple variants and can be dismissed.</p>
-                        
-                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
-                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Alert Variants</h3>
-                            <div class="component-showcase-description">
-                                <p>Alerts provide contextual feedback messages. Specifications:</p>
-                                <ul style="margin-left: 2rem; margin-top: 1rem;">
-                                    <li><strong>Variants:</strong> Success, Warning, Error, Info</li>
-                                    <li><strong>Features:</strong> Icon, title (optional), message, dismissible close button</li>
-                                    <li><strong>Colors:</strong> Variant-specific background and border colors</li>
-                                    <li><strong>Layout:</strong> Flex layout with icon, content, and close button</li>
-                                </ul>
-                            </div>
-                            <div class="component-preview">
-                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Alert Examples</h4>
-                                <div style="display: flex; flex-direction: column; gap: var(--spacing-md); margin-bottom: var(--spacing-md); max-width: 800px;">
-                                    <div id="alert-success-example"></div>
-                                    <div id="alert-warning-example"></div>
-                                    <div id="alert-error-example"></div>
-                                    <div id="alert-info-example"></div>
-                                </div>
-                                
-                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
-                                    <strong>Success:</strong> Green background and border for positive feedback<br>
-                                    <strong>Warning:</strong> Orange background and border for cautionary messages<br>
-                                    <strong>Error:</strong> Red background and border for error messages<br>
-                                    <strong>Info:</strong> Blue background and border for informational messages
-                                </p>
-                            </div>
-                            <div class="code-block">
-&lt;!-- Include CSS --&gt;
-&lt;link rel="stylesheet" href="components/alert-component/base/base.css"&gt;
-&lt;link rel="stylesheet" href="components/alert-component/vanilla/alert-component.css"&gt;
-
-&lt;!-- Include JavaScript --&gt;
-&lt;script src="components/alert-component/vanilla/alert-component.js"&gt;&lt;/script&gt;
-
-&lt;!-- Create Alert --&gt;
-&lt;script&gt;
-    createAlert({
-        variant: 'success',
-        message: 'Your changes have been saved successfully.',
-        title: 'Success',
-        dismissible: true
-    });
-&lt;/script&gt;
-                            </div>
-                        </div>
-                    </section>
-
                     <section id="header" class="section">
                         <h2 class="section-title">Header</h2>
                         <div class="component-showcase">
@@ -1399,6 +1424,81 @@
                         </div>
                     </section>
 
+                    <section id="data-grid" class="section">
+                        <h2 class="section-title">Data Grid</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">A powerful data grid component built on AG-Grid with design system styling. Features column management, filtering, sorting, and row selection.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Data Grid Features</h3>
+                            <div class="component-showcase-description">
+                                <p>The Data Grid component provides a feature-rich table interface. Features:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Sortable Columns:</strong> Click column headers to sort</li>
+                                    <li><strong>Column Filtering:</strong> Built-in filter menu for each column</li>
+                                    <li><strong>Row Selection:</strong> Checkbox selection with select all functionality</li>
+                                    <li><strong>Column Menu:</strong> Access column options (pin, autosize, group by, reset)</li>
+                                    <li><strong>Column Resizing:</strong> Drag column borders to resize</li>
+                                    <li><strong>Pagination:</strong> Optional pagination for large datasets</li>
+                                    <li><strong>Custom Cell Rendering:</strong> Render custom content in cells</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Data Grid Example</h4>
+                                <div style="background-color: var(--color-gray-bg); border: 1px solid var(--color-gray-2); border-radius: var(--radius-sm); padding: var(--spacing-sm); margin-bottom: var(--spacing-md);">
+                                    <p style="font-size: var(--text-small); color: var(--color-gray-4); margin: 0;">
+                                        <strong>Note:</strong> Full functionality (column menu, advanced filtering, grouping) and complete design system styling requires an AG-Grid Enterprise license. This placeholder uses the Community Edition which has some styling limitations.
+                                    </p>
+                                </div>
+                                <div id="data-grid-showcase" class="data-grid-container ag-theme-alpine" style="margin-bottom: var(--spacing-md);"></div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Features:</strong> Click column headers to sort, use hamburger menu for column options, click checkboxes to select rows<br>
+                                    <strong>Styling:</strong> Uses design system colors, spacing, and typography variables
+                                </p>
+                            </div>
+                            <div class="code-block">
+&lt;!-- 1. Design System Base (for CSS variables) --&gt;
+&lt;link rel="stylesheet" href="styles/base.css"&gt;
+
+&lt;!-- 2. AG-Grid CSS - Local files (v32.3.3) --&gt;
+&lt;link rel="stylesheet" href="vendor/ag-grid/ag-grid.css"&gt;
+&lt;link rel="stylesheet" href="vendor/ag-grid/ag-theme-alpine.css"&gt;
+
+&lt;!-- 3. Component CSS - Loads after AG-Grid to override styles --&gt;
+&lt;link rel="stylesheet" href="components/data-grid-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/data-grid-component/vanilla/data-grid-component.css"&gt;
+
+&lt;!-- Include AG-Grid JS --&gt;
+&lt;script src="vendor/ag-grid/ag-grid-community.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Include component JS --&gt;
+&lt;script src="components/data-grid-component/vanilla/data-grid-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Container - Must have ag-theme-alpine class --&gt;
+&lt;div id="data-grid-container" class="data-grid-container ag-theme-alpine"&gt;&lt;/div&gt;
+
+&lt;!-- Initialize --&gt;
+&lt;script&gt;
+    initDataGrid({
+        containerId: 'data-grid-container',
+        columnDefs: [
+            { field: 'name', headerName: 'Name' },
+            { field: 'code', headerName: 'Code' },
+            { field: 'description', headerName: 'Description' },
+            { field: 'attention', headerName: 'Attention' },
+            { field: 'values', headerName: 'Values' }
+        ],
+        rowData: [
+            { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value' },
+            { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value' }
+        ],
+        height: 400
+    });
+&lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+
                     <section id="selector" class="section">
                         <h2 class="section-title">Selectors</h2>
                         <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Form selector components including checkboxes, radio buttons, and switches for user input.</p>
@@ -1486,6 +1586,258 @@
     &lt;input type="checkbox" id="switch1" class="selector-switch" checked /&gt;
     &lt;label for="switch1"&gt;Label&lt;/label&gt;
 &lt;/div&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="dropdown" class="section">
+                        <h2 class="section-title">Dropdown</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Dropdown component with three variants: Default (with border), Light (minimal), and Multi-select (with checkboxes).</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Default Dropdown</h3>
+                            <div class="component-showcase-description">
+                                <p>Standard dropdown with gray background and border. Single-select functionality.</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Background:</strong> Light gray (#f8f8f8)</li>
+                                    <li><strong>Border:</strong> Gray (#cccccc)</li>
+                                    <li><strong>Height:</strong> 32px</li>
+                                    <li><strong>Text Color:</strong> Dark gray (#1a1a1a)</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Default Dropdown Example</h4>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <div id="dropdown-default-showcase"></div>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Closed:</strong> Shows selected item or placeholder<br>
+                                    <strong>Open:</strong> Displays list of items with hover states<br>
+                                    <strong>Selected:</strong> Highlighted item in the menu
+                                </p>
+                            </div>
+                            
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5); margin-top: var(--spacing-xl);">Light Dropdown</h3>
+                            <div class="component-showcase-description">
+                                <p>Minimal dropdown with blue text, no border or background. Best for navigation contexts.</p>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Light Dropdown Example</h4>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <div id="dropdown-light-showcase"></div>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Style:</strong> Blue text (#006d89), no border or background<br>
+                                    <strong>Use Case:</strong> Navigation and less prominent selections
+                                </p>
+                            </div>
+                            
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5); margin-top: var(--spacing-xl);">Multi-select Dropdown</h3>
+                            <div class="component-showcase-description">
+                                <p>Dropdown with checkboxes for multiple selection. Selected items display as chips with "+ X more" format.</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Checkboxes:</strong> In dropdown menu items</li>
+                                    <li><strong>Chip Display:</strong> Selected items shown as chips</li>
+                                    <li><strong>More Indicator:</strong> "+ X more" when multiple items selected</li>
+                                    <li><strong>Remove:</strong> X button on each chip to deselect</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Multi-select Dropdown Example</h4>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <div id="dropdown-multi-showcase"></div>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Closed:</strong> Shows first selected item as chip + "+ X more"<br>
+                                    <strong>Open:</strong> Shows checkboxes next to each item<br>
+                                    <strong>Selected:</strong> Multiple items can be selected simultaneously
+                                </p>
+                            </div>
+                            
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/dropdown-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/dropdown-component/vanilla/dropdown-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/dropdown-component/vanilla/dropdown-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Default Dropdown --&gt;
+&lt;div id="dropdown-default"&gt;&lt;/div&gt;
+&lt;script&gt;
+    initDropdown({
+        containerId: 'dropdown-default',
+        variant: 'default',
+        placeholder: 'Select an option',
+        items: ['List item', 'List item', 'List item', 'List item', 'List item'],
+        onSelect: function(value) {
+            console.log('Selected:', value);
+        }
+    });
+&lt;/script&gt;
+
+&lt;!-- Light Dropdown --&gt;
+&lt;div id="dropdown-light"&gt;&lt;/div&gt;
+&lt;script&gt;
+    initDropdown({
+        containerId: 'dropdown-light',
+        variant: 'light',
+        placeholder: 'Selected item',
+        items: ['List item', 'List item', 'List item', 'List item', 'List item']
+    });
+&lt;/script&gt;
+
+&lt;!-- Multi-select Dropdown --&gt;
+&lt;div id="dropdown-multi"&gt;&lt;/div&gt;
+&lt;script&gt;
+    initDropdown({
+        containerId: 'dropdown-multi',
+        variant: 'multi-select',
+        placeholder: 'Select items',
+        items: ['Label', 'Label', 'Label'],
+        selectedItems: ['Item One'],
+        onSelect: function(value) {
+            console.log('Selected:', value);
+        },
+        onDeselect: function(value) {
+            console.log('Deselected:', value);
+        },
+        onChange: function(selectedItems) {
+            console.log('All selected:', selectedItems);
+        }
+    });
+&lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="pod" class="section">
+                        <h2 class="section-title">Pod</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Removable chip/tag component with rounded pill shape. Used for displaying selected items, filters, or tags that can be dismissed.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Pod Component</h3>
+                            <div class="component-showcase-description">
+                                <p>The pod component displays text content with a remove button. Specifications:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Shape:</strong> Rounded pill (16px border radius)</li>
+                                    <li><strong>Background:</strong> Light gray (#f8f8f8)</li>
+                                    <li><strong>Border:</strong> Gray (#cccccc)</li>
+                                    <li><strong>Remove Button:</strong> Circular gray button with white X icon</li>
+                                    <li><strong>Padding:</strong> 4px 10px</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Pod Examples</h4>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                        <div id="pod-single-showcase"></div>
+                                        <div id="pods-multiple-showcase"></div>
+                                    </div>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Single Pod:</strong> Individual pod with remove button<br>
+                                    <strong>Multiple Pods:</strong> Group of pods that can be removed individually<br>
+                                    <strong>Remove:</strong> Click the X button to remove the pod
+                                </p>
+                            </div>
+                            
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/pod-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/pod-component/vanilla/pod-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/pod-component/vanilla/pod-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Single Pod --&gt;
+&lt;div id="pod-container"&gt;&lt;/div&gt;
+&lt;script&gt;
+    initPod('pod-container', {
+        text: 'Series A',
+        onRemove: function(text) {
+            console.log('Removed:', text);
+        }
+    });
+&lt;/script&gt;
+
+&lt;!-- Multiple Pods --&gt;
+&lt;div id="pods-container"&gt;&lt;/div&gt;
+&lt;script&gt;
+    const podItems = ['Series A', 'Series B', 'Series C'];
+    document.getElementById('pods-container').innerHTML = createPods(podItems, function(text) {
+        console.log('Removed:', text);
+    });
+&lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="label" class="section">
+                        <h2 class="section-title">Label</h2>
+                        <p class="page-intro" style="margin-bottom: var(--spacing-lg);">Colored tag component without remove buttons. Used for displaying status, categories, or other information with color-coded variants.</p>
+                        
+                        <div class="component-showcase" style="margin-bottom: var(--spacing-xl);">
+                            <h3 style="font-size: var(--text-2); margin-bottom: var(--spacing-md); color: var(--color-gray-5);">Label Variants</h3>
+                            <div class="component-showcase-description">
+                                <p>The label component provides four color variants for different use cases:</p>
+                                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                    <li><strong>Default:</strong> Gray border and text (#5c5c5c)</li>
+                                    <li><strong>Success:</strong> Green border and text (#009900)</li>
+                                    <li><strong>Info:</strong> Purple border and text (#782080)</li>
+                                    <li><strong>Attention:</strong> Orange border and text (#C56C00)</li>
+                                </ul>
+                            </div>
+                            <div class="component-preview">
+                                <h4 style="font-size: var(--text-3); margin-bottom: var(--spacing-sm); color: var(--color-gray-5);">Label Examples</h4>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                        <div id="label-default-showcase"></div>
+                                        <div id="label-success-showcase"></div>
+                                        <div id="label-info-showcase"></div>
+                                        <div id="label-attention-showcase"></div>
+                                    </div>
+                                </div>
+                                
+                                <p style="font-size: var(--text-small); color: var(--color-gray-4); margin-bottom: var(--spacing-sm);">
+                                    <strong>Static Display:</strong> Labels are display-only (no remove button)<br>
+                                    <strong>Color Coding:</strong> Use different variants to indicate status or category<br>
+                                    <strong>Rectangular Shape:</strong> 2px border radius for clean appearance
+                                </p>
+                            </div>
+                            
+                            <div class="code-block">
+&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="components/label-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/label-component/vanilla/label-component.css"&gt;
+
+&lt;!-- Include JavaScript --&gt;
+&lt;script src="components/label-component/vanilla/label-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Single Label --&gt;
+&lt;div id="label-container"&gt;&lt;/div&gt;
+&lt;script&gt;
+    initLabel('label-container', {
+        text: 'Success',
+        variant: 'success' // 'default', 'success', 'info', or 'attention'
+    });
+&lt;/script&gt;
+
+&lt;!-- Multiple Labels --&gt;
+&lt;div id="labels-container"&gt;&lt;/div&gt;
+&lt;script&gt;
+    const labelItems = [
+        { text: 'Default', variant: 'default' },
+        { text: 'Success', variant: 'success' },
+        { text: 'Info', variant: 'info' },
+        { text: 'Attention', variant: 'attention' }
+    ];
+    document.getElementById('labels-container').innerHTML = createLabels(labelItems);
+&lt;/script&gt;
                             </div>
                         </div>
                     </section>
@@ -1585,9 +1937,15 @@
     <script src="components/main-navigation-component/vanilla/main-navigation-component.js"></script>
     <script src="components/tab-component/vanilla/tab-component.js"></script>
     <script src="components/search-component/vanilla/search-component.js"></script>
+    <script src="components/prefilter-primary-search-component/vanilla/prefilter-primary-search-component.js"></script>
     <script src="components/text-input-component/vanilla/text-input-component.js"></script>
     <script src="components/modal-component/vanilla/modal-component.js"></script>
     <script src="components/table-component/vanilla/table-component.js"></script>
+    <script src="vendor/ag-grid/ag-grid-community.min.js"></script>
+    <script src="components/data-grid-component/vanilla/data-grid-component.js"></script>
+    <script src="components/dropdown-component/vanilla/dropdown-component.js"></script>
+    <script src="components/pod-component/vanilla/pod-component.js"></script>
+    <script src="components/label-component/vanilla/label-component.js"></script>
     <script>
         initHeader({
             productName: 'Design System',
@@ -1798,6 +2156,110 @@
             }
         });
         
+        // Initialize prefilter primary search showcase
+        initPrefilterPrimarySearch({
+            containerId: 'prefilter-primary-search-showcase',
+            placeholder: 'Search by Legal Name, LEI, Entity ID, RFO ID...',
+            defaultPrefilter: 'CLM Pro',
+            options: ['CLM Pro', 'Snowflake'],
+            onPrefilterChange: function(value) {
+                console.log('Prefilter changed to:', value);
+            },
+            onSearch: function(query) {
+                console.log('Search query:', query);
+            }
+        });
+        
+        // Initialize dropdown showcases
+        initDropdown({
+            containerId: 'dropdown-default-showcase',
+            variant: 'default',
+            placeholder: 'Select an option',
+            items: [
+                'Account Management',
+                'Data Analytics',
+                'Financial Reporting',
+                'Risk Assessment',
+                'Portfolio Management',
+                'Compliance Review',
+                'Market Research'
+            ],
+            onSelect: function(value) {
+                console.log('Default dropdown selected:', value);
+            }
+        });
+        
+        initDropdown({
+            containerId: 'dropdown-light-showcase',
+            variant: 'light',
+            placeholder: 'Select an option',
+            items: [
+                'Dashboard',
+                'Reports',
+                'Settings',
+                'Profile',
+                'Help Center',
+                'Documentation',
+                'Support'
+            ],
+            onSelect: function(value) {
+                console.log('Light dropdown selected:', value);
+            }
+        });
+        
+        initDropdown({
+            containerId: 'dropdown-multi-showcase',
+            variant: 'multi-select',
+            placeholder: 'Select items',
+            items: [
+                'Item One',
+                'Item Two',
+                'Item Three',
+                'Item Four',
+                'Item Five'
+            ],
+            selectedItems: [],
+            onSelect: function(value) {
+                console.log('Multi-select selected:', value);
+            },
+            onDeselect: function(value) {
+                console.log('Multi-select deselected:', value);
+            },
+            onChange: function(selectedItems) {
+                console.log('Multi-select all selected:', selectedItems);
+            }
+        });
+        
+        // Initialize pod showcases
+        initPod('pod-single-showcase', {
+            text: 'Series A',
+            onRemove: function(text, container) {
+                console.log('Removed pod:', text);
+                container.innerHTML = '';
+            }
+        });
+        
+        const podItems = ['Series A', 'Series B', 'Series C', 'Seed Stage'];
+        document.getElementById('pods-multiple-showcase').innerHTML = createPods(podItems, function(text) {
+            console.log('Removed pod:', text);
+        });
+        
+        // Add remove handlers for multiple pods
+        document.getElementById('pods-multiple-showcase').addEventListener('click', function(e) {
+            if (e.target.closest('.pod-remove')) {
+                const pod = e.target.closest('.pod');
+                if (pod) {
+                    pod.remove();
+                }
+            }
+        });
+        
+        // Initialize label showcases
+        initLabel('label-default-showcase', { text: 'Default', variant: 'default' });
+        initLabel('label-success-showcase', { text: 'Success', variant: 'success' });
+        initLabel('label-info-showcase', { text: 'Info', variant: 'info' });
+        initLabel('label-attention-showcase', { text: 'Attention', variant: 'attention' });
+        
         // Initialize modal showcase
         initModal('modal-showcase');
         
@@ -1839,11 +2301,104 @@
             }
         });
         
+        // Initialize data grid showcase
+        // Wait for AG-Grid to be available with timeout
+        let retryCount = 0;
+        const maxRetries = 50; // 5 seconds max wait
+        
+        function initDataGridShowcase() {
+            retryCount++;
+            
+            // Check for AG-Grid in multiple possible locations
+            // AG-Grid v34 from CDN should expose as window.agGrid
+            const agGridLib = window.agGrid;
+            
+            if (!agGridLib || !agGridLib.Grid) {
+                if (retryCount === 1) {
+                    console.log('Waiting for AG-Grid to load...');
+                    console.log('Checking window.agGrid:', typeof window.agGrid);
+                }
+                if (retryCount < maxRetries) {
+                    setTimeout(initDataGridShowcase, 100);
+                } else {
+                    console.error('AG-Grid failed to load after', maxRetries, 'retries');
+                    console.error('window.agGrid:', window.agGrid);
+                    console.error('Check browser Network tab to see if script loaded');
+                    console.error('AG-Grid failed to load. Check that vendor/ag-grid/ag-grid-community.min.js exists.');
+                }
+                return;
+            }
+            
+            console.log('AG-Grid loaded successfully, initializing grid...');
+            
+            if (typeof initDataGrid === 'function') {
+                initDataGrid({
+                containerId: 'data-grid-showcase',
+                columnDefs: [
+                    { field: 'name', headerName: 'Name' },
+                    { field: 'code', headerName: 'Code' },
+                    { field: 'description', headerName: 'Description' },
+                    { 
+                        field: 'attention', 
+                        headerName: 'Attention',
+                        cellRenderer: function(params) {
+                            const colors = ['rgba(0, 109, 137, 0.1)', 'transparent', 'rgba(143, 0, 28, 0.1)', 'rgba(0, 153, 0, 0.1)', 'transparent'];
+                            const color = colors[params.rowIndex % colors.length];
+                            return '<div style="background-color: ' + color + '; padding: 4px; border-radius: 2px;">' + params.value + '</div>';
+                        }
+                    },
+                    { field: 'values', headerName: 'Values' }
+                ],
+                rowData: [
+                    { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value' },
+                    { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value' },
+                    { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value' },
+                    { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value' },
+                    { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value' }
+                ],
+                height: 300
+                });
+            } else {
+                console.error('initDataGrid function not found');
+            }
+        }
+        
+        // Start initialization
+        initDataGridShowcase();
+        
         // Initialize text input showcases
         initTextInput('#showcase-stack-filled');
         initTextInput('#showcase-stack-error');
         initTextInput('#showcase-inline-filled');
         initTextInput('#showcase-inline-error');
+        
+        // Handle navigation active state based on URL hash
+        function updateNavActiveState() {
+            const hash = window.location.hash;
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (hash && href && href.endsWith(hash)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Update on page load
+        updateNavActiveState();
+        
+        // Update on hash change
+        window.addEventListener('hashchange', updateNavActiveState);
+        
+        // Update on click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>

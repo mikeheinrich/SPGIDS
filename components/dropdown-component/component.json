@@ -1,0 +1,80 @@
+{
+  "name": "dropdown-component",
+  "version": "1.0.0",
+  "description": "Dropdown component for S&P Global Design System - single-select and multi-select dropdowns with Default, Light, and Multi-select variants",
+  "type": "component",
+  "structure": {
+    "base": {
+      "path": "base/",
+      "description": "Shared base styles for all implementations",
+      "files": ["base.css"]
+    },
+    "implementations": {
+      "vanilla": {
+        "path": "vanilla/",
+        "description": "Vanilla JavaScript/CSS implementation",
+        "files": ["dropdown-component.css", "dropdown-component.js", "dropdown-example.html", "README.md"]
+      },
+      "primeng-angular": {
+        "path": "primeng-angular/",
+        "description": "PrimeNG Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-angular": {
+        "path": "kendo-angular/",
+        "description": "Kendo UI for Angular implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      },
+      "kendo-react": {
+        "path": "kendo-react/",
+        "description": "Kendo UI for React implementation",
+        "status": "coming-soon",
+        "files": ["README.md"]
+      }
+    }
+  },
+  "dependencies": {
+    "base-styles": "required",
+    "css-variables": "required"
+  },
+  "specifications": {
+    "source": "Design System",
+    "variants": {
+      "default": {
+        "background": "Light gray (#f8f8f8)",
+        "border": "Gray (#cccccc)",
+        "textColor": "Dark gray (#1a1a1a)"
+      },
+      "light": {
+        "textColor": "Blue (#006d89)",
+        "border": "None",
+        "background": "Transparent"
+      },
+      "multi-select": {
+        "background": "Light gray (#f8f8f8)",
+        "border": "Gray (#cccccc)",
+        "selectedDisplay": "Chips with '+ X more' format"
+      }
+    },
+    "dimensions": {
+      "height": "32px",
+      "minWidth": "200px"
+    },
+    "features": {
+      "single-select": true,
+      "multi-select": true,
+      "keyboard-navigation": true,
+      "search": false,
+      "disabled-state": true
+    }
+  },
+  "browserSupport": {
+    "cssVariables": true,
+    "flexbox": true,
+    "modernBrowsers": true
+  }
+}
+
+

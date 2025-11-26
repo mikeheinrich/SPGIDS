@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefilter Primary Search Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../../../styles/base.css">
+    
+    <!-- Include Component CSS -->
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="prefilter-primary-search-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 2rem;
+            background: var(--color-gray-bg);
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1rem;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Prefilter Primary Search Component Examples</h1>
+    
+    <!-- Basic Example -->
+    <div class="example-section">
+        <h2>Basic Prefilter Primary Search</h2>
+        <p class="description">A search input with a prefilter dropdown. Click the prefilter button to see available options.</p>
+        
+        <div id="prefilter-search-basic"></div>
+        
+        <div class="code-example">initPrefilterPrimarySearch({
+    containerId: 'prefilter-search-basic',
+    placeholder: 'Search by Legal Name, LEI, Entity ID, RFO ID...',
+    defaultPrefilter: 'CLM Pro',
+    options: ['CLM Pro', 'Snowflake']
+});</div>
+    </div>
+    
+    <!-- Custom Options Example -->
+    <div class="example-section">
+        <h2>Custom Prefilter Options</h2>
+        <p class="description">Example with custom prefilter options and callbacks.</p>
+        
+        <div id="prefilter-search-custom"></div>
+        
+        <div class="code-example">initPrefilterPrimarySearch({
+    containerId: 'prefilter-search-custom',
+    placeholder: 'Search...',
+    defaultPrefilter: 'Option 1',
+    options: ['Option 1', 'Option 2', 'Option 3'],
+    onPrefilterChange: function(value) {
+        console.log('Prefilter changed to:', value);
+    },
+    onSearch: function(query) {
+        console.log('Search query:', query);
+    }
+});</div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+    
+    <script src="prefilter-primary-search-component.js"></script>
+    <script>
+        // Basic Example
+        initPrefilterPrimarySearch({
+            containerId: 'prefilter-search-basic',
+            placeholder: 'Search by Legal Name, LEI, Entity ID, RFO ID...',
+            defaultPrefilter: 'CLM Pro',
+            options: ['CLM Pro', 'Snowflake']
+        });
+        
+        // Custom Options Example
+        initPrefilterPrimarySearch({
+            containerId: 'prefilter-search-custom',
+            placeholder: 'Search...',
+            defaultPrefilter: 'Option 1',
+            options: ['Option 1', 'Option 2', 'Option 3'],
+            onPrefilterChange: function(value) {
+                console.log('Prefilter changed to:', value);
+                alert('Prefilter changed to: ' + value);
+            },
+            onSearch: function(query) {
+                console.log('Search query:', query);
+                if (query.length > 0) {
+                    alert('Searching for: ' + query);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+

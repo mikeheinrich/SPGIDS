@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pod Component - Example</title>
+    
+    <!-- Include Design System Base -->
+    <link rel="stylesheet" href="../../../../styles/base.css">
+    
+    <!-- Include Component CSS -->
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="pod-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 2rem;
+            background: var(--color-gray-bg);
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .pod-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Pod Component Examples</h1>
+    
+    <div class="example-section">
+        <h2>Single Pod</h2>
+        <p>Pod with remove button:</p>
+        <div id="pod-single"></div>
+    </div>
+    
+    <div class="example-section">
+        <h2>Multiple Pods</h2>
+        <p>Group of pods:</p>
+        <div class="pod-container" id="pods-multiple"></div>
+    </div>
+    
+    <script src="pod-component.js"></script>
+    <script>
+        // Single pod
+        initPod('pod-single', {
+            text: 'Series A',
+            onRemove: function(text, container) {
+                console.log('Removed:', text);
+                container.innerHTML = '';
+            }
+        });
+        
+        // Multiple pods
+        const podItems = ['Series A', 'Series B', 'Series C', 'Seed Stage'];
+        document.getElementById('pods-multiple').innerHTML = createPods(podItems, function(text) {
+            console.log('Removed pod:', text);
+        });
+        
+        // Add remove handlers for multiple pods
+        document.getElementById('pods-multiple').addEventListener('click', function(e) {
+            if (e.target.closest('.pod-remove')) {
+                const pod = e.target.closest('.pod');
+                if (pod) {
+                    pod.remove();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+

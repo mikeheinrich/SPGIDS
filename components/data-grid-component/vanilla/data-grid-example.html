@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Grid Component - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../../styles/base.css">
+    
+    <!-- Include AG-Grid CSS - Local files (v32.3.3) -->
+    <link rel="stylesheet" href="../../../vendor/ag-grid/ag-grid.css">
+    <link rel="stylesheet" href="../../../vendor/ag-grid/ag-theme-alpine.css">
+    
+    <!-- Include component base styles -->
+    <link rel="stylesheet" href="../base/base.css">
+    
+    <!-- Include component styles -->
+    <link rel="stylesheet" href="data-grid-component.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .example-section h3 {
+            font-size: var(--text-3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-5);
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1.5rem;
+        }
+        
+        .grid-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+        }
+        
+        .api-demo {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .api-demo button {
+            padding: 0.5rem 1rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: var(--text-small);
+        }
+        
+        .api-demo button:hover {
+            background: var(--color-primary-hover);
+        }
+        
+        .api-output {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--color-gray-bg);
+            border-radius: var(--radius-sm);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Data Grid Component Examples</h1>
+    
+    <!-- Basic Grid -->
+    <div class="example-section">
+        <h2>Basic Data Grid</h2>
+        <p class="description">A basic data grid with sortable columns, filtering, and row selection.</p>
+        
+        <div class="grid-container">
+            <div id="grid-basic" class="data-grid-container ag-theme-alpine"></div>
+        </div>
+        
+        <div class="code-example">&lt;!-- 1. Design System Base (for CSS variables) --&gt;
+&lt;link rel="stylesheet" href="styles/base.css"&gt;
+
+&lt;!-- 2. AG-Grid CSS - Local files (v32.3.3) --&gt;
+&lt;link rel="stylesheet" href="vendor/ag-grid/ag-grid.css"&gt;
+&lt;link rel="stylesheet" href="vendor/ag-grid/ag-theme-alpine.css"&gt;
+
+&lt;!-- Include component CSS --&gt;
+&lt;link rel="stylesheet" href="components/data-grid-component/base/base.css"&gt;
+&lt;link rel="stylesheet" href="components/data-grid-component/vanilla/data-grid-component.css"&gt;
+
+&lt;!-- Include AG-Grid JS --&gt;
+&lt;script src="vendor/ag-grid/ag-grid-community.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Include component JS --&gt;
+&lt;script src="components/data-grid-component/vanilla/data-grid-component.js"&gt;&lt;/script&gt;
+
+&lt;!-- Container --&gt;
+&lt;div id="grid-basic" class="data-grid-container"&gt;&lt;/div&gt;
+
+&lt;!-- Initialize --&gt;
+&lt;script&gt;
+initDataGrid({
+    containerId: 'grid-basic',
+    columnDefs: [
+        { field: 'name', headerName: 'Name' },
+        { field: 'code', headerName: 'Code' },
+        { field: 'description', headerName: 'Description' },
+        { field: 'attention', headerName: 'Attention' },
+        { field: 'values', headerName: 'Values' }
+    ],
+    rowData: [
+        { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value' },
+        // ... more rows
+    ],
+    height: 400
+});
+&lt;/script&gt;</div>
+    </div>
+    
+    <!-- Grid with Custom Cell Rendering -->
+    <div class="example-section">
+        <h2>Grid with Custom Cell Rendering</h2>
+        <p class="description">Data grid with custom cell renderers for the Attention column with colored backgrounds.</p>
+        
+        <div class="grid-container">
+            <div id="grid-custom" class="data-grid-container ag-theme-alpine"></div>
+        </div>
+        
+        <div class="code-example">initDataGrid({
+    containerId: 'grid-custom',
+    columnDefs: [
+        { field: 'name', headerName: 'Name' },
+        { field: 'code', headerName: 'Code' },
+        { field: 'description', headerName: 'Description' },
+        { 
+            field: 'attention', 
+            headerName: 'Attention',
+            cellRenderer: function(params) {
+                const colors = {
+                    'blue': 'rgba(0, 109, 137, 0.1)',
+                    'red': 'rgba(143, 0, 28, 0.1)',
+                    'green': 'rgba(0, 153, 0, 0.1)',
+                    'white': 'transparent'
+                };
+                const color = params.data?.color || 'white';
+                return '&lt;div style="background-color: ' + colors[color] + '; padding: 4px; border-radius: 2px;"&gt;' + params.value + '&lt;/div&gt;';
+            }
+        },
+        { field: 'values', headerName: 'Values' }
+    ],
+    rowData: [
+        { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value', color: 'blue' },
+        { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value', color: 'white' },
+        { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value', color: 'red' },
+        { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value', color: 'green' },
+        { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value', color: 'white' }
+    ],
+    height: 400
+});</div>
+    </div>
+    
+    <!-- Grid with Pagination -->
+    <div class="example-section">
+        <h2>Grid with Pagination</h2>
+        <p class="description">Data grid with pagination enabled for large datasets.</p>
+        
+        <div class="grid-container">
+            <div id="grid-pagination" class="data-grid-container ag-theme-alpine"></div>
+        </div>
+        
+        <div class="code-example">initDataGrid({
+    containerId: 'grid-pagination',
+    columnDefs: [
+        { field: 'name', headerName: 'Name' },
+        { field: 'code', headerName: 'Code' },
+        { field: 'description', headerName: 'Description' },
+        { field: 'attention', headerName: 'Attention' },
+        { field: 'values', headerName: 'Values' }
+    ],
+    rowData: generateLargeDataset(100), // 100 rows
+    enablePagination: true,
+    paginationPageSize: 10,
+    height: 400
+});</div>
+    </div>
+    
+    <!-- API Demo -->
+    <div class="example-section">
+        <h2>API Demo</h2>
+        <p class="description">Interact with the data grid programmatically using the returned API object.</p>
+        
+        <div class="grid-container">
+            <div id="grid-api" class="data-grid-container ag-theme-alpine"></div>
+        </div>
+        
+        <div class="api-demo">
+            <button onclick="getSelectedRows()">Get Selected Rows</button>
+            <button onclick="selectAllRows()">Select All</button>
+            <button onclick="deselectAllRows()">Deselect All</button>
+            <button onclick="sizeColumnsToFit()">Size Columns to Fit</button>
+        </div>
+        
+        <div class="api-output" id="api-output">Select rows and click the buttons above to interact with the API.</div>
+        
+        <div class="code-example">// Initialize with API reference
+const gridApi = initDataGrid({
+    containerId: 'grid-api',
+    columnDefs: [...],
+    rowData: [...]
+});
+
+// Get selected rows
+const selected = gridApi.getSelectedRows();
+
+// Select all rows
+gridApi.selectAll();
+
+// Deselect all rows
+gridApi.deselectAll();
+
+// Size columns to fit
+gridApi.sizeColumnsToFit();</div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This example uses AG-Grid Community Edition v32.3.3 from local files in vendor/ag-grid/.</p>
+    </div>
+    
+    <!-- Include AG-Grid JS - Local file (v32.3.3) -->
+    <script src="../../../vendor/ag-grid/ag-grid-community.min.js"></script>
+    
+    <!-- Include component JavaScript -->
+    <script src="data-grid-component.js"></script>
+    
+    <script>
+        // Sample data generator
+        function generateData(count = 5) {
+            const data = [];
+            for (let i = 0; i < count; i++) {
+                data.push({
+                    name: 'Value',
+                    code: 'Value',
+                    description: 'Value',
+                    attention: 'Value',
+                    values: 'Value'
+                });
+            }
+            return data;
+        }
+        
+        function generateLargeDataset(count = 100) {
+            return generateData(count);
+        }
+        
+        // Basic Grid
+        initDataGrid({
+            containerId: 'grid-basic',
+            columnDefs: [
+                { field: 'name', headerName: 'Name' },
+                { field: 'code', headerName: 'Code' },
+                { field: 'description', headerName: 'Description' },
+                { field: 'attention', headerName: 'Attention' },
+                { field: 'values', headerName: 'Values' }
+            ],
+            rowData: generateData(5),
+            height: 400
+        });
+        
+        // Custom Cell Rendering
+        initDataGrid({
+            containerId: 'grid-custom',
+            columnDefs: [
+                { field: 'name', headerName: 'Name' },
+                { field: 'code', headerName: 'Code' },
+                { field: 'description', headerName: 'Description' },
+                { 
+                    field: 'attention', 
+                    headerName: 'Attention',
+                    cellRenderer: function(params) {
+                        const colors = {
+                            'blue': 'rgba(0, 109, 137, 0.1)',
+                            'red': 'rgba(143, 0, 28, 0.1)',
+                            'green': 'rgba(0, 153, 0, 0.1)',
+                            'white': 'transparent'
+                        };
+                        const color = params.data?.color || 'white';
+                        return '<div style="background-color: ' + colors[color] + '; padding: 4px; border-radius: 2px;">' + params.value + '</div>';
+                    }
+                },
+                { field: 'values', headerName: 'Values' }
+            ],
+            rowData: [
+                { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value', color: 'blue' },
+                { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value', color: 'white' },
+                { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value', color: 'red' },
+                { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value', color: 'green' },
+                { name: 'Value', code: 'Value', description: 'Value', attention: 'Value', values: 'Value', color: 'white' }
+            ],
+            height: 400
+        });
+        
+        // Pagination
+        initDataGrid({
+            containerId: 'grid-pagination',
+            columnDefs: [
+                { field: 'name', headerName: 'Name' },
+                { field: 'code', headerName: 'Code' },
+                { field: 'description', headerName: 'Description' },
+                { field: 'attention', headerName: 'Attention' },
+                { field: 'values', headerName: 'Values' }
+            ],
+            rowData: generateLargeDataset(100),
+            enablePagination: true,
+            paginationPageSize: 10,
+            height: 400
+        });
+        
+        // API Demo
+        let gridApiInstance = initDataGrid({
+            containerId: 'grid-api',
+            columnDefs: [
+                { field: 'name', headerName: 'Name' },
+                { field: 'code', headerName: 'Code' },
+                { field: 'description', headerName: 'Description' },
+                { field: 'attention', headerName: 'Attention' },
+                { field: 'values', headerName: 'Values' }
+            ],
+            rowData: generateData(20),
+            height: 400,
+            onSelectionChanged: function() {
+                const selected = gridApiInstance.getSelectedRows();
+                updateApiOutput('Selected rows: ' + selected.length);
+            }
+        });
+        
+        function getSelectedRows() {
+            const selected = gridApiInstance.getSelectedRows();
+            updateApiOutput('Selected rows: ' + JSON.stringify(selected, null, 2));
+        }
+        
+        function selectAllRows() {
+            gridApiInstance.selectAll();
+            updateApiOutput('All rows selected.');
+        }
+        
+        function deselectAllRows() {
+            gridApiInstance.deselectAll();
+            updateApiOutput('All rows deselected.');
+        }
+        
+        function sizeColumnsToFit() {
+            gridApiInstance.sizeColumnsToFit();
+            updateApiOutput('Columns sized to fit.');
+        }
+        
+        function updateApiOutput(message) {
+            document.getElementById('api-output').textContent = message;
+        }
+    </script>
+</body>
+</html>
+

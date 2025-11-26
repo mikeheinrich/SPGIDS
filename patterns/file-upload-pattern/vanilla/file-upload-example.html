@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Pattern - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../../styles/base.css">
+    
+    <!-- Include pattern styles -->
+    <link rel="stylesheet" href="file-upload-pattern.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .example-section h3 {
+            font-size: var(--text-3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-5);
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1.5rem;
+        }
+        
+        .upload-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+        }
+        
+        .api-demo {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .api-demo button {
+            padding: 0.5rem 1rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: var(--text-small);
+        }
+        
+        .api-demo button:hover {
+            background: var(--color-primary-hover);
+        }
+        
+        .api-output {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--color-gray-bg);
+            border-radius: var(--radius-sm);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">File Upload Pattern Examples</h1>
+    
+    <!-- Vertical Layout -->
+    <div class="example-section">
+        <h2>Vertical Layout (Default)</h2>
+        <p class="description">The file list appears below the drop zone. This is ideal for narrow containers or when you expect a longer list of files.</p>
+        
+        <div class="upload-container">
+            <div id="upload-vertical"></div>
+        </div>
+        
+        <div class="code-example">&lt;div id="upload-vertical"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+initFileUpload({
+    containerId: 'upload-vertical',
+    layout: 'vertical',
+    dropzoneText: 'Drag and drop file to upload',
+    acceptedFormats: 'Accepted formats: pdf, doc, docx',
+    onFilesChange: function(files) {
+        console.log('Files:', files);
+    }
+});
+&lt;/script&gt;</div>
+    </div>
+    
+    <!-- Horizontal Layout -->
+    <div class="example-section">
+        <h2>Horizontal Layout</h2>
+        <p class="description">The file list appears to the right of the drop zone. This is ideal for wider containers where you want to utilize horizontal space.</p>
+        
+        <div class="upload-container">
+            <div id="upload-horizontal"></div>
+        </div>
+        
+        <div class="code-example">&lt;div id="upload-horizontal"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+initFileUpload({
+    containerId: 'upload-horizontal',
+    layout: 'horizontal',
+    dropzoneText: 'Drag and drop file to upload',
+    acceptedFormats: 'Accepted formats: pdf, doc, docx'
+});
+&lt;/script&gt;</div>
+    </div>
+    
+    <!-- Image Upload Example -->
+    <div class="example-section">
+        <h2>Image Upload</h2>
+        <p class="description">Configure the file upload to accept only image files with custom validation settings.</p>
+        
+        <div class="upload-container">
+            <div id="upload-images"></div>
+        </div>
+        
+        <div class="code-example">&lt;div id="upload-images"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+initFileUpload({
+    containerId: 'upload-images',
+    layout: 'vertical',
+    dropzoneText: 'Drag and drop images to upload',
+    acceptedFormats: 'Accepted formats: jpg, png, gif, webp',
+    accept: '.jpg,.jpeg,.png,.gif,.webp,image/*',
+    maxFileSize: 5 * 1024 * 1024, // 5MB
+    maxFiles: 5,
+    browseButtonText: 'Select images',
+    fileListTitle: 'Selected images'
+});
+&lt;/script&gt;</div>
+    </div>
+    
+    <!-- Single File Upload -->
+    <div class="example-section">
+        <h2>Single File Upload</h2>
+        <p class="description">Restrict to uploading only a single file at a time.</p>
+        
+        <div class="upload-container">
+            <div id="upload-single"></div>
+        </div>
+        
+        <div class="code-example">&lt;div id="upload-single"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+initFileUpload({
+    containerId: 'upload-single',
+    layout: 'vertical',
+    dropzoneText: 'Drag and drop a file to upload',
+    acceptedFormats: 'Accepted formats: any',
+    accept: '*',
+    multiple: false,
+    maxFiles: 1,
+    browseButtonText: 'Select file',
+    fileListTitle: 'Selected file'
+});
+&lt;/script&gt;</div>
+    </div>
+    
+    <!-- API Demo -->
+    <div class="example-section">
+        <h2>API Demo</h2>
+        <p class="description">Interact with the file upload programmatically using the returned API object.</p>
+        
+        <div class="upload-container">
+            <div id="upload-api-demo"></div>
+        </div>
+        
+        <div class="api-demo">
+            <button onclick="getFilesDemo()">Get Files</button>
+            <button onclick="clearFilesDemo()">Clear Files</button>
+            <button onclick="toggleDisabledDemo()">Toggle Disabled</button>
+        </div>
+        
+        <div class="api-output" id="api-output">Upload some files and click the buttons above to interact with the API.</div>
+        
+        <div class="code-example">// Initialize with API reference
+const uploader = initFileUpload({
+    containerId: 'upload-api-demo',
+    onFilesChange: function(files) {
+        console.log('Files changed:', files.map(f =&gt; f.name));
+    }
+});
+
+// Get current files
+const files = uploader.getFiles();
+
+// Clear all files
+uploader.clearFiles();
+
+// Toggle disabled state
+uploader.setDisabled(true);
+uploader.setDisabled(false);</div>
+    </div>
+    
+    <!-- With Initial Files -->
+    <div class="example-section">
+        <h2>With Initial Files</h2>
+        <p class="description">Initialize the upload with pre-existing files (useful for edit scenarios).</p>
+        
+        <div class="upload-container">
+            <div id="upload-initial"></div>
+        </div>
+        
+        <div class="code-example">&lt;div id="upload-initial"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+initFileUpload({
+    containerId: 'upload-initial',
+    layout: 'horizontal',
+    initialFiles: [
+        { name: 'existing-document.pdf', size: 1024000 },
+        { name: 'report-2024.docx', size: 512000 }
+    ]
+});
+&lt;/script&gt;</div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles or define the required CSS variables.</p>
+    </div>
+    
+    <!-- Include pattern JavaScript -->
+    <script src="file-upload-pattern.js"></script>
+    
+    <script>
+        // Vertical Layout
+        initFileUpload({
+            containerId: 'upload-vertical',
+            layout: 'vertical',
+            dropzoneText: 'Drag and drop file to upload',
+            acceptedFormats: 'Accepted formats: pdf, doc, docx',
+            onFilesChange: function(files) {
+                console.log('Vertical files:', files.map(f => f.name || f));
+            }
+        });
+        
+        // Horizontal Layout
+        initFileUpload({
+            containerId: 'upload-horizontal',
+            layout: 'horizontal',
+            dropzoneText: 'Drag and drop file to upload',
+            acceptedFormats: 'Accepted formats: pdf, doc, docx',
+            onFilesChange: function(files) {
+                console.log('Horizontal files:', files.map(f => f.name || f));
+            }
+        });
+        
+        // Image Upload
+        initFileUpload({
+            containerId: 'upload-images',
+            layout: 'vertical',
+            dropzoneText: 'Drag and drop images to upload',
+            acceptedFormats: 'Accepted formats: jpg, png, gif, webp',
+            accept: '.jpg,.jpeg,.png,.gif,.webp,image/*',
+            maxFileSize: 5 * 1024 * 1024,
+            maxFiles: 5,
+            browseButtonText: 'Select images',
+            fileListTitle: 'Selected images'
+        });
+        
+        // Single File Upload
+        initFileUpload({
+            containerId: 'upload-single',
+            layout: 'vertical',
+            dropzoneText: 'Drag and drop a file to upload',
+            acceptedFormats: 'Accepted formats: any',
+            accept: '*',
+            multiple: false,
+            maxFiles: 1,
+            browseButtonText: 'Select file',
+            fileListTitle: 'Selected file'
+        });
+        
+        // API Demo
+        let uploaderApi = initFileUpload({
+            containerId: 'upload-api-demo',
+            layout: 'vertical',
+            onFilesChange: function(files) {
+                updateApiOutput('Files changed: ' + files.map(f => f.name || f).join(', '));
+            }
+        });
+        
+        let isDisabled = false;
+        
+        function getFilesDemo() {
+            const files = uploaderApi.getFiles();
+            if (files.length === 0) {
+                updateApiOutput('No files uploaded.');
+            } else {
+                updateApiOutput('Current files: ' + files.map(f => f.name || f).join(', '));
+            }
+        }
+        
+        function clearFilesDemo() {
+            uploaderApi.clearFiles();
+            updateApiOutput('All files cleared.');
+        }
+        
+        function toggleDisabledDemo() {
+            isDisabled = !isDisabled;
+            uploaderApi.setDisabled(isDisabled);
+            updateApiOutput('Upload is now ' + (isDisabled ? 'DISABLED' : 'ENABLED'));
+        }
+        
+        function updateApiOutput(message) {
+            document.getElementById('api-output').textContent = message;
+        }
+        
+        // With Initial Files
+        initFileUpload({
+            containerId: 'upload-initial',
+            layout: 'horizontal',
+            initialFiles: [
+                { name: 'existing-document.pdf', size: 1024000 },
+                { name: 'report-2024.docx', size: 512000 }
+            ],
+            onFilesChange: function(files) {
+                console.log('Initial demo files:', files.map(f => f.name || f));
+            }
+        });
+    </script>
+</body>
+</html>
+
