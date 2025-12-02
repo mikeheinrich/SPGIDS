@@ -7,7 +7,7 @@
 .main-navigation {
     position: fixed;
     left: 0;
-    top: 50px; /* Below header */
+    top: 52.5px; /* Start below header (header is 52.5px tall) */
     bottom: 24px; /* Above footer */
     width: 53px;
     background-color: var(--color-white);
@@ -61,6 +61,7 @@
     justify-content: center;
     cursor: pointer;
     position: relative;
+    top: 0;
     border-bottom: 1px solid var(--color-gray-2);
     margin: 0;
     padding: 0;
