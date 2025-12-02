@@ -107,6 +107,7 @@ See [Vanilla Implementation README](vanilla/README.md) for details.
 - Gray background when off
 - Smooth transition animation
 - 10px spacing to label
+- **Rule: Switches must always represent a binary on/off state. Do not use multiple labels or text on both sides. For choosing between multiple options, use a button group instead.**
 
 ## Browser Support
 

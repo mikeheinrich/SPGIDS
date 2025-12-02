@@ -7,7 +7,7 @@
 .main-navigation {
     position: fixed;
     left: 0;
-    top: 55px; /* Below header */
+    top: 50px; /* Below header */
     bottom: 24px; /* Above footer */
     width: 53px;
     background-color: var(--color-white);
@@ -17,10 +17,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     z-index: 1000;
     overflow: visible;
     /* Ensure main navigation is below header and footer */
     isolation: isolate;
+    /* Remove whitespace spacing */
+    font-size: 0;
+    line-height: 0;
 }
 
 /* Demo mode - for use in component showcases */
@@ -58,8 +62,13 @@
     cursor: pointer;
     position: relative;
     border-bottom: 1px solid var(--color-gray-2);
-    margin: 0 1.5px;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
     z-index: 1001;
+    /* Restore font size for icon content */
+    font-size: var(--text-paragraph);
+    line-height: var(--line-height-normal);
 }
 
 .main-navigation-icon:hover {
@@ -68,6 +77,7 @@
 
 .main-navigation-icon:first-child {
     border-top: 1px solid var(--color-gray-2);
+    margin-top: 0;
 }
 
 /* Active State Indicator */
@@ -102,7 +112,7 @@
     top: 50%;
     transform: translateY(-50%);
     background-color: var(--color-white);
-    min-height: 24px;
+    height: 24px;
     padding: 0 10px;
     border-radius: var(--radius-md);
     font-size: var(--text-paragraph) !important;
@@ -117,8 +127,9 @@
     visibility: hidden;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: auto;
+    line-height: 1;
 }
 
 .main-navigation-tooltip::before {

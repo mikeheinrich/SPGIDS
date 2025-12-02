@@ -56,7 +56,8 @@
     "switch": {
       "onColor": "var(--color-primary) (#006d89)",
       "offColor": "var(--color-gray-2)",
-      "labelSpacing": "10px"
+      "labelSpacing": "10px",
+      "rule": "Switches must always represent a binary on/off state. Do not use multiple labels or text on both sides. For choosing between multiple options, use a button group instead."
     }
   },
   "browserSupport": {

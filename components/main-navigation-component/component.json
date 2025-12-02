@@ -1,7 +1,7 @@
 {
   "name": "main-navigation-component",
-  "version": "1.0.0",
-  "description": "Main Navigation component for S&P Global Design System - fixed left sidebar navigation with tooltips",
+  "version": "1.1.0",
+  "description": "Main Navigation component for S&P Global Design System - fixed left sidebar navigation with tooltips and extended multi-level navigation support",
   "type": "component",
   "structure": {
     "base": {
@@ -13,7 +13,15 @@
       "vanilla": {
         "path": "vanilla/",
         "description": "Vanilla JavaScript/CSS implementation",
-        "files": ["main-navigation-component.css", "main-navigation-component.js", "main-navigation-example.html", "README.md"]
+        "files": [
+          "main-navigation-component.css",
+          "main-navigation-component.js",
+          "main-navigation-example.html",
+          "main-navigation-extended.css",
+          "main-navigation-extended.js",
+          "main-navigation-extended-example.html",
+          "README.md"
+        ]
       },
       "primeng-angular": {
         "path": "primeng-angular/",
@@ -52,7 +60,7 @@
     },
     "icon": {
       "dimensions": "50px × 70px",
-      "states": ["default", "hover", "active"],
+      "states": ["default", "hover", "active", "panel-open"],
       "iconSize": "24px × 24px"
     },
     "active": {
@@ -64,6 +72,24 @@
       "background": "#fff",
       "fontSize": "0.8125rem",
       "shadow": "0 3px 6px rgba(0, 0, 0, 0.161)"
+    },
+    "extended": {
+      "panel": {
+        "width": "320px",
+        "background": "#f8f8f8",
+        "border": "1px solid #cccccc (right border)"
+      },
+      "categoryHeader": {
+        "fontSize": "1.8rem",
+        "color": "#1a1a1a",
+        "padding": "16px 16px 8px 16px"
+      },
+      "subItem": {
+        "height": "36px",
+        "fontSize": "1.6rem",
+        "activeIndicator": "2px solid #d6002a (top border)"
+      },
+      "panelTypes": ["categorized", "simple"]
     }
   },
   "browserSupport": {

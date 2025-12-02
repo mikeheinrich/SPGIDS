@@ -11,9 +11,9 @@
 [class*="main-navigation"] {
     position: fixed;
     left: 0;
-    top: 55px; /* Below header */
+    top: 52.5px; /* Start below header (header is 52.5px tall) */
     bottom: 24px; /* Above footer */
-    width: 53px;
+    width: 50px;
     background-color: var(--color-white);
     border-right: 1px solid var(--color-gray-2);
     padding: 0;
@@ -21,10 +21,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     z-index: 1000;
     /* Ensure main navigation is below header and footer */
     isolation: isolate;
     overflow: visible;
+    /* Remove whitespace spacing */
+    font-size: 0;
+    line-height: 0;
+    /* Ensure no gap at top */
+    padding-top: 0;
+    margin-top: 0;
 }
 
 /* Navigation Icon Base */
@@ -37,9 +44,16 @@
     justify-content: center;
     cursor: pointer;
     position: relative;
+    top: 0;
     border-bottom: 1px solid var(--color-gray-2);
-    margin: 0 1.5px;
+    border-right: 0px solid var(--color-gray-2);
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
     z-index: 1001;
+    /* Restore font size for icon content */
+    font-size: var(--text-paragraph);
+    line-height: var(--line-height-normal);
 }
 
 .main-navigation-icon:hover,
@@ -50,6 +64,10 @@
 .main-navigation-icon:first-child,
 [class*="main-navigation-icon"]:first-child {
     border-top: 1px solid var(--color-gray-2);
+    margin-top: 0;
+    padding-top: 0;
+    position: relative;
+    top: 0;
 }
 
 /* Active State Indicator */
@@ -71,14 +89,48 @@
     height: 24px;
 }
 
+/* Active state - red fill */
 .main-navigation-icon.active svg path,
-[class*="main-navigation-icon"].active svg path {
-    fill: var(--color-brand);
+.main-navigation-icon.active svg rect,
+.main-navigation-icon.active svg circle,
+.main-navigation-icon.active svg line,
+.main-navigation-icon.active svg polygon,
+.main-navigation-icon.active svg polyline,
+.main-navigation-icon.active svg g path,
+.main-navigation-icon.active svg g rect,
+.main-navigation-icon.active svg g circle,
+[class*="main-navigation-icon"].active svg path,
+[class*="main-navigation-icon"].active svg rect,
+[class*="main-navigation-icon"].active svg circle,
+[class*="main-navigation-icon"].active svg line,
+[class*="main-navigation-icon"].active svg polygon,
+[class*="main-navigation-icon"].active svg polyline,
+[class*="main-navigation-icon"].active svg g path,
+[class*="main-navigation-icon"].active svg g rect,
+[class*="main-navigation-icon"].active svg g circle {
+    fill: var(--color-brand) !important;
 }
 
+/* Inactive state - gray fill */
 .main-navigation-icon:not(.active) svg path,
-[class*="main-navigation-icon"]:not(.active) svg path {
-    fill: var(--color-gray-4);
+.main-navigation-icon:not(.active) svg rect,
+.main-navigation-icon:not(.active) svg circle,
+.main-navigation-icon:not(.active) svg line,
+.main-navigation-icon:not(.active) svg polygon,
+.main-navigation-icon:not(.active) svg polyline,
+.main-navigation-icon:not(.active) svg g path,
+.main-navigation-icon:not(.active) svg g rect,
+.main-navigation-icon:not(.active) svg g circle,
+[class*="main-navigation-icon"]:not(.active) svg path,
+[class*="main-navigation-icon"]:not(.active) svg rect,
+[class*="main-navigation-icon"]:not(.active) svg circle,
+[class*="main-navigation-icon"]:not(.active) svg line,
+[class*="main-navigation-icon"]:not(.active) svg polygon,
+[class*="main-navigation-icon"]:not(.active) svg polyline,
+[class*="main-navigation-icon"]:not(.active) svg g path,
+[class*="main-navigation-icon"]:not(.active) svg g rect,
+[class*="main-navigation-icon"]:not(.active) svg g circle {
+    fill: var(--color-gray-4) !important;
 }
 
 /* Tooltip Base */
@@ -105,6 +157,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    line-height: 1;
 }
 
 .main-navigation-tooltip::before,

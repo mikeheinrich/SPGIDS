@@ -11,6 +11,17 @@ The Main Navigation component provides a fixed left sidebar navigation with:
 - Customizable click handlers
 - Accessibility support
 
+## Variants
+
+### Standard Navigation
+The basic main navigation with icons and tooltips. Best for simple applications that don't require sub-navigation.
+
+### Extended Navigation (NEW)
+An extended version with flyout panels for multi-level navigation. Supports:
+- **Categorized Sub-Navigation** - Group sub-items under titled category headers (most complex)
+- **Simple List Sub-Navigation** - Flat list of sub-items without categories
+- **Mixed Mode** - Some icons can have panels, others just show tooltips
+
 ## Multi-Library Support
 
 This component is structured to support multiple front-end libraries:
@@ -27,9 +38,12 @@ main-navigation-component/
 ├── base/                    # Shared base styles
 │   └── base.css            # Base styles used by all implementations
 ├── vanilla/                 # Vanilla implementation
-│   ├── main-navigation-component.css
-│   ├── main-navigation-component.js
-│   ├── main-navigation-example.html
+│   ├── main-navigation-component.css      # Standard nav styles
+│   ├── main-navigation-component.js       # Standard nav JavaScript
+│   ├── main-navigation-example.html       # Standard nav example
+│   ├── main-navigation-extended.css       # Extended nav styles (NEW)
+│   ├── main-navigation-extended.js        # Extended nav JavaScript (NEW)
+│   ├── main-navigation-extended-example.html  # Extended nav example (NEW)
 │   └── README.md
 ├── primeng-angular/         # PrimeNG Angular implementation
 │   └── README.md
@@ -76,6 +90,67 @@ See [Vanilla Implementation README](vanilla/README.md) for details.
                 active: true
             }
         ]
+    });
+</script>
+```
+
+### Extended Navigation (Multi-Level)
+
+For applications requiring sub-navigation with one or two additional levels:
+
+```html
+<!-- Include extended component styles and scripts -->
+<link rel="stylesheet" href="vanilla/main-navigation-extended.css">
+<script src="vanilla/main-navigation-extended.js"></script>
+```
+
+```html
+<div id="main-navigation-extended-container"></div>
+
+<script>
+    initMainNavigationExtended({
+        containerId: 'main-navigation-extended-container',
+        items: [
+            {
+                id: 'styles',
+                label: 'Styles',
+                svg: '<svg>...</svg>',
+                active: true,
+                panel: {
+                    type: 'categorized',  // Use 'simple' for flat list
+                    categories: [
+                        {
+                            title: 'Typography',
+                            items: [
+                                { id: 'headings', label: 'Headings', active: true },
+                                { id: 'body', label: 'Body Text' }
+                            ]
+                        },
+                        {
+                            title: 'Colors',
+                            items: [
+                                { id: 'primary', label: 'Primary' },
+                                { id: 'secondary', label: 'Secondary' }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'components',
+                label: 'Components',
+                svg: '<svg>...</svg>',
+                panel: {
+                    type: 'simple',
+                    items: [
+                        { id: 'buttons', label: 'Buttons' },
+                        { id: 'inputs', label: 'Inputs' }
+                    ]
+                }
+            }
+        ],
+        onIconClick: (id, item) => console.log('Icon clicked:', id),
+        onItemClick: (id, item) => console.log('Item clicked:', id)
     });
 </script>
 ```
@@ -142,9 +217,49 @@ All implementations require:
 - Flexbox support required
 - CSS Transitions required
 
+## Extended Navigation Panel Types
+
+### Categorized Panel (Complex)
+Best for organizing many sub-items into logical groups:
+- Category headers with title text
+- Multiple item groups per panel
+- Visual hierarchy with headers and item lists
+- Active state indicator on selected items (red top border)
+
+### Simple Panel
+Best for flat lists without categorization:
+- Single list of items
+- No category headers
+- Same active state behavior as categorized items
+
+### No Panel (Tooltip Only)
+Icons without panels show tooltips on hover and trigger callbacks on click.
+
+## Extended Navigation API
+
+```javascript
+const nav = initMainNavigationExtended({ ... });
+
+// Open a specific panel by ID
+nav.openPanel('styles');
+
+// Close all panels
+nav.closeAllPanels();
+
+// Programmatically set active icon
+nav.setActiveIcon('components');
+
+// Programmatically set active sub-item
+nav.setActiveItem('buttons');
+
+// Get current open panel ID
+const currentPanel = nav.getCurrentPanel();
+```
+
 ## Version
 
 1.0.0 - Initial release
+1.1.0 - Added Extended Navigation with multi-level support
 
 ## License
 

@@ -161,11 +161,7 @@ function initMainNavigation(options = {}) {
     menuItems.forEach((item, index) => {
         const activeClass = item.active ? ' active' : '';
         const svgContent = item.svg ? item.svg.trim() : '';
-        const iconHTML = `
-            <div class="main-navigation-icon${activeClass}" data-index="${index}">
-                <span class="main-navigation-tooltip">${item.label}</span>
-                ${svgContent}
-            </div>`;
+        const iconHTML = `<div class="main-navigation-icon${activeClass}" data-index="${index}"><span class="main-navigation-tooltip">${item.label}</span>${svgContent}</div>`;
         iconsHTML += iconHTML;
         console.log(`  Icon ${index} (${item.label}):`, {
             activeClass,

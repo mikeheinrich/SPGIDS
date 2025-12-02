@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="components/footer-component/vanilla/footer-component.css">
     <link rel="stylesheet" href="components/main-navigation-component/base/base.css">
     <link rel="stylesheet" href="components/main-navigation-component/vanilla/main-navigation-component.css">
+    <link rel="stylesheet" href="components/main-navigation-component/vanilla/main-navigation-extended.css">
 </head>
 <body>
     <!-- Footer -->
@@ -22,56 +23,11 @@
     <!-- Main Content -->
     <main class="design-system-main">
         <div class="design-system-container">
-            <!-- Sidebar Navigation -->
-            <aside class="design-system-sidebar">
-                <nav class="design-system-nav">
-                    <div class="nav-section">
-                        <h3 class="nav-section-title">Foundation</h3>
-                        <ul class="nav-list">
-                            <li><a href="index.html" class="nav-link active">Overview</a></li>
-                            <li><a href="colors.html" class="nav-link">Colors</a></li>
-                            <li><a href="typography.html" class="nav-link">Typography</a></li>
-                            <li><a href="icons.html" class="nav-link">Icons</a></li>
-                        </ul>
-                    </div>
-                    <div class="nav-section">
-                        <h3 class="nav-section-title">Components</h3>
-                        <ul class="nav-list">
-                            <li><a href="components.html#button" class="nav-link">Button</a></li>
-                            <li><a href="components.html#button-group" class="nav-link">Button Group</a></li>
-                            <li><a href="components.html#back-arrow-navigation" class="nav-link">Back Arrow Navigation</a></li>
-                            <li><a href="components.html#tab" class="nav-link">Tab</a></li>
-                            <li><a href="components.html#search" class="nav-link">Search</a></li>
-                            <li><a href="components.html#prefilter-primary-search" class="nav-link">Prefilter Primary Search</a></li>
-                            <li><a href="components.html#text-input" class="nav-link">Text Input</a></li>
-                            <li><a href="components.html#accordion" class="nav-link">Accordion</a></li>
-                            <li><a href="components.html#list-group" class="nav-link">List Group</a></li>
-                            <li><a href="components.html#left-nav" class="nav-link">In-Page Nav</a></li>
-                            <li><a href="components.html#alert" class="nav-link">Alert</a></li>
-                            <li><a href="components.html#header" class="nav-link">Header</a></li>
-                            <li><a href="components.html#footer" class="nav-link">Footer</a></li>
-                            <li><a href="components.html#main-navigation" class="nav-link">Main Navigation</a></li>
-                            <li><a href="components.html#modal" class="nav-link">Modal</a></li>
-                            <li><a href="components.html#table" class="nav-link">Table</a></li>
-                            <li><a href="components.html#data-grid" class="nav-link">Data Grid</a></li>
-                            <li><a href="components.html#selector" class="nav-link">Selectors</a></li>
-                            <li><a href="components.html#dropdown" class="nav-link">Dropdown</a></li>
-                            <li><a href="components.html#pod" class="nav-link">Pod</a></li>
-                            <li><a href="components.html#label" class="nav-link">Label</a></li>
-                        </ul>
-                    </div>
-                    <div class="nav-section">
-                        <h3 class="nav-section-title">Patterns</h3>
-                        <ul class="nav-list">
-                            <li><a href="patterns.html#query-builder" class="nav-link">Query Builder</a></li>
-                            <li><a href="patterns.html#file-upload" class="nav-link">File Upload</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </aside>
+            <!-- Global Navigation -->
+            <aside id="global-navigation-container"></aside>
 
             <!-- Content Area -->
-            <div class="design-system-content">
+            <div class="design-system-content" style="margin-left: 50px;">
                 <div class="content-wrapper">
                     <h1 class="page-title">Design System</h1>
                     <p class="page-intro">Welcome to the S&P Global Design System. This is a living library of reusable components, design tokens, and guidelines for building consistent user interfaces.</p>
@@ -190,6 +146,8 @@
     <script src="components/header-component/vanilla/header-component.js"></script>
     <script src="components/footer-component/vanilla/footer-component.js"></script>
     <script src="components/main-navigation-component/vanilla/main-navigation-component.js"></script>
+    <script src="components/main-navigation-component/vanilla/main-navigation-extended.js"></script>
+    <script src="scripts/global-navigation-config.js"></script>
     <script>
         // Initialize header
         initHeader({

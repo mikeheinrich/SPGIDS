@@ -1,0 +1,154 @@
+/**
+ * Main Navigation Extended - Flyout Panel Only
+ * This ONLY adds the flyout panel. The icon rail uses standard main-navigation CSS.
+ * 
+ * Include AFTER main-navigation-component.css
+ */
+
+/* ========================================
+   FLYOUT PANEL
+   ======================================== */
+
+.main-nav-flyout-panel {
+    position: fixed;
+    left: 50px; /* Right next to the nav rail */
+    top: 52.5px; /* Start below header (header is 52.5px tall) */
+    bottom: 24px; /* Above footer */
+    width: 320px;
+    background-color: var(--color-white);
+    border-right: 1px solid var(--color-gray-2);
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1001; /* Higher than main navigation (1000) to overlay content */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); /* Add shadow to show it's overlaying */
+}
+
+.main-nav-flyout-panel.open {
+    display: flex;
+}
+
+/* Demo mode - inside component previews */
+.main-nav-flyout-panel.demo-mode {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+/* ========================================
+   PANEL CATEGORY SECTION
+   ======================================== */
+
+.main-nav-panel-category {
+    padding: 0;
+}
+
+/* Category Header */
+.main-nav-panel-header {
+    font-family: var(--font-primary);
+    font-size: var(--text-3);
+    font-weight: 400;
+    color: var(--color-gray-5);
+    padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-xs) 10px;
+    margin: 0;
+    line-height: var(--line-height-normal);
+}
+
+/* First category header gets more top padding */
+.main-nav-panel-category:first-child .main-nav-panel-header {
+    padding-top: var(--spacing-md);
+}
+
+/* ========================================
+   PANEL LIST ITEMS (uses list-group styling)
+   ======================================== */
+
+.main-nav-panel-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual nav item in panel */
+.main-nav-panel-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    padding: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    
+    /* Typography - matches list-group */
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #32363b;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+}
+
+.main-nav-panel-item:hover {
+    background: rgba(0, 0, 0, 0.02);
+    text-decoration: none;
+}
+
+/* Active state - matches list-group */
+.main-nav-panel-item.active {
+    background: #f0f0f0;
+    color: var(--color-brand);
+}
+
+/* Active indicator - top border like list-group */
+.main-nav-panel-item.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--color-brand);
+}
+
+/* Divider between items */
+.main-nav-panel-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--color-gray-1);
+    margin: 0;
+    border: none;
+}
+
+/* ========================================
+   SIMPLE LIST (No Categories)
+   ======================================== */
+
+.main-nav-panel-simple-list {
+    list-style: none;
+    padding: var(--spacing-sm) 0;
+    margin: 0;
+}
+
+/* ========================================
+   ICON STATE WHEN PANEL IS OPEN
+   ======================================== */
+
+.main-navigation-icon.panel-open {
+    background-color: var(--color-gray-bg);
+}
+
+/* ========================================
+   FOCUS STATES
+   ======================================== */
+
+.main-nav-panel-item:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+}
+
+.main-nav-panel-item:focus:not(:focus-visible) {
+    outline: none;
+}

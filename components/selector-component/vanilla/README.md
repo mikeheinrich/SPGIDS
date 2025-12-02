@@ -49,6 +49,8 @@ Vanilla JavaScript/CSS implementation of form selector components including chec
 </div>
 ```
 
+**Important Rule:** Switches must always represent a binary on/off state. Do not use multiple labels or text on both sides of a switch. A switch should have a single label that describes what is being toggled (e.g., "Enable notifications", "Dark mode"). For choosing between multiple options, use a button group instead.
+
 ### Selector Group
 
 ```html

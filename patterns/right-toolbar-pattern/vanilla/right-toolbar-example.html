@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Toolbar Pattern - Example</title>
+    
+    <!-- Include Design System Base (for CSS variables) -->
+    <link rel="stylesheet" href="../../../styles/base.css">
+    
+    <!-- Include Modal Component CSS (for modal support) -->
+    <link rel="stylesheet" href="../../../components/modal-component/vanilla/modal-component.css">
+    
+    <!-- Include pattern styles -->
+    <link rel="stylesheet" href="right-toolbar-pattern.css">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            padding: 2rem;
+            background: var(--color-gray-bg);
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .example-section {
+            background: var(--color-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-2);
+            position: relative;
+            min-height: 500px;
+        }
+        
+        .example-section h2 {
+            font-size: var(--text-2);
+            margin-bottom: 1rem;
+            color: var(--color-gray-5);
+            border-bottom: 2px solid var(--color-gray-2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .example-section h3 {
+            font-size: var(--text-3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-5);
+        }
+        
+        .description {
+            color: var(--color-gray-4);
+            font-size: var(--text-paragraph);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: 1.5rem;
+        }
+        
+        .code-example {
+            background: var(--color-gray-5);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-small);
+            overflow-x: auto;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+        }
+        
+        .demo-content {
+            padding: var(--spacing-md);
+            background: var(--color-gray-bg);
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+        }
+        
+        .demo-content h4 {
+            font-size: var(--text-3);
+            color: var(--color-brand);
+            margin-bottom: 0.5rem;
+        }
+        
+        .demo-content p {
+            font-style: italic;
+            color: var(--color-gray-4);
+            margin: 0;
+        }
+        
+        .panel-content {
+            padding: var(--spacing-md);
+        }
+        
+        .panel-content h3 {
+            font-size: var(--text-3);
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-gray-5);
+        }
+        
+        .panel-content p {
+            color: var(--color-gray-4);
+            line-height: var(--line-height-relaxed);
+        }
+        
+        .modal-content {
+            padding: var(--spacing-md);
+        }
+        
+        .modal-content h3 {
+            font-size: var(--text-3);
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-gray-5);
+        }
+        
+        .modal-content p {
+            color: var(--color-gray-4);
+            line-height: var(--line-height-relaxed);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: var(--text-1); margin-bottom: 2rem; color: var(--color-gray-5);">Right Toolbar Pattern Examples</h1>
+    
+    <!-- Basic Actions Example -->
+    <div class="example-section">
+        <h2>Basic Actions</h2>
+        <p class="description">A simple toolbar with single-action items that trigger click handlers.</p>
+        
+        <div class="demo-content">
+            <h4>Tool name (Share)</h4>
+            <p>Functions are handled in a flyout panel</p>
+        </div>
+        
+        <div id="toolbar-basic"></div>
+        
+        <div class="code-example">&lt;div id="toolbar-basic"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+initRightToolbar({
+    containerId: 'toolbar-basic',
+    demoMode: true,
+    items: [
+        {
+            id: 'share',
+            label: 'Share',
+            icon: 'icon-content-share-arrow',
+            type: 'action',
+            onClick: function(item, id) {
+                alert('Share action clicked!');
+            }
+        },
+        {
+            id: 'export',
+            label: 'Export',
+            icon: 'icon-content-download',
+            type: 'action',
+            onClick: function(item, id) {
+                alert('Export action clicked!');
+            }
+        },
+        {
+            id: 'delete',
+            label: 'Delete',
+            icon: 'icon-content-delete',
+            type: 'action',
+            onClick: function(item, id) {
+                alert('Delete action clicked!');
+            }
+        }
+    ]
+});
+&lt;/script&gt;</div>
+    </div>
+    
+    <!-- Panel Actions Example -->
+    <div class="example-section">
+        <h2>Actions with Panels</h2>
+        <p class="description">Toolbar items that open flyout panels when clicked. Panels appear to the left of the toolbar.</p>
+        
+        <div id="toolbar-panels"></div>
+        
+        <div class="code-example">&lt;div id="toolbar-panels"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+initRightToolbar({
+    containerId: 'toolbar-panels',
+    demoMode: true,
+    items: [
+        {
+            id: 'share-panel',
+            label: 'Share',
+            icon: 'icon-content-share-arrow',
+            type: 'panel',
+            panelTitle: 'Share Options',
+            panelContent: `
+                &lt;div class="panel-content"&gt;
+                    &lt;h3&gt;Share Options&lt;/h3&gt;
+                    &lt;p&gt;Choose how you want to share this item.&lt;/p&gt;
+                    &lt;!-- Add your panel content here --&gt;
+                &lt;/div&gt;
+            `
+        },
+        {
+            id: 'export-panel',
+            label: 'Export',
+            icon: 'icon-content-download',
+            type: 'panel',
+            panelTitle: 'Export Options',
+            panelContent: `
+                &lt;div class="panel-content"&gt;
+                    &lt;h3&gt;Export Options&lt;/h3&gt;
+                    &lt;p&gt;Select export format and options.&lt;/p&gt;
+                &lt;/div&gt;
+            `
+        }
+    ]
+});
+&lt;/script&gt;</div>
+    </div>
+    
+    <!-- Modal Actions Example -->
+    <div class="example-section">
+        <h2>Actions with Modals</h2>
+        <p class="description">Toolbar items that open modal dialogs when clicked.</p>
+        
+        <div id="toolbar-modals"></div>
+        
+        <div class="code-example">&lt;div id="toolbar-modals"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+initRightToolbar({
+    containerId: 'toolbar-modals',
+    demoMode: true,
+    items: [
+        {
+            id: 'delete-modal',
+            label: 'Delete',
+            icon: 'icon-content-delete',
+            type: 'modal',
+            modalTitle: 'Confirm Delete',
+            modalContent: `
+                &lt;div class="modal-content"&gt;
+                    &lt;h3&gt;Are you sure?&lt;/h3&gt;
+                    &lt;p&gt;This action cannot be undone.&lt;/p&gt;
+                    &lt;!-- Add your modal content here --&gt;
+                &lt;/div&gt;
+            `
+        }
+    ]
+});
+&lt;/script&gt;</div>
+    </div>
+    
+    <!-- Mixed Actions Example -->
+    <div class="example-section">
+        <h2>Mixed Actions (Actions, Panels, and Modals)</h2>
+        <p class="description">A toolbar combining all three types of actions.</p>
+        
+        <div id="toolbar-mixed"></div>
+        
+        <div class="code-example">&lt;div id="toolbar-mixed"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+initRightToolbar({
+    containerId: 'toolbar-mixed',
+    demoMode: true,
+    items: [
+        {
+            id: 'share',
+            label: 'Share',
+            icon: 'icon-content-share-arrow',
+            type: 'action',
+            onClick: function() { console.log('Share clicked'); }
+        },
+        {
+            id: 'export',
+            label: 'Export',
+            icon: 'icon-content-download',
+            type: 'panel',
+            panelTitle: 'Export Options',
+            panelContent: '&lt;div&gt;Export panel content&lt;/div&gt;'
+        },
+        {
+            id: 'delete',
+            label: 'Delete',
+            icon: 'icon-content-delete',
+            type: 'modal',
+            modalTitle: 'Confirm Delete',
+            modalContent: '&lt;div&gt;Are you sure?&lt;/div&gt;'
+        }
+    ]
+});
+&lt;/script&gt;</div>
+    </div>
+    
+    <!-- Full Example (Matching Design) -->
+    <div class="example-section">
+        <h2>Full Example (Matching Design)</h2>
+        <p class="description">A complete example matching the provided design with Share, Export, Delete, and Swan actions.</p>
+        
+        <div id="toolbar-full"></div>
+        
+        <div class="code-example">&lt;div id="toolbar-full"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+initRightToolbar({
+    containerId: 'toolbar-full',
+    demoMode: true,
+    items: [
+        {
+            id: 'share',
+            label: 'Share',
+            icon: 'icon-content-share-arrow',
+            type: 'panel',
+            panelTitle: 'Share',
+            panelContent: `
+                &lt;div class="panel-content"&gt;
+                    &lt;h3&gt;Share Options&lt;/h3&gt;
+                    &lt;p&gt;Choose how to share this item.&lt;/p&gt;
+                &lt;/div&gt;
+            `
+        },
+        {
+            id: 'export',
+            label: 'Export',
+            icon: 'icon-content-download',
+            type: 'panel',
+            panelTitle: 'Export',
+            panelContent: `
+                &lt;div class="panel-content"&gt;
+                    &lt;h3&gt;Export Options&lt;/h3&gt;
+                    &lt;p&gt;Select export format.&lt;/p&gt;
+                &lt;/div&gt;
+            `
+        },
+        {
+            id: 'delete',
+            label: 'Delete',
+            icon: 'icon-content-delete',
+            type: 'modal',
+            modalTitle: 'Delete Item',
+            modalContent: `
+                &lt;div class="modal-content"&gt;
+                    &lt;h3&gt;Are you sure?&lt;/h3&gt;
+                    &lt;p&gt;This action cannot be undone.&lt;/p&gt;
+                &lt;/div&gt;
+            `
+        },
+                {
+                    id: 'swan',
+                    label: 'Swan',
+                    icon: 'icon-content-plus',
+                    type: 'action',
+                    onClick: function() {
+                        alert('Swan action triggered!');
+                    }
+                }
+    ]
+});
+&lt;/script&gt;</div>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-2); color: var(--color-gray-4); font-size: var(--text-small);">
+        <p><strong>Note:</strong> This is a standalone example. In your project, make sure to include the design system base styles and modal component styles.</p>
+    </div>
+    
+    <!-- Include Modal Component JavaScript -->
+    <script src="../../../components/modal-component/vanilla/modal-component.js"></script>
+    
+    <!-- Include pattern JavaScript -->
+    <script src="right-toolbar-pattern.js"></script>
+    
+    <script>
+        // Basic Actions
+        initRightToolbar({
+            containerId: 'toolbar-basic',
+            demoMode: true,
+            items: [
+                {
+                    id: 'share',
+                    label: 'Share',
+                    icon: 'icon-content-share-arrow',
+                    type: 'action',
+                    onClick: function(item, id) {
+                        alert('Share action clicked!');
+                    }
+                },
+                {
+                    id: 'export',
+                    label: 'Export',
+                    icon: 'icon-content-download',
+                    type: 'action',
+                    onClick: function(item, id) {
+                        alert('Export action clicked!');
+                    }
+                },
+                {
+                    id: 'delete',
+                    label: 'Delete',
+                    icon: 'icon-content-delete',
+                    type: 'action',
+                    onClick: function(item, id) {
+                        alert('Delete action clicked!');
+                    }
+                }
+            ]
+        });
+        
+        // Panel Actions
+        initRightToolbar({
+            containerId: 'toolbar-panels',
+            demoMode: true,
+            items: [
+                {
+                    id: 'share-panel',
+                    label: 'Share',
+                    icon: 'icon-content-share-arrow',
+                    type: 'panel',
+                    panelTitle: 'Share Options',
+                    panelContent: `
+                        <div class="panel-content">
+                            <h3>Share Options</h3>
+                            <p>Choose how you want to share this item. You can share via email, link, or social media.</p>
+                            <p>Additional panel content can be added here.</p>
+                        </div>
+                    `
+                },
+                {
+                    id: 'export-panel',
+                    label: 'Export',
+                    icon: 'icon-content-download',
+                    type: 'panel',
+                    panelTitle: 'Export Options',
+                    panelContent: `
+                        <div class="panel-content">
+                            <h3>Export Options</h3>
+                            <p>Select export format and options. Available formats include PDF, Excel, CSV, and more.</p>
+                        </div>
+                    `
+                }
+            ],
+            onPanelOpen: function(item, itemId) {
+                console.log('Panel opened:', itemId);
+            },
+            onPanelClose: function(item, itemId) {
+                console.log('Panel closed:', itemId);
+            }
+        });
+        
+        // Modal Actions
+        initRightToolbar({
+            containerId: 'toolbar-modals',
+            demoMode: true,
+            items: [
+                {
+                    id: 'delete-modal',
+                    label: 'Delete',
+                    icon: 'icon-content-delete',
+                    type: 'modal',
+                    modalTitle: 'Confirm Delete',
+                    modalContent: `
+                        <div class="modal-content">
+                            <h3>Are you sure?</h3>
+                            <p>This action cannot be undone. The item will be permanently deleted.</p>
+                            <p style="margin-top: var(--spacing-sm);">
+                                <button style="padding: 0.5rem 1rem; background: var(--color-primary); color: var(--color-white); border: none; border-radius: var(--radius-sm); cursor: pointer;">
+                                    Delete
+                                </button>
+                                <button style="padding: 0.5rem 1rem; background: var(--color-gray-2); color: var(--color-gray-5); border: none; border-radius: var(--radius-sm); cursor: pointer; margin-left: 0.5rem;">
+                                    Cancel
+                                </button>
+                            </p>
+                        </div>
+                    `
+                }
+            ],
+            onModalOpen: function(item, itemId) {
+                console.log('Modal opened:', itemId);
+            },
+            onModalClose: function(item, itemId) {
+                console.log('Modal closed:', itemId);
+            }
+        });
+        
+        // Mixed Actions
+        initRightToolbar({
+            containerId: 'toolbar-mixed',
+            demoMode: true,
+            items: [
+                {
+                    id: 'share',
+                    label: 'Share',
+                    icon: 'icon-content-share-arrow',
+                    type: 'action',
+                    onClick: function(item, id) {
+                        console.log('Share clicked');
+                        alert('Share action triggered!');
+                    }
+                },
+                {
+                    id: 'export',
+                    label: 'Export',
+                    icon: 'icon-content-download',
+                    type: 'panel',
+                    panelTitle: 'Export Options',
+                    panelContent: `
+                        <div class="panel-content">
+                            <h3>Export Options</h3>
+                            <p>Select your preferred export format and options.</p>
+                        </div>
+                    `
+                },
+                {
+                    id: 'delete',
+                    label: 'Delete',
+                    icon: 'icon-content-delete',
+                    type: 'modal',
+                    modalTitle: 'Confirm Delete',
+                    modalContent: `
+                        <div class="modal-content">
+                            <h3>Are you sure?</h3>
+                            <p>This action cannot be undone.</p>
+                        </div>
+                    `
+                }
+            ]
+        });
+        
+        // Full Example (Matching Design)
+        initRightToolbar({
+            containerId: 'toolbar-full',
+            demoMode: true,
+            items: [
+                {
+                    id: 'share',
+                    label: 'Share',
+                    icon: 'icon-content-share-arrow',
+                    type: 'panel',
+                    panelTitle: 'Share',
+                    panelContent: `
+                        <div class="panel-content">
+                            <h3>Share Options</h3>
+                            <p>Choose how to share this item. You can share via email, generate a link, or share to social media.</p>
+                        </div>
+                    `
+                },
+                {
+                    id: 'export',
+                    label: 'Export',
+                    icon: 'icon-content-download',
+                    type: 'panel',
+                    panelTitle: 'Export',
+                    panelContent: `
+                        <div class="panel-content">
+                            <h3>Export Options</h3>
+                            <p>Select export format: PDF, Excel, CSV, or JSON.</p>
+                        </div>
+                    `
+                },
+                {
+                    id: 'delete',
+                    label: 'Delete',
+                    icon: 'icon-content-delete',
+                    type: 'modal',
+                    modalTitle: 'Delete Item',
+                    modalContent: `
+                        <div class="modal-content">
+                            <h3>Are you sure?</h3>
+                            <p>This action cannot be undone. The item will be permanently deleted from the system.</p>
+                        </div>
+                    `
+                },
+                {
+                    id: 'swan',
+                    label: 'Swan',
+                    icon: 'icon-content-plus',
+                    type: 'action',
+                    onClick: function(item, id) {
+                        alert('Swan action triggered!');
+                    }
+                }
+            ],
+            onItemClick: function(item, itemId) {
+                console.log('Item clicked:', itemId, item);
+            },
+            onPanelOpen: function(item, itemId) {
+                console.log('Panel opened:', itemId);
+            },
+            onPanelClose: function(item, itemId) {
+                console.log('Panel closed:', itemId);
+            },
+            onModalOpen: function(item, itemId) {
+                console.log('Modal opened:', itemId);
+            },
+            onModalClose: function(item, itemId) {
+                console.log('Modal closed:', itemId);
+            }
+        });
+    </script>
+</body>
+</html>
+
