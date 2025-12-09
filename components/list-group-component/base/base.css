@@ -53,7 +53,7 @@
     list-style: none;
     text-decoration: none;
     border: none;
-    background: transparent;
+    background: var(--color-white);
 }
 
 /* List Group Item Hover State */

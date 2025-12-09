@@ -1,398 +1,346 @@
 /**
  * Query Builder Pattern - Vanilla JavaScript
+ * 
  * A 3-column pattern for building queries with categories, attributes, and summary
+ * 
+ * USAGE:
+ * 1. Include the required CSS files (list-group, search, query-builder)
+ * 2. Include the required JS files (list-group, search, query-builder)
+ * 3. Add a container: <div id="query-builder-container"></div>
+ * 4. Initialize: initQueryBuilder({ containerId: '...', categories: {...} })
+ * 
+ * DEPENDENCIES:
+ * - List Group Component (list-group-component.js)
+ * - Search Component (search-component.js)
  */
 
 // Store query builder instances
 let queryBuilderInstances = {};
 
 /**
- * Initialize Query Builder
+ * Create the query builder HTML structure
  */
-function initQueryBuilder(options) {
-    options = options || {};
-    const containerId = options.containerId || 'query-builder-container';
-    const categories = options.categories || {};
-    const selectedAttributes = options.selectedAttributes || {};
-    const onSave = options.onSave || null;
-    const onCancel = options.onCancel || null;
-    const title = options.title || 'Manage Attributes';
-    const summaryTitle = options.summaryTitle || 'Summary';
-    const addButtonText = options.addButtonText || 'Save';
-    const cancelButtonText = options.cancelButtonText || 'Cancel';
-    const searchPlaceholder = options.searchPlaceholder || 'Search...';
-    const noFiltersText = options.noFiltersText || 'No filters selected';
-    const noResultsText = options.noResultsText || 'No filters found';
+function createQueryBuilderHTML(instanceId) {
+    const instance = queryBuilderInstances[instanceId];
+    if (!instance) return '';
+
+    return `
+        <div class="query-builder">
+            <!-- Column 1: Categories (using list-group component) -->
+            <div class="query-builder__categories">
+                <nav class="list-group query-builder__list-group" id="${instanceId}-list-group">
+                    <ul class="list-group-list" id="${instanceId}-list-group-list"></ul>
+                </nav>
+            </div>
+            
+            <!-- Column 2: Attributes -->
+            <div class="query-builder__attributes">
+                <div class="query-builder__attributes-header">
+                    <h3 class="query-builder__attributes-title" id="${instanceId}-attributes-title">${instance.title}</h3>
+                    <div id="${instanceId}-search-container"></div>
+                </div>
+                <div class="query-builder__attributes-content" id="${instanceId}-attributes-content">
+                    <!-- Attribute checkboxes will be rendered here -->
+                </div>
+            </div>
+            
+            <!-- Column 3: Summary -->
+            <div class="query-builder__summary">
+                <div class="query-builder__summary-header">
+                    <h3 class="query-builder__summary-title">${instance.summaryTitle}</h3>
+                </div>
+                <div class="query-builder__summary-content" id="${instanceId}-summary-content">
+                    <!-- Selected attributes will be rendered here -->
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Render attributes for the selected category
+ */
+function renderAttributes(instanceId, searchQuery = '') {
+    const instance = queryBuilderInstances[instanceId];
+    if (!instance || !instance.selectedCategory) return;
+
+    const container = document.getElementById(`${instanceId}-attributes-content`);
+    if (!container) return;
+
+    const category = instance.selectedCategory;
+    const allAttributes = instance.categories[category] || [];
+    const selectedAttrs = instance.selectedAttributes[category] || [];
+
+    // Filter attributes based on search and exclude already selected
+    let availableAttributes = allAttributes.filter(attr => !selectedAttrs.includes(attr));
+    
+    if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase().trim();
+        availableAttributes = availableAttributes.filter(attr => 
+            attr.toLowerCase().includes(query)
+        );
+    }
+
+    if (availableAttributes.length === 0) {
+        container.innerHTML = `<div class="query-builder__no-results">${instance.noResultsText}</div>`;
+        return;
+    }
+
+    container.innerHTML = availableAttributes.map(attr => `
+        <label class="query-builder__attribute-item">
+            <input type="checkbox" class="query-builder__checkbox" data-attribute="${attr}" data-category="${category}">
+            <span class="query-builder__attribute-label">${attr}</span>
+        </label>
+    `).join('');
+
+    // Add click handlers
+    container.querySelectorAll('.query-builder__checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                selectAttribute(instanceId, e.target.dataset.category, e.target.dataset.attribute);
+            }
+        });
+    });
+}
+
+/**
+ * Select an attribute (move from center to right column)
+ */
+function selectAttribute(instanceId, category, attribute) {
+    const instance = queryBuilderInstances[instanceId];
+    if (!instance) return;
+
+    if (!instance.selectedAttributes[category]) {
+        instance.selectedAttributes[category] = [];
+    }
+
+    if (!instance.selectedAttributes[category].includes(attribute)) {
+        instance.selectedAttributes[category].push(attribute);
+    }
+
+    // Re-render attributes and summary
+    renderAttributes(instanceId, getSearchQuery(instanceId));
+    renderSummary(instanceId);
+
+    // Call onChange callback if provided
+    if (instance.onChange && typeof instance.onChange === 'function') {
+        instance.onChange(instance.selectedAttributes);
+    }
+}
+
+/**
+ * Remove an attribute (move from right back to center column)
+ */
+function removeAttribute(instanceId, category, attribute) {
+    const instance = queryBuilderInstances[instanceId];
+    if (!instance) return;
+
+    if (instance.selectedAttributes[category]) {
+        instance.selectedAttributes[category] = instance.selectedAttributes[category].filter(
+            attr => attr !== attribute
+        );
+
+        // Clean up empty categories
+        if (instance.selectedAttributes[category].length === 0) {
+            delete instance.selectedAttributes[category];
+        }
+    }
+
+    // Re-render attributes and summary
+    renderAttributes(instanceId, getSearchQuery(instanceId));
+    renderSummary(instanceId);
+
+    // Call onChange callback if provided
+    if (instance.onChange && typeof instance.onChange === 'function') {
+        instance.onChange(instance.selectedAttributes);
+    }
+}
+
+/**
+ * Render the summary (right column)
+ */
+function renderSummary(instanceId) {
+    const instance = queryBuilderInstances[instanceId];
+    if (!instance) return;
+
+    const container = document.getElementById(`${instanceId}-summary-content`);
+    if (!container) return;
+
+    const categories = Object.keys(instance.selectedAttributes).filter(
+        cat => instance.selectedAttributes[cat] && instance.selectedAttributes[cat].length > 0
+    );
+
+    if (categories.length === 0) {
+        container.innerHTML = `<div class="query-builder__summary-empty">${instance.noFiltersText}</div>`;
+        return;
+    }
+
+    container.innerHTML = categories.map(category => `
+        <div class="query-builder__summary-category">
+            <h4 class="query-builder__summary-category-title">${category}</h4>
+            <div class="query-builder__summary-tags">
+                ${instance.selectedAttributes[category].map(attr => `
+                    <span class="query-builder__summary-tag">
+                        ${attr}
+                        <button class="query-builder__summary-tag-remove" data-category="${category}" data-attribute="${attr}" aria-label="Remove ${attr}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </button>
+                    </span>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+
+    // Add remove button handlers
+    container.querySelectorAll('.query-builder__summary-tag-remove').forEach(button => {
+        button.addEventListener('click', () => {
+            removeAttribute(instanceId, button.dataset.category, button.dataset.attribute);
+        });
+    });
+}
+
+/**
+ * Get current search query
+ */
+function getSearchQuery(instanceId) {
+    const searchInput = document.querySelector(`#${instanceId}-search-container .search-input`);
+    return searchInput ? searchInput.value : '';
+}
+
+/**
+ * Handle category selection (from list-group component)
+ */
+function handleCategorySelect(instanceId, categoryId, category) {
+    const instance = queryBuilderInstances[instanceId];
+    if (!instance) return;
+
+    instance.selectedCategory = category.name;
+
+    // Update attributes title
+    const titleEl = document.getElementById(`${instanceId}-attributes-title`);
+    if (titleEl) {
+        titleEl.textContent = category.name;
+    }
+
+    // Clear search and render attributes
+    const searchInput = document.querySelector(`#${instanceId}-search-container .search-input`);
+    if (searchInput) {
+        searchInput.value = '';
+    }
+
+    renderAttributes(instanceId);
+}
+
+/**
+ * Initialize the Query Builder
+ */
+function initQueryBuilder(options = {}) {
+    const {
+        containerId,
+        categories = {},
+        selectedAttributes = {},
+        title = 'Manage Attributes',
+        summaryTitle = 'Summary',
+        searchPlaceholder = 'Search...',
+        noFiltersText = 'No filters selected',
+        noResultsText = 'No filters found',
+        onChange = null
+    } = options;
+
+    if (!containerId) {
+        console.error('Query Builder: containerId is required');
+        return;
+    }
 
     const container = document.getElementById(containerId);
     if (!container) {
-        console.error('Query builder container #' + containerId + ' not found');
+        console.error(`Query Builder: container #${containerId} not found`);
         return;
     }
 
     // Create instance
     const instanceId = containerId;
-    const instance = {
-        containerId: containerId,
-        categories: categories,
-        selectedAttributes: new Map(),
-        selectedCategory: Object.keys(categories)[0] || '',
-        searchTerm: '',
-        onSave: onSave,
-        onCancel: onCancel,
-        title: title,
-        summaryTitle: summaryTitle,
-        addButtonText: addButtonText,
-        cancelButtonText: cancelButtonText,
-        searchPlaceholder: searchPlaceholder,
-        noFiltersText: noFiltersText,
-        noResultsText: noResultsText
+    const categoryNames = Object.keys(categories);
+
+    queryBuilderInstances[instanceId] = {
+        containerId,
+        categories,
+        selectedAttributes: JSON.parse(JSON.stringify(selectedAttributes)), // Deep copy
+        selectedCategory: categoryNames.length > 0 ? categoryNames[0] : null,
+        title,
+        summaryTitle,
+        searchPlaceholder,
+        noFiltersText,
+        noResultsText,
+        onChange
     };
 
-    // Initialize selected attributes from provided data
-    Object.keys(selectedAttributes).forEach(function(category) {
-        var items = selectedAttributes[category];
-        instance.selectedAttributes.set(category, new Set(items));
-    });
+    // Render HTML structure
+    container.innerHTML = createQueryBuilderHTML(instanceId);
 
-    queryBuilderInstances[instanceId] = instance;
+    // Initialize list-group component for categories
+    const listGroupItems = categoryNames.map(name => ({
+        id: name.toLowerCase().replace(/\s+/g, '-'),
+        name: name
+    }));
 
-    // Build the initial HTML structure
-    buildQueryBuilderHTML(instanceId);
-    
-    // Render the content
-    renderCategories(instanceId);
-    renderAttributes(instanceId);
-    renderSummary(instanceId);
-    
-    // Initialize search
-    initializeSearch(instanceId);
-}
-
-/**
- * Build the static HTML structure
- */
-function buildQueryBuilderHTML(instanceId) {
-    var instance = queryBuilderInstances[instanceId];
-    if (!instance) return;
-
-    var container = document.getElementById(instance.containerId);
-    if (!container) return;
-
-    container.innerHTML = 
-        '<div class="query-builder">' +
-            '<div class="query-builder__categories">' +
-                '<div class="query-builder__categories-list" id="' + instanceId + '-categories-list"></div>' +
-            '</div>' +
-            '<div class="query-builder__attributes">' +
-                '<div class="query-builder__attributes-header">' +
-                    '<h3 class="query-builder__attributes-title" id="' + instanceId + '-attributes-title">' + instance.selectedCategory + '</h3>' +
-                    '<div id="' + instanceId + '-search"></div>' +
-                '</div>' +
-                '<div class="query-builder__attributes-content" id="' + instanceId + '-attributes-content"></div>' +
-            '</div>' +
-            '<div class="query-builder__summary">' +
-                '<div class="query-builder__summary-header">' +
-                    '<h3 class="query-builder__summary-title">' + instance.summaryTitle + '</h3>' +
-                '</div>' +
-                '<div class="query-builder__summary-content" id="' + instanceId + '-summary-content"></div>' +
-            '</div>' +
-        '</div>';
-}
-
-/**
- * Render categories list (Column 1)
- */
-function renderCategories(instanceId) {
-    var instance = queryBuilderInstances[instanceId];
-    if (!instance) return;
-
-    var categoriesList = document.getElementById(instanceId + '-categories-list');
-    if (!categoriesList) return;
-
-    var categoryKeys = Object.keys(instance.categories);
-    
-    var html = '';
-    categoryKeys.forEach(function(cat) {
-        var isActive = cat === instance.selectedCategory;
-        html += '<div class="query-builder__category-item ' + (isActive ? 'active' : '') + '" data-category="' + cat + '">' + cat + '</div>';
-    });
-    categoriesList.innerHTML = html;
-
-    // Attach click handlers
-    categoriesList.querySelectorAll('.query-builder__category-item').forEach(function(item) {
-        item.addEventListener('click', function() {
-            var category = item.dataset.category;
-            if (category !== instance.selectedCategory) {
-                instance.selectedCategory = category;
-                instance.searchTerm = '';
-                
-                // Update active state
-                categoriesList.querySelectorAll('.query-builder__category-item').forEach(function(el) {
-                    el.classList.remove('active');
-                });
-                item.classList.add('active');
-                
-                // Update title
-                var titleEl = document.getElementById(instanceId + '-attributes-title');
-                if (titleEl) titleEl.textContent = category;
-                
-                // Re-render attributes
-                renderAttributes(instanceId);
-                
-                // Reinitialize search with new category's attributes
-                var searchContainer = document.getElementById(instanceId + '-search');
-                if (searchContainer) {
-                    searchContainer.innerHTML = '';
-                    initializeSearch(instanceId);
-                }
-            }
+    if (typeof initListGroup === 'function') {
+        initListGroup({
+            containerId: `${instanceId}-list-group`,
+            listId: `${instanceId}-list-group-list`,
+            items: listGroupItems,
+            initialSelection: listGroupItems.length > 0 ? listGroupItems[0].id : null,
+            showDividers: true,
+            onItemSelect: (id, item) => handleCategorySelect(instanceId, id, item)
         });
-    });
-}
-
-/**
- * Render attributes list (Column 2)
- */
-function renderAttributes(instanceId) {
-    var instance = queryBuilderInstances[instanceId];
-    if (!instance) return;
-
-    var attributesContent = document.getElementById(instanceId + '-attributes-content');
-    if (!attributesContent) return;
-
-    var currentCategory = instance.selectedCategory;
-    var currentAttributes = instance.categories[currentCategory] || [];
-    var selectedForCategory = instance.selectedAttributes.get(currentCategory) || new Set();
-    
-    // Filter out already selected attributes
-    var availableAttributes = currentAttributes.filter(function(attr) {
-        return !selectedForCategory.has(attr);
-    });
-    
-    // Filter based on search term
-    var filteredAttributes = availableAttributes.filter(function(attr) {
-        if (!instance.searchTerm) return true;
-        return attr.toLowerCase().indexOf(instance.searchTerm.toLowerCase()) !== -1;
-    });
-
-    if (filteredAttributes.length === 0) {
-        attributesContent.innerHTML = '<div class="query-builder__no-results">' + instance.noResultsText + '</div>';
-        return;
+    } else {
+        console.warn('Query Builder: list-group-component.js not loaded. Category list will not function.');
     }
 
-    var html = '';
-    filteredAttributes.forEach(function(attr) {
-        var safeId = instanceId + '-attr-' + attr.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase();
-        html += '<div class="query-builder__attribute-item">' +
-            '<input type="checkbox" id="' + safeId + '" name="' + safeId + '" class="query-builder__checkbox" data-category="' + currentCategory + '" data-attribute="' + attr + '" />' +
-            '<label for="' + safeId + '" class="query-builder__attribute-label">' + attr + '</label>' +
-        '</div>';
-    });
-    attributesContent.innerHTML = html;
-
-    // Attach checkbox handlers
-    attributesContent.querySelectorAll('.query-builder__checkbox').forEach(function(checkbox) {
-        checkbox.addEventListener('change', function(e) {
-            if (e.target.checked) {
-                var category = e.target.dataset.category;
-                var attribute = e.target.dataset.attribute;
-                addToSummary(instanceId, category, attribute);
-            }
-        });
-    });
-}
-
-/**
- * Render summary (Column 3)
- */
-function renderSummary(instanceId) {
-    var instance = queryBuilderInstances[instanceId];
-    if (!instance) return;
-
-    var summaryContent = document.getElementById(instanceId + '-summary-content');
-    if (!summaryContent) return;
-
-    var totalSelected = 0;
-    instance.selectedAttributes.forEach(function(set) {
-        totalSelected += set.size;
-    });
-
-    if (totalSelected === 0) {
-        summaryContent.innerHTML = '<div class="query-builder__summary-empty">' + instance.noFiltersText + '</div>';
-        return;
-    }
-
-    var html = '';
-    instance.selectedAttributes.forEach(function(attributes, category) {
-        if (attributes.size === 0) return;
-        
-        var attributeArray = Array.from(attributes);
-        var tagsHtml = '';
-        attributeArray.forEach(function(attr) {
-            tagsHtml += createSummaryTag(instanceId, category, attr);
-        });
-        
-        html += '<div class="query-builder__summary-category">' +
-            '<h4 class="query-builder__summary-category-title">' + category + '</h4>' +
-            '<div class="query-builder__summary-tags">' + tagsHtml + '</div>' +
-        '</div>';
-    });
-
-    summaryContent.innerHTML = html;
-
-    // Attach remove handlers
-    summaryContent.querySelectorAll('.query-builder__summary-tag-remove').forEach(function(button) {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            var category = button.dataset.category;
-            var attribute = button.dataset.attribute;
-            removeFromSummary(instanceId, category, attribute);
-        });
-    });
-
-    // Handle pod remove buttons (if using pod component)
-    summaryContent.querySelectorAll('.pod-remove').forEach(function(button) {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            var pod = button.closest('.pod');
-            if (pod) {
-                var category = pod.dataset.category;
-                var attribute = pod.dataset.attribute;
-                if (category && attribute) {
-                    removeFromSummary(instanceId, category, attribute);
-                }
-            }
-        });
-    });
-}
-
-/**
- * Create a summary tag HTML
- */
-function createSummaryTag(instanceId, category, attr) {
-    // Use pod component if available
-    if (typeof createPod === 'function') {
-        var podId = 'pod-' + category.replace(/\s+/g, '-') + '-' + attr.replace(/\s+/g, '-');
-        var podHTML = createPod(attr, null, podId);
-        var escapedCategory = category.replace(/"/g, '&quot;');
-        var escapedAttribute = attr.replace(/"/g, '&quot;');
-        return podHTML.replace(/<span class="pod"/, '<span class="pod" data-category="' + escapedCategory + '" data-attribute="' + escapedAttribute + '"');
-    }
-    
-    // Fallback tag
-    return '<div class="query-builder__summary-tag">' +
-        '<span>' + attr + '</span>' +
-        '<button type="button" class="query-builder__summary-tag-remove" data-category="' + category + '" data-attribute="' + attr + '" aria-label="Remove ' + attr + '">' +
-            '<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-                '<circle cx="8" cy="8" r="8" fill="currentColor"/>' +
-                '<g transform="translate(4 4)">' +
-                    '<line x1="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>' +
-                    '<line x2="8" y2="8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>' +
-                '</g>' +
-            '</svg>' +
-        '</button>' +
-    '</div>';
-}
-
-/**
- * Initialize search component
- */
-function initializeSearch(instanceId) {
-    var instance = queryBuilderInstances[instanceId];
-    if (!instance) return;
-
-    var searchContainer = document.getElementById(instanceId + '-search');
-    if (!searchContainer) return;
-
-    if (typeof initSearch === 'function') {
-        var currentCategory = instance.selectedCategory;
-        var currentAttributes = instance.categories[currentCategory] || [];
-        var selectedForCategory = instance.selectedAttributes.get(currentCategory) || new Set();
-        var availableAttributes = currentAttributes.filter(function(attr) {
-            return !selectedForCategory.has(attr);
-        });
-
+    // Initialize search component
+    const instance = queryBuilderInstances[instanceId];
+    if (typeof initSearch === 'function' && instance.selectedCategory) {
+        const allAttributesFlat = Object.values(categories).flat();
         initSearch({
-            containerId: instanceId + '-search',
+            containerId: `${instanceId}-search-container`,
             variant: 'secondary',
-            placeholder: instance.searchPlaceholder,
-            data: availableAttributes,
-            onSearch: function(query) {
-                instance.searchTerm = query;
-                renderAttributes(instanceId);
+            placeholder: searchPlaceholder,
+            data: allAttributesFlat,
+            onSearch: (query, results) => {
+                renderAttributes(instanceId, query);
             }
         });
-
-        // Add id/name to search input
-        var searchInput = searchContainer.querySelector('.search-input');
-        if (searchInput && !searchInput.id) {
-            searchInput.id = instanceId + '-search-input';
-            searchInput.name = instanceId + '-search-input';
-        }
-    }
-}
-
-/**
- * Add an attribute to the summary
- */
-function addToSummary(instanceId, category, attribute) {
-    var instance = queryBuilderInstances[instanceId];
-    if (!instance) return;
-
-    var categorySet = instance.selectedAttributes.get(category) || new Set();
-    categorySet.add(attribute);
-    instance.selectedAttributes.set(category, categorySet);
-
-    // Update both columns
-    renderAttributes(instanceId);
-    renderSummary(instanceId);
-}
-
-/**
- * Remove an attribute from the summary
- */
-function removeFromSummary(instanceId, category, attribute) {
-    var instance = queryBuilderInstances[instanceId];
-    if (!instance) return;
-
-    var categorySet = instance.selectedAttributes.get(category);
-    if (categorySet) {
-        categorySet.delete(attribute);
-        if (categorySet.size === 0) {
-            instance.selectedAttributes.delete(category);
-        }
+    } else if (typeof initSearch !== 'function') {
+        console.warn('Query Builder: search-component.js not loaded. Search will not function.');
     }
 
-    // Update both columns
+    // Initial render
     renderAttributes(instanceId);
     renderSummary(instanceId);
+
+    return {
+        getSelectedAttributes: () => getSelectedAttributes(instanceId),
+        selectAttribute: (category, attribute) => selectAttribute(instanceId, category, attribute),
+        removeAttribute: (category, attribute) => removeAttribute(instanceId, category, attribute)
+    };
 }
 
 /**
- * Get selected attributes
+ * Get selected attributes for an instance
  */
 function getSelectedAttributes(instanceId) {
-    var instance = queryBuilderInstances[instanceId];
+    const instance = queryBuilderInstances[instanceId];
     if (!instance) return {};
-
-    var result = {};
-    instance.selectedAttributes.forEach(function(attributes, category) {
-        if (attributes.size > 0) {
-            result[category] = Array.from(attributes);
-        }
-    });
-
-    return result;
+    return JSON.parse(JSON.stringify(instance.selectedAttributes)); // Return deep copy
 }
 
 // Export for module systems
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
-        initQueryBuilder: initQueryBuilder,
-        getSelectedAttributes: getSelectedAttributes,
-        queryBuilderInstances: queryBuilderInstances
+        initQueryBuilder,
+        getSelectedAttributes,
+        queryBuilderInstances
     };
 }

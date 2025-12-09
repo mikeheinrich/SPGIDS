@@ -308,3 +308,4 @@ See `vanilla/right-toolbar-example.html` for complete examples including:
 - **Panel Width**: 320px (280px on mobile)
 - **Shadow**: Subtle shadow on toolbar and panel
 
+

@@ -196,3 +196,4 @@ patterns/
 - Requires JavaScript enabled
 - Uses native File API for drag-and-drop
 
+

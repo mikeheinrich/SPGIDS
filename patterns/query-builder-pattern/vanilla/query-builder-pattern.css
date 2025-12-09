@@ -1,6 +1,10 @@
 /**
  * Query Builder Pattern - Vanilla CSS
  * A 3-column pattern for building queries with categories, attributes, and summary
+ * 
+ * DEPENDENCIES:
+ * - List Group Component (list-group-component.css) - for category list in column 1
+ * - Search Component (search-component.css) - for attribute filtering in column 2
  */
 
 /* Query Builder Container */
@@ -14,7 +18,7 @@
     overflow: hidden;
 }
 
-/* Column 1 - Category List */
+/* Column 1 - Category List (uses list-group component) */
 .query-builder__categories {
     width: 256px;
     flex-shrink: 0;
@@ -24,33 +28,22 @@
     position: relative;
 }
 
-/* Category list items */
-.query-builder__categories-list {
+/* Override list-group styles for query builder context */
+.query-builder__list-group {
     width: 100%;
     height: 100%;
+    border-right: none;
     overflow-y: auto;
 }
 
-.query-builder__category-item {
+.query-builder__list-group .list-group-list {
+    width: 100%;
+}
+
+.query-builder__list-group .list-group-item {
     padding: 12px 16px;
-    font-family: var(--font-primary);
-    font-size: var(--text-paragraph);
+    height: auto;
     font-weight: 500;
-    color: var(--color-gray-5);
-    cursor: pointer;
-    border-bottom: 1px solid var(--color-gray-1);
-    transition: background-color 0.15s ease;
-}
-
-.query-builder__category-item:hover {
-    background-color: rgba(0, 0, 0, 0.03);
-}
-
-.query-builder__category-item.active {
-    background-color: var(--color-white);
-    border-left: 3px solid var(--color-brand);
-    color: var(--color-brand);
-    font-weight: 600;
 }
 
 /* Column 2 - Attributes */

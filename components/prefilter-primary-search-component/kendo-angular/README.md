@@ -12,3 +12,4 @@ Kendo UI for Angular implementation of the prefilter primary search component.
 - [Vanilla Implementation](../vanilla/README.md)
 
 
+
